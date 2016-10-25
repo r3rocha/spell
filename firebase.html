@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyBGLxtDt3wGB-QbRxLN7nlUydZCDzMk7vs",
+    authDomain: "spell-thedog.firebaseapp.com",
+    databaseURL: "https://spell-thedog.firebaseio.com",
+    storageBucket: "spell-thedog.appspot.com",
+    messagingSenderId: "708879136829"
+  };
+  firebase.initializeApp(config);
+
+   var database = firebase.database();
+
+   var username = "hltbra";
+   var age = "25";
+   var name = "Hugo";
+
+   // database.ref('user/' + username).set(
+   // { age: age,
+   // 	 name: name 
+   // 	});
+
+    // database.ref('user/' + username + '/age').set(age);
+
+    database.ref('user/' + username).remove();
+
+</script>
+
+</head>
+
+
+<body>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Spell, the dog | Kids spelling game</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	
+	</head>
+	<body id="select-game" class="grad">
+
+		<header class="col-xs-12">
+			<div id="useravatar"><img class="col-xs-1 tossing" src="images/avatar.svg"></div>
+			<div id="usercoins"><img class="col-xs-2" src="images/usercoins.svg"></div>
+		</header>
+	
+
+	
+		<content class="row col-xs-12">
+			<img class="dog-level col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
+
+			<div id="level" class="row col-xs-12 slider center">
+				<img class="easy col-xs-4" src="images/easy.svg" alt="Easy"/>
+				<img class="medium col-xs-4" src="images/medium.svg" alt="Medium"/>
+				<img class="hard col-xs-4" src="images/hard.svg" alt="Hard"/>
+			</div>
+
+			<div id="theme" class="row col-xs-12">
+				<div id="animals" class="col-xs-3"><a href="" target="_self"><img src="images/theme_animals.svg" alt="Animals"/></a></div>
+				<div id="food" class="col-xs-3"><a href="" target="_self"><img src="images/theme_food.svg" alt="Food"/></a></div>
+				<div id="kitchen" class="col-xs-3"><a href="" target="_self"><img src="images/theme_kitchen.svg" alt="Kitchen"/></a></div>
+				<div id="clothes" class="col-xs-3"><a href="" target="_self"><img src="images/theme_clothes.svg" alt="Clothes"/></a></div>
+			</div>	
+
+			<div id="theme-buttons" class="navigation row col-xs-12">
+				<button id="prev" class="theme-back" type="button"><img src="images/back.svg" alt="back"></button>
+				<button id="next" class="theme-more" type="button"><img src="images/more.svg" alt="more"></button>
+			</div>
+		</content>
+
+
+
+		<footer class="row col-xs-12">
+			<center>
+				<div class="col-xs-4"></div>
+				<button class="sound col-xs-1"><span> sound</span></button>
+				<button class="music col-xs-1"><span>music</span></button>
+				<button class="home col-xs-1"><span>home</span></button>
+				<div class="col-xs-5"></div>
+			</center>
+		</footer>
+	
+
+
+
+
+
+
+	<button class="theme-more" type="button" data-toggle="modal" data-target="#myModal"><img src="images/more.svg" alt="More"></button>
+	
+		<div>
+			<!-- modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Forgot Password</h4>
+			      </div>
+			      
+			      <div class="modal-body">
+			        <form>
+			          <input type="text" name="username">
+			        </form>
+
+			      </div>
+			      
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>
+			    
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+
+<script type="text/javascript" src="slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#theme').slick({
+         centerMode: true,
+  		centerPadding: '60px',
+  		slidesToShow: 3,
+  		// arrows: false,
+  		nextArrow: '#next',
+  		prevArrow: '#prev'
+      });
+    });
+  </script>
+
+
+
+	</body>
+</html>
