@@ -15,23 +15,28 @@
 	</head>
 	<body id="select-game" class="grad">
 
-		<header class="col-xs-12">
-			<div id="useravatar"><img class="col-xs-1 tossing" src="images/avatar.svg"></div>
-			<div id="usercoins"><img class="col-xs-2" src="images/usercoins.svg"></div>
+		<header id="header" class="col-xs-12">
+			<div id="dog">
+				<img class="dog-level col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
+			</div>
+
+			<div id="user" class="col-xs-3">
+				<div id="useravatar"><img src="images/avatar.svg"></div>
+				<div id="usercoins"><img src="images/usercoins.svg"></div>
+			</div>
+
 		</header>
 	
+		<content id="content" class="col-xs-12">
 
-	
-		<content class="row col-xs-12">
-			<img class="dog-level col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
 
-			<div id="level" class="row col-xs-12 slider center">
+			<div id="level" class="row">
 				<img class="easy col-xs-4" src="images/easy.svg" alt="Easy"/>
 				<img class="medium col-xs-4" src="images/medium.svg" alt="Medium"/>
 				<img class="hard col-xs-4" src="images/hard.svg" alt="Hard"/>
 			</div>
 
-			<div id="theme" class="row col-xs-12">
+			<div id="theme" class="row">
 				<div id="animals" class="col-xs-3"><a href="" target="_self"><img src="images/theme_animals.svg" alt="Animals"/></a></div>
 				<div id="food" class="col-xs-3"><a href="" target="_self"><img src="images/theme_food.svg" alt="Food"/></a></div>
 				<div id="kitchen" class="col-xs-3"><a href="" target="_self"><img src="images/theme_kitchen.svg" alt="Kitchen"/></a></div>
@@ -46,7 +51,7 @@
 
 
 
-		<footer class="row col-xs-12">
+		<footer id="footer" class="col-xs-12">
 			<center>
 				<div class="col-xs-4"></div>
 				<button class="sound col-xs-1"><span> sound</span></button>
@@ -62,7 +67,7 @@
 
 
 
-	<button class="theme-more" type="button" data-toggle="modal" data-target="#myModal"><img src="images/more.svg" alt="More"></button>
+<!-- 	<button class="theme-more" type="button" data-toggle="modal" data-target="#myModal"><img src="images/more.svg" alt="More"></button> -->
 	
 		<div>
 			<!-- modal -->
