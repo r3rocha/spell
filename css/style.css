@@ -67,6 +67,15 @@ button span:hover {
     float: right;
 }
 
+#usercoins .coins {
+    font: normal 2.2em 'Patrick Hand';
+    color: #ffffff;
+    text-align: left;
+    position: relative;
+    top: -1.4em;
+    right: -2.9em;
+}
+
 /********** body **********/
 
 #select-game {
