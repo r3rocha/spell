@@ -8,77 +8,33 @@ Version: 1.0 - 2016
 /********* FONTS **********/
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 
-/********** buttons **********/
+/********** button general **********/
+
+
 button {
-	margin: 0;
-	border: 0;
-	 background: transparent;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
-button span {
-    background: url("../images/icons.png") no-repeat transparent;
+button:focus,
+a:focus {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
     color: transparent;
-    height: 54px;
-    display: block;
-    width: 68px;
-    margin: 0;
 }
-
-button span:hover {
-	transform: scale(1.01,1.01);
-}
-
-.sound span {
-	background-position: 0px 0px;
-}
-
- button span:hover {
-	transform: scale(1.2,1.2);
-}
-
-.music span {
-	background-position: -69px 0px;
-}
-
-.home span {
-	background-position: -138px 0px;
-}
-
-
-
-/********** header **********/
-
-#header {
-    margin: 8px auto 0px;
-    height: 1%;
-}
-
-#useravatar {
-    width: 27%;
-    padding: 0;
-    margin: 0;
-    float: left;
-}
-
-#usercoins {
-    WIDTH: 73%;
-    margin: 5px 0px 0px 0px;
-    padding: 0;
-    float: right;
-}
-
-#usercoins .coins {
-    font: normal 2.2em 'Patrick Hand';
-    color: #ffffff;
-    text-align: left;
-    position: relative;
-    top: -1.4em;
-    right: -2.9em;
-}
-
 /********** body **********/
 
-#select-game {
+#select-game, 
+#game {
     width: 100%;
     margin: 0 auto;
 }
@@ -99,11 +55,40 @@ body {
     height: 100%;
 }*/
 
+
 /********** header **********/
 
-header {
-    height: 4em;
+#header {
+    margin: 8px auto 0px;
+    height: 1%;
 }
+#game #header {
+height: 5em;
+}
+
+#useravatar {
+    width: 27%;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+#usercoins {
+    width: 73%;
+    margin: 5px 0px 0px 0px;
+    padding: 0;
+    float: right;
+}
+
+#usercoins .coins {
+    font: normal 2.2em 'Patrick Hand';
+    color: #ffffff;
+    text-align: left;
+    position: relative;
+    top: -1.4em;
+    right: -2.9em;
+}
+
 
 /********** level **********/
 
@@ -177,6 +162,98 @@ header {
     float: right;
 }
 
+/********** Spelling screeen **********/
+
+/********** Idiom **********/
+
+#figure .language {
+    position: relative;
+    left: -109px;
+    top: 33px;
+}
+
+#figure .language button {
+    background: url(../images/flag-us.svg) no-repeat transparent;
+    color: transparent;
+    width: 5em;
+    height: 5em;
+}
+
+#figure .language button:hover {
+    -webkit-transform: rotate(-6deg); /* WebKit */
+    -moz-transform: rotate(-6deg); /* Mozilla */
+    -o-transform: rotate(-6deg); /* Opera */
+    -ms-transform: rotate(-6deg); /* Internet Explorer */
+    transform: rotate(-6deg); /* CSS3 */
+}
+
+button:active {
+    text-decoration: none; 
+} 
+
+/********** baloon + dog **********/
+.dog-spelling {
+    margin: 17em 0 0 0;
+    padding: 0;
+}
+
+.ballon-spelling {
+    padding: 0;
+    margin: 0 0 0 -4em;
+}
+
+#figure .object {
+    position: relative;
+    left: -500px;
+    top: 100px;
+    max-height: 300px;
+    padding: 0 0px 0 1.1em;
+}
+
+
+
+
+.letter {
+    display: inline-block;
+    width: 100px;
+    font-size: 60px;
+    line-height: 100px;
+    vertical-align: middle;
+    margin-right: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#all-letters .letter {
+    background: url(../images/letter-blue.svg) no-repeat transparent;
+    font: normal 6em 'Patrick Hand';
+    text-transform: uppercase;
+}
+
+#guess .letter {
+    background: url(../images/letter-gray.svg) no-repeat transparent;
+    font: normal 6em 'Patrick Hand';
+    text-transform: uppercase;
+    margin-left: 0.3em;
+}
+
+#guess {
+    margin: 2em 0;
+    text-align: center;
+}
+
+
+#guess .letter.over {
+    background: url(../images/letter-gray.svg) no-repeat transparent;
+}
+#guess .letter.over-right {
+    background: url(../images/letter-green.svg) no-repeat transparent;
+}
+#guess .letter.over-wrong {
+    background: url(../images/letter-red.svg) no-repeat transparent;
+}
+
 
 
 /********** footer **********/
@@ -184,4 +261,66 @@ header {
 #footer {
     top: 1.5em;
     position: relative;
+}
+
+#footer button {
+    margin: 0;
+    padding: 0; 
+    border: 0;
+    background: transparent;
+}
+
+
+#footer button span {
+    background: url("../images/icons.png") no-repeat transparent;
+    color: transparent;
+    height: 54px;
+    display: block;
+    width: 68px;
+    margin: 0;
+}
+
+#footer button span:hover {
+    transform: scale(1.2,1.2);
+}
+
+
+#footer .sound,
+#footer .music,
+#footer .home,
+#footer .repeat,
+#footer .say,
+#footer .hint,
+#footer .switch {
+    padding: 0;
+}
+
+
+#footer .sound span {
+    background-position: 0px 0px;
+}
+
+
+#footer .music span {
+    background-position: -69px 0px;
+}
+
+#footer .home span {
+    background-position: -138px 0px;
+}
+
+#footer .repeat span {
+    background-position: -208px 0px;
+}
+
+#footer .say span {
+    background-position: -276px 0px;
+}
+
+#footer .hint span {
+    background-position: -349px 0px;
+}
+
+#footer .switch span {
+    background-position: -420px 0px;
 }
