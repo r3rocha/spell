@@ -101,10 +101,15 @@ height: 5em;
 }
 
 
-#level img:hover {
+#level img:hover,
+#level img.active {
     -ms-transform: scale(1.0,1.0);
     -webkit-transform: scale(1.0,1.0);
     transform: scale(1.0,1.0);
+}
+
+#level img.inactive {
+    opacity: 0.5;
 }
 
 
