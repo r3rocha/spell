@@ -35,9 +35,10 @@ a:hover {
 
 #select-game, 
 #game {
-    width: 100%;
+    max-width: 1024px;
     margin: 0 auto;
 }
+
 
 body {
   /*background: #f3f4f4; /* For browsers that do not support gradients */
@@ -49,18 +50,12 @@ body {
 
 }
 
-/*#bg {
-    background: url("file:///Users/r3rocha/Desktop/Touro%20College/02%20-%20Student/694%20-%20Thesis/03%20-%20DEV/spell/images/bg.png") repeat transparent 0px 0px;
-    width: 100%;
-    height: 100%;
-}*/
-
-
 /********** header **********/
 
 #header {
     margin: 8px auto 0px;
     height: 1%;
+    padding: 0;
 }
 #game #header {
 height: 5em;
@@ -78,15 +73,17 @@ height: 5em;
     margin: 5px 0px 0px 0px;
     padding: 0;
     float: right;
+    background: transparent url('../images/usercoins.svg') no-repeat 0 0;
+    height: 4em;
 }
 
 #usercoins .coins {
     font: normal 2.2em 'Patrick Hand';
     color: #ffffff;
     text-align: left;
+    padding: 0px 0px 0px 70px;
     position: relative;
-    top: -1.4em;
-    right: -2.9em;
+    top: 0.3em;
 }
 
 
@@ -168,8 +165,8 @@ height: 5em;
 
 #figure .language {
     position: relative;
-    left: -109px;
-    top: 33px;
+    left: -95px;
+    top: 0px;
 }
 
 #figure .language button {
@@ -197,21 +194,25 @@ button:active {
     padding: 0;
 }
 
-.ballon-spelling {
+/*.ballon-spelling {
     padding: 0;
     margin: 0 0 0 -4em;
-}
+}*/
 
 #figure .object {
-    position: relative;
-    left: -500px;
-    top: 100px;
-    max-height: 300px;
-    padding: 0 0px 0 1.1em;
+    padding: 0;
+    background: transparent no-repeat url('../images/ballon-spelling.svg') top center;
+    height: 30em;
 }
 
-
-
+#figure .object .item {
+    max-width: 70%;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 40px;
+    padding-left: 21px;
+}
 
 .letter {
     display: inline-block;
