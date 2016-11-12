@@ -78,12 +78,12 @@ height: 5em;
 }
 
 #usercoins .coins {
-    font: normal 2.2em 'Patrick Hand';
+    font: normal 2.0em 'Patrick Hand';
     color: #ffffff;
     text-align: left;
     padding: 0px 0px 0px 70px;
     position: relative;
-    top: 0.3em;
+    top: 0.4em;
 }
 
 
@@ -255,7 +255,104 @@ button:active {
     background: url(../images/letter-red.svg) no-repeat transparent;
 }
 
+/********** Modal BIG **********/
 
+
+.modalbig h4 {
+    font: normal 60px 'Patrick Hand';
+    color: #ffffff;
+    text-align: center;
+}
+
+.modalbig h6 {
+    font: normal 27px 'Patrick Hand';
+    color: #0e76bc;
+    text-transform: uppercase;
+}
+
+.modalbig .modal-header {
+    padding: 0.5em 0;
+    border-bottom: none;
+} 
+
+.modalbig .modal-dialog {
+    width: 750px !important;
+    margin: 50px auto;
+}
+
+.modalbig .modal-body {
+    position: relative;
+    padding: 15px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modalbig .modal-content {
+    background-color: #34a7c4;
+    border: 0;
+    box-shadow: 6px 8px 0px rgba(170,170,170,1);
+    padding: 4px 14px 21px;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 100px;
+    padding: 0 29px 13px 30px;
+
+}
+
+.modalbig .modal-header .close {
+    background: transparent url(../images/button-x.svg) no-repeat;
+    color: transparent;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+/********** idiomModal BIG **********/
+
+#idiomModal .row.line1 {
+    margin-bottom: 30px;
+}
+
+
+#idiomModal .dog-language {
+    margin-top: 40px;
+}
+
+
+
+#idiomModal .btn-flag {
+    /*margin: 0 3.5%;*/
+    padding: 0;
+    text-align: center;
+}
+
+#idiomModal .btn-flag img:hover {
+    -webkit-transform: scale(1.1,1.1); /* WebKit */
+    -moz-transform: scale(1.1,1.1); /* Mozilla */
+    -o-transform: scale(1.1,1.1); /* Opera */
+    -ms-transform: scale(1.1,1.1); /* Internet Explorer */
+    transform: scale(1.1,1.1); /* CSS3 */
+}
+
+
+#idiomModal .btn-flag.us {
+    margin: 9em 0 0 18.3%;
+}
+
+
+
+
+
+#idiomModal img.pt {
+    margin-left: 0;
+    padding-left: 17px;
+}
 
 /********** footer **********/
 
