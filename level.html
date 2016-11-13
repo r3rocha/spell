@@ -151,7 +151,11 @@ setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,50
 		$("#level img").on('click', play_bubble);
 		$("#theme").on('click', '.slick-current', play_bubble);
 
-
+		var $sound = $("footer .sound");
+		setup_sound($sound);
+		$sound.on('click', function() {
+			toggle_sound($(this));
+		});
 	</script>
 
 

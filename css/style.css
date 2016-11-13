@@ -435,6 +435,10 @@ button:active {
     margin: 0;
 }
 
+#footer .sound.sound-off span {
+    background-position-y: -56px;
+}
+
 #footer button span:hover {
     transform: rotate(-4deg);
     -webkit-transform: rotate(-4deg); /* WebKit */

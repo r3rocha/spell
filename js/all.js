@@ -71,6 +71,40 @@ function get_current_level(callback) {
 
 /* sound effects */
 function play_bubble() {
-    var audio = new Audio("sound/effects/bubble.mp3");
-    audio.play();
+    if (is_sound_on()) {
+        var audio = new Audio("sound/effects/bubble.mp3");
+        audio.play();
+    }
+}
+
+function is_sound_on() {
+    return !("spell_game:sound_state" in localStorage) || localStorage.getItem("spell_game:sound_state") == "on";
+}
+
+function set_sound_off($elem) {
+    console.log("sound off");
+    $elem.addClass("sound-off");
+    return localStorage.setItem("spell_game:sound_state", "off");
+}
+
+function set_sound_on($elem) {
+    console.log("sound on");
+    $elem.removeClass("sound-off");
+    return localStorage.setItem("spell_game:sound_state", "on");
+}
+
+function toggle_sound($elem) {
+    if ($elem.hasClass('sound-off')) {
+        set_sound_on($elem);
+    } else {
+        set_sound_off($elem);
+    }
+}
+
+function setup_sound($elem) {
+    if (is_sound_on()) {
+        set_sound_on($elem);
+    } else {
+        set_sound_off($elem);
+    }
 }
