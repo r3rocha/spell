@@ -107,4 +107,7 @@ function setup_sound($elem) {
     } else {
         set_sound_off($elem);
     }
+    $elem.on('click', function() {
+        toggle_sound($(this));
+    });
 }
