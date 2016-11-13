@@ -189,7 +189,7 @@ button:active {
 } 
 
 /********** baloon + dog **********/
-.dog-spelling {
+.dog-seated {
     margin: 17em 0 0 0;
     padding: 0;
 }
@@ -259,9 +259,10 @@ button:active {
 
 
 .modalbig h4 {
-    font: normal 60px 'Patrick Hand';
+    font: normal 55px 'Patrick Hand';
     color: #ffffff;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .modalbig h6 {
@@ -310,6 +311,41 @@ button:active {
     height: 50px;
     opacity: 1;
     cursor: pointer;
+}
+
+/********** userModal BIG **********/
+
+
+#userModal .dog-user {
+    margin-top: 3em;
+}
+
+#userModal #usercoins {
+    width: 100%;
+    float: none;
+    height: 6em;
+    text-align: left;
+}
+
+#userModal span.coins {
+    padding: 0 0 0 2.5em;
+    font-size: 3em;
+}
+
+
+#userModal .line2 {
+    margin: 4em 0 3em;
+    text-align: center;
+    /* min-height: 1em; */
+}
+
+#userModal .btn-user img:hover,
+#userModal .user-status img:hover {
+    -webkit-transform: scale(1.1,1.1); /* WebKit */
+    -moz-transform: scale(1.1,1.1); /* Mozilla */
+    -o-transform: scale(1.1,1.1); /* Opera */
+    -ms-transform: scale(1.1,1.1); /* Internet Explorer */
+    transform: scale(1.1,1.1); /* CSS3 */
 }
 
 
@@ -379,7 +415,11 @@ button:active {
 }
 
 #footer button span:hover {
-    transform: scale(1.2,1.2);
+    transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg); /* WebKit */
+    -moz-transform: rotate(-4deg); /* Mozilla */
+    -o-transform: rotate(-4deg); /* Opera */
+    -ms-transform: rotate(-4deg); /* Internet Explorer */
 }
 
 
