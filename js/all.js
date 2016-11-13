@@ -63,3 +63,14 @@ function get_current_level(callback) {
         callback(result.val());
     });
 }
+
+
+
+
+
+
+/* sound effects */
+function play_bubble() {
+    var audio = new Audio("sound/effects/bubble.mp3");
+    audio.play();
+}
