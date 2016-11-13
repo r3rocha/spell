@@ -114,6 +114,7 @@ height: 5em;
 
 
 
+
 /********** theme **********/
 #theme {
   display: inline-block;
@@ -131,6 +132,10 @@ height: 5em;
     transition: all 300ms ease;
 }
 
+#theme *:focus {
+    outline: none;
+}
+
 #theme .slick-center img{
     -moz-transform: scale(1.0);
     -ms-transform: scale(1.0);
@@ -138,6 +143,16 @@ height: 5em;
     -webkit-transform: scale(1.0);
     opacity: 1;
     transform: scale(1.0);
+}
+
+#theme .slick-center img:active,
+#theme-buttons button:active,
+#level img:active {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
 }
 
 /*#theme img:hover {
@@ -154,7 +169,6 @@ height: 5em;
 }
 
 #theme-buttons button {
-    transform: scale(0.7);
     width: 15%;
     margin: -2% 0 0 0;
 }
