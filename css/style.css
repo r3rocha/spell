@@ -53,14 +53,34 @@ body {
 
 /********** Home **********/
 
-#logo {
+#home #logo {
     margin: 5em 0;
 }
 
-#letsplay img {
+#home #letsplay img {
     height: 9.9em;
 }
 
+#home #letsplay {
+    margin: 4em 0 ;
+}
+
+#home .copyright {
+    font: normal 24px 'Patrick Hand', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#home .line1, 
+#home .line2, 
+#home .line3, 
+#home .line4 {
+    margin: 1em 0 2em;
+}
+
+#home .gstlogo {
+    padding-top: 2em;
+}
 
 /********** header **********/
 
@@ -337,6 +357,10 @@ button:active {
 
 }
 
+.modalbig .modal-content.green {
+    background-color: #61c5b7;
+}
+
 .modalbig .modal-header .close {
     background: transparent url(../images/button-x.svg) no-repeat;
     color: transparent;
@@ -467,10 +491,14 @@ button:active {
 #footer .repeat,
 #footer .say,
 #footer .hint,
-#footer .switch {
+#footer .switch,
+#footer .about {
     padding: 0;
 }
 
+#home #footer .col-xs-4 {
+    margin-left: 5%;
+}
 
 #footer .sound span {
     background-position: 0px 0px;
@@ -499,4 +527,8 @@ button:active {
 
 #footer .switch span {
     background-position: -420px 0px;
+}
+
+#footer .about span {
+    background-position: -493px 0px;
 }
