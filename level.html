@@ -22,7 +22,7 @@
 			</div>
 
 			<div id="user" class="col-xs-3">
-				<div id="useravatar"><img src="images/avatar.svg"></div>
+				<div id="useravatar"><img src="images/avatar/01.svg"></div>
 				<div id="usercoins"><span class="coins">1200</span></div>
 			</div>
 
@@ -98,6 +98,8 @@
 			</div><!-- /.modal -->
 		</div>
 
+<div id="audio"></div>​
+
 <script type="text/javascript" src="slick/slick.min.js"></script>
 
 <script type="text/javascript">
@@ -110,6 +112,15 @@
   		prevArrow: '#prev'
       });
     });
+
+
+$(document).ready(function (){
+        $("#audio").stop("true").queue(function() { 
+            $(this).html('<audio autoplay="autoplay"><source src="sound/level.mp3" type="audio/mp3" /></audio>');
+        });
+    });
+
+
   </script>
 
 
