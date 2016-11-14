@@ -377,6 +377,10 @@ button:active {
     text-transform: uppercase;
 }
 
+#all-letters .letter:active {
+    transform: scale(0.9);
+}
+
 #guess .letter {
     background: url(../images/letter-gray.svg) no-repeat transparent;
     font: normal 6em 'Patrick Hand';
