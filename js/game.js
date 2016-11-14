@@ -35,6 +35,13 @@
                 this.setup_image_box();
             };
 
+            Game.prototype.reset = function() {
+                this.word = this.word = this.pick_word();
+                this.$all_letters.html('');
+                this.$guess.html('');
+                this.start_guess();
+            };
+
             Game.prototype.setup_image_box = function() {
                 this.$object.attr("src", this.word["image"]).attr("alt", this.word["alt"]);
             };
@@ -122,4 +129,7 @@
 
             $(".say").on('click', function() {
                 game.play_word();
+            });
+            $(".switch").on('click', function() {
+                game.reset();
             });
