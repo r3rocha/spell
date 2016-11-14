@@ -1,5 +1,7 @@
 // taken from http://stackoverflow.com/a/2450976/565999
-            function shuffle(array) {
+// adapted to create new array
+            function shuffle(arr) {
+              var array = arr.slice();
               var currentIndex = array.length, temporaryValue, randomIndex;
 
               // While there remain elements to shuffle...
@@ -18,20 +20,33 @@
               return array;
             }
 
-            function Game(words, $all_letters, $guess) {
-                this.words = words;
+            function Game(theme, language, $all_letters, $guess, $object) {
+                this.theme = theme;
+                this.language = language;
+                this.word = this.pick_word();
                 this.$all_letters = $all_letters;
                 this.$guess = $guess;
+                this.$object = $object;
             }
 
             Game.prototype.start_guess = function() {
-                var word = this.pick_word();
-                this.setup_word_letters(word);
-                this.setup_guess_box(word);
+                this.setup_word_letters(this.word["word"][this.language]);
+                this.setup_guess_box(this.word["word"][this.language]);
+                this.setup_image_box();
+                this.play_word();
+            };
+
+            Game.prototype.setup_image_box = function() {
+                this.$object.attr("src", this.word["image"]).attr("alt", this.word["alt"]);
+            };
+            Game.prototype.play_word = function() {
+                // TODO: only if sound is ON
+                var word_audio = new Audio(this.word["sound"][this.language]);
+                word_audio.play()
             };
 
             Game.prototype.pick_word = function() {
-                return shuffle(this.words)[0];
+                return shuffle(WORDS[this.theme])[0];
             };
 
             Game.prototype.setup_word_letters = function(word) {
@@ -75,11 +90,32 @@
                         } else {
                             $(this).addClass("over-wrong");
                         }
-
+                        // game is finished
+                        var guessed_word = game.$guess.text().replace(/\s/g, '');
+                        if (guessed_word.length === word.length) {
+                            if (guessed_word === word) {
+                                self.win();
+                            } else {
+                                self.lose();
+                            }
+                        }
 
                     });
                 });
             };
 
-            var game = new Game(["turtle", "hello"], $("#all-letters"), $("#guess"));
+            Game.prototype.win = function() {
+                console.log("win");
+            };
+
+            Game.prototype.lose = function() {
+                console.log("lose");
+            };
+
+
+            var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"));
             game.start_guess();
+
+            $(".say").on('click', function() {
+                game.play_word();
+            });
