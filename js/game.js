@@ -42,7 +42,7 @@
             Game.prototype.play_word = function() {
                 // TODO: only if sound is ON
                 var word_audio = new Audio(this.word["sound"][this.language]);
-                word_audio.play()
+                word_audio.play();
             };
 
             Game.prototype.pick_word = function() {
@@ -106,10 +106,15 @@
 
             Game.prototype.win = function() {
                 console.log("win");
+                var audio = new Audio("sound/effects/win.mp3");
+                audio.play();
+
             };
 
             Game.prototype.lose = function() {
                 console.log("lose");
+                var audio = new Audio("sound/effects/tryagain.mp3");
+                audio.play();
             };
 
 
