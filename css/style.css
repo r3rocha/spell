@@ -101,11 +101,17 @@ height: 5em;
 }
 
 
-#level img:hover {
+#level img:hover,
+#level img.active {
     -ms-transform: scale(1.0,1.0);
     -webkit-transform: scale(1.0,1.0);
     transform: scale(1.0,1.0);
 }
+
+#level img.inactive {
+    opacity: 0.5;
+}
+
 
 
 
@@ -124,6 +130,10 @@ height: 5em;
     opacity: 0.5;
     transform: scale(0.8);
     transition: all 300ms ease;
+}
+
+#theme *:focus {
+    outline: none;
 }
 
 #theme .slick-center img{
@@ -149,7 +159,6 @@ height: 5em;
 }
 
 #theme-buttons button {
-    transform: scale(0.7);
     width: 15%;
     margin: -2% 0 0 0;
 }
@@ -157,6 +166,18 @@ height: 5em;
 
 #theme-buttons #next {
     float: right;
+}
+
+/********** button effects **********/
+#theme .slick-center img:active,
+#theme-buttons button:active,
+#level img:active,
+footer button:active {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
 }
 
 /********** Spelling screeen **********/
@@ -412,6 +433,11 @@ button:active {
     display: block;
     width: 68px;
     margin: 0;
+}
+
+#footer .sound.sound-off span,
+#footer .music.music-off span {
+    background-position-y: -56px;
 }
 
 #footer button span:hover {

@@ -26,15 +26,15 @@
 		</header>
 		<content id="content" class="col-xs-12">
 			<div id="level" class="row">
-				<img class="easy col-xs-4" src="images/easy.svg" alt="Easy"/>
-				<img class="medium col-xs-4" src="images/medium.svg" alt="Medium"/>
-				<img class="hard col-xs-4" src="images/hard.svg" alt="Hard"/>
+				<img class="easy col-xs-4" data-level="easy" src="images/easy.svg" alt="Easy"/>
+				<img class="medium col-xs-4" data-level="medium" src="images/medium.svg" alt="Medium"/>
+				<img class="hard col-xs-4" data-level="hard" src="images/hard.svg" alt="Hard"/>
 			</div>
 			<div id="theme" class="row">
-				<div id="animals" class="col-xs-3"><a href="" target="_self"><img src="images/theme_animals.svg" alt="Animals"/></a></div>
-				<div id="food" class="col-xs-3"><a href="" target="_self"><img src="images/theme_food.svg" alt="Food"/></a></div>
-				<div id="kitchen" class="col-xs-3"><a href="" target="_self"><img src="images/theme_kitchen.svg" alt="Kitchen"/></a></div>
-				<div id="clothes" class="col-xs-3"><a href="" target="_self"><img src="images/theme_clothes.svg" alt="Clothes"/></a></div>
+				<div id="animals" class="col-xs-3"><img src="images/theme_animals.svg" alt="Animals"/></div>
+				<div id="food" class="col-xs-3"><img src="images/theme_food.svg" alt="Food"/></div>
+				<div id="kitchen" class="col-xs-3"><img src="images/theme_kitchen.svg" alt="Kitchen"/></div>
+				<div id="clothes" class="col-xs-3"><img src="images/theme_clothes.svg" alt="Clothes"/></div>
 			</div>	
 			<div id="theme-buttons" class="navigation row col-xs-12">
 				<button id="prev" class="theme-back" type="button"><img src="images/back.svg" alt="back"></button>
@@ -90,7 +90,6 @@
 
 <script type="text/javascript">
 
-
 // Themes Slide
 $(document).ready(function(){
   $('#theme').slick({
@@ -126,6 +125,35 @@ setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,50
 //     });
 
   </script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
+			authDomain: "test-91c0f.firebaseapp.com",
+			databaseURL: "https://test-91c0f.firebaseio.com",
+			storageBucket: "test-91c0f.appspot.com",
+			messagingSenderId: "171964898630"
+		};
+		firebase.initializeApp(config);
+		var database = firebase.database();
+	</script>
+	<script src="js/all.js"></script>
+	<script>
+		firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
+			setup_coins($("#usercoins .coins"));
+			setup_level($("#level > img"));
+		});
+
+		/*** sound effects ***/
+		// bubble sound on click
+		$("#level img").on('click', play_bubble);
+		$("#theme").on('click', '.slick-current', play_bubble);
+
+		var sound = setup_sound($("footer .sound"));
+		var music = setup_music($("footer .music"));
+	</script>
 
 
 
