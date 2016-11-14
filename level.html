@@ -15,43 +15,32 @@
 	
 	</head>
 	<body id="select-game" class="grad">
-
 		<header id="header" class="col-xs-12">
 			<div id="dog">
-				<img class="dog-level col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
+				<img class="dog-level eyes-open col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
 			</div>
-
 			<div id="user" class="col-xs-3">
-				<div id="useravatar"><img src="images/avatar/01.svg"></div>
+				<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img src="images/avatar/01.svg"></button>
 				<div id="usercoins"><span class="coins">1200</span></div>
 			</div>
-
 		</header>
-	
 		<content id="content" class="col-xs-12">
-
-
 			<div id="level" class="row">
 				<img class="easy col-xs-4" src="images/easy.svg" alt="Easy"/>
 				<img class="medium col-xs-4" src="images/medium.svg" alt="Medium"/>
 				<img class="hard col-xs-4" src="images/hard.svg" alt="Hard"/>
 			</div>
-
 			<div id="theme" class="row">
 				<div id="animals" class="col-xs-3"><a href="" target="_self"><img src="images/theme_animals.svg" alt="Animals"/></a></div>
 				<div id="food" class="col-xs-3"><a href="" target="_self"><img src="images/theme_food.svg" alt="Food"/></a></div>
 				<div id="kitchen" class="col-xs-3"><a href="" target="_self"><img src="images/theme_kitchen.svg" alt="Kitchen"/></a></div>
 				<div id="clothes" class="col-xs-3"><a href="" target="_self"><img src="images/theme_clothes.svg" alt="Clothes"/></a></div>
 			</div>	
-
 			<div id="theme-buttons" class="navigation row col-xs-12">
 				<button id="prev" class="theme-back" type="button"><img src="images/back.svg" alt="back"></button>
 				<button id="next" class="theme-more" type="button"><img src="images/more.svg" alt="more"></button>
 			</div>
 		</content>
-
-
-
 		<footer id="footer" class="col-xs-12">
 			<center>
 				<div class="col-xs-4"></div>
@@ -64,62 +53,77 @@
 	
 
 
+<!-- User modal -->
+<div class="modalbig">
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+	        <h4 class="modal-title">My user status</h4>
+	      </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
+                    <div class="user-status col-xs-5">
+                        <img src="images/avatar/01.svg" alt="spell"/>
+                        <div id="usercoins"><span class="coins">1200</span></div>
+                    </div> 
+                </div>
+                <div class="row line2">
+                    <button type="button" class="btn-user change-avatar col-xs-4"><img src="images/change-avatar.svg" alt="Change Avatar"/></button>
+                    <button type="button" class="btn-user change-user col-xs-4"><img src="images/change-user.svg" alt="Change User"/></button>
+                    <button type="button" class="btn-user logout col-xs-4"><img class="pt" src="images/logout.svg" alt="logout"/></button>
+                </div>
+            </div>
+          </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div> 
 
 
 
-
-	<button class="theme-more" type="button" data-toggle="modal" data-target="#myModal"><img src="images/more.svg" alt="More"></button>
-	
-		<div>
-			<!-- modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">Forgot Password</h4>
-			      </div>
-			      
-			      <div class="modal-body">
-			        <form>
-			          <input type="text" name="username">
-			        </form>
-
-			      </div>
-			      
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
-			      </div>
-			    
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div>
-
-<div id="audio"></div>​
 
 <script type="text/javascript" src="slick/slick.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-      $('#theme').slick({
-         centerMode: true,
-  		centerPadding: '60px',
-  		slidesToShow: 3,
-  		nextArrow: '#next',
-  		prevArrow: '#prev'
-      });
-    });
 
 
-$(document).ready(function (){
-        $("#audio").stop("true").queue(function() { 
-            $(this).html('<audio autoplay="autoplay"><source src="sound/level.mp3" type="audio/mp3" /></audio>');
-        });
-    });
+// Themes Slide
+$(document).ready(function(){
+  $('#theme').slick({
+     centerMode: true,
+		centerPadding: '60px',
+		slidesToShow: 3,
+		nextArrow: '#next',
+		prevArrow: '#prev'
+  });
+});
 
+//Blink Eyes
+function blinkEyes() {
+    if ($("#dog .eyes-open").size()) {
+        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+
+    } else {
+
+        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+    } 
+}
+
+setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+
+
+
+//Sound from beginning
+// $(document).ready(function(){
+//         var audio = new Audio('sound/level.mp3');
+//         setTimeout(function() {
+//             audio.play();
+//         }, 1000);
+//     });
 
   </script>
 

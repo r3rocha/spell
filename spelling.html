@@ -16,113 +16,103 @@
 	</head>
 	<body id="game" class="grad">
 
-		<header id="header" class="col-xs-12">
+	<header id="header" class="col-xs-12">
 
-			<div id="user" class="col-xs-3 col-xs-offset-9">
-				<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img src="images/avatar/01.svg"></button>
-				<div id="usercoins"><span class="coins">1200</span></div>
-			</div>
+		<div id="user" class="col-xs-3 col-xs-offset-9">
+			<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img src="images/avatar/01.svg"></button>
+			<div id="usercoins"><span class="coins">1200</span></div>
+		</div>
 
-		</header>
+	</header>
 	
-		<content id="content" class="row">
+	<content id="content" class="row">
 
-			<div id="figure">
-				<img class="dog-seated eyes-open col-xs-2" src="images/dog-seated-open.svg" alt="spell "/>
-                <div class="object col-xs-4"><center><img class="item" src="images/words/turtle.svg" alt="Turtle"/></center></div>
-				<div class="language col-xs-1"><button type="button" data-toggle="modal" data-target="#idiomModal">language</button></div>
-				
-			</div>
+		<div id="figure">
+			<img class="dog-seated eyes-open col-xs-2" src="images/dog-seated-open.svg" alt="spell "/>
+            <div class="object col-xs-4"><center><img class="item" src="images/words/turtle.svg" alt="Turtle"/></center></div>
+			<div class="language col-xs-1"><button type="button" data-toggle="modal" data-target="#idiomModal">language</button></div>
+			
+		</div>
 
-			<div id="all-letters" class="col-xs-6"></div>	
-
-
-			<div id="guess" class="col-xs-12"></div>	
-	
-		</content>
+		<div id="all-letters" class="col-xs-6"></div>	
 
 
+		<div id="guess" class="col-xs-12"></div>	
 
-		<footer id="footer" class="col-xs-12">
-			<center>
-				<button class="sound col-xs-1"><span>sound</span></button>
-				<button class="music col-xs-1"><span>music</span></button>
-				<button class="home col-xs-1"><span>home</span></button>
-				<div class="col-xs-5"></div>
-				<button class="repeat col-xs-1"><span>repeat</span></button>
-				<button class="say col-xs-1"><span>say</span></button>
-				<button class="hint col-xs-1"><span>hint</span></button>
-				<button class="switch col-xs-1"><a href="javascript:history.go(0)"><span>switch</span></a></button>
-			</center>
-		</footer>
+	</content>
 
 
-	<!-- User modal -->
-		<div class="modalbig">
-			<div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-			        <h4 class="modal-title">My user status</h4>
-			      </div>
-			      
-                  <div class="modal-body row">
-                    <div class="container-fluid bd-example-row">
-                        <div class="row line1">
-                            <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
-                            <div class="user-status col-xs-5">
-                                <img src="images/avatar/01.svg" alt="spell"/>
-                                <div id="usercoins"><span class="coins">1200</span></div>
-                            </div>
-                            
-                        </div>
-                        <div class="row line2">
-                            <button type="button" class="btn-user change-avatar col-xs-4"><img src="images/change-avatar.svg" alt="Change Avatar"/></button>
-                            <button type="button" class="btn-user change-user col-xs-4"><img src="images/change-user.svg" alt="Change User"/></button>
-                            <button type="button" class="btn-user logout col-xs-4"><img class="pt" src="images/logout.svg" alt="logout"/></button>
-                        </div>
-                    </div>
-                  </div>
-			      
 
-			    
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div> 
+	<footer id="footer" class="col-xs-12">
+		<center>
+			<button class="sound col-xs-1"><span>sound</span></button>
+			<button class="music col-xs-1"><span>music</span></button>
+			<button class="home col-xs-1"><span>home</span></button>
+			<div class="col-xs-5"></div>
+			<button class="repeat col-xs-1"><span>repeat</span></button>
+			<button class="say col-xs-1"><span>say</span></button>
+			<button class="hint col-xs-1"><span>hint</span></button>
+			<button class="switch col-xs-1"><a href="javascript:history.go(0)"><span>switch</span></a></button>
+		</center>
+	</footer>
+
+
+<!-- User modal -->
+<div class="modalbig">
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+	        <h4 class="modal-title">My user status</h4>
+	      </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
+                    <div class="user-status col-xs-5">
+                        <img src="images/avatar/01.svg" alt="spell"/>
+                        <div id="usercoins"><span class="coins">1200</span></div>
+                    </div> 
+                </div>
+                <div class="row line2">
+                    <button type="button" class="btn-user change-avatar col-xs-4"><img src="images/change-avatar.svg" alt="Change Avatar"/></button>
+                    <button type="button" class="btn-user change-user col-xs-4"><img src="images/change-user.svg" alt="Change User"/></button>
+                    <button type="button" class="btn-user logout col-xs-4"><img class="pt" src="images/logout.svg" alt="logout"/></button>
+                </div>
+            </div>
+          </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div> 
 
 <!-- Idiom modal -->
-        <div class="modalbig">
-            <div class="modal fade" id="idiomModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                    <h4 class="modal-title">Select a language</h4>
-                  </div>
-                  
-                  <div class="modal-body row">
-                    <div class="container-fluid bd-example-row">
-                        <div class="row line1">
-                            <img class="dog-language col-xs-offset-1 col-xs-6" src="images/dog-language.svg" alt="spell"/>
-                            <button type="button" class="btn-flag us col-xs-offset-2 col-xs-2"><img src="images/flagbig-us.svg" alt="flag us"/><h6>English</h6></button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn-flag es col-xs-2 col-xs-offset-1"><img src="images/flagbig-es.svg" alt="flag Espanish"/><h6>Spanish</h6></button>
-                            <button type="button" class="btn-flag it col-xs-2 col-xs-offset-2"><img src="images/flagbig-it.svg" alt="flag Italian"/><h6>Italian</h6></button>
-                            <button type="button" class="btn-flag pt col-xs-2 col-xs-offset-2"><img class="pt" src="images/flagbig-pt.svg" alt="flag Portuguese"/><h6>Portuguese</h6></button>
-                        </div>
-                    </div>
-                  </div>
-                  
-                
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-        </div> 
+<div class="modalbig">
+    <div class="modal fade" id="idiomModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h4 class="modal-title">Select a language</h4>
+          </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-language col-xs-offset-1 col-xs-6" src="images/dog-language.svg" alt="spell"/>
+                    <button type="button" class="btn-flag us col-xs-offset-2 col-xs-2"><img src="images/flagbig-us.svg" alt="flag us"/><h6>English</h6></button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn-flag es col-xs-2 col-xs-offset-1"><img src="images/flagbig-es.svg" alt="flag Espanish"/><h6>Spanish</h6></button>
+                    <button type="button" class="btn-flag it col-xs-2 col-xs-offset-2"><img src="images/flagbig-it.svg" alt="flag Italian"/><h6>Italian</h6></button>
+                    <button type="button" class="btn-flag pt col-xs-2 col-xs-offset-2"><img class="pt" src="images/flagbig-pt.svg" alt="flag Portuguese"/><h6>Portuguese</h6></button>
+                </div>
+            </div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div> 
 
 
 <script type="text/javascript" src="js/game.js"></script>
