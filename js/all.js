@@ -127,3 +127,10 @@ function setup_sound($elem) {
     sound.setup_click();
     return sound;
 }
+
+function setup_music($elem) {
+    var music = new OnOffState("music", $elem);
+    music.setup_initial_state();
+    music.setup_click();
+    return music;
+}
