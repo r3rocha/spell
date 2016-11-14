@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spell, the dog | Kids spelling game</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  
+  </head>
+  <body id="home" class="grad">
+    <header id="header" class="col-xs-12">
+    </header>
+    <content id="content">
+      <div id="logo" class="row">
+        <img class="col-xs-8 col-xs-offset-2" src="images/logo.svg" alt="Logo"/>
+      </div>  
+      <div id="letsplay" class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+          <button type="button"><img src="images/letsplay.svg" alt="lets play"></button>
+        </div>
+      </div>
+    </content>
+    <footer id="footer" class="col-xs-12">
+      <center>
+        <div class="col-xs-4"></div>
+        <button class="sound col-xs-1"><span> sound</span></button>
+        <button class="music col-xs-1"><span>music</span></button>
+        <button class="home col-xs-1"><span>home</span></button>
+        <div class="col-xs-5"></div>
+      </center>
+    </footer>
+  
+
+
+<!-- User modal -->
+<div class="modalbig">
+  <div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+          <h4 class="modal-title">My user status</h4>
+        </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
+                    <div class="user-status col-xs-5">
+                        <img src="images/avatar/01.svg" alt="spell"/>
+                        <div id="usercoins"><span class="coins">1200</span></div>
+                    </div> 
+                </div>
+                <div class="row line2">
+                    <button type="button" class="btn-user change-avatar col-xs-4"><img src="images/change-avatar.svg" alt="Change Avatar"/></button>
+                    <button type="button" class="btn-user change-user col-xs-4"><img src="images/change-user.svg" alt="Change User"/></button>
+                    <button type="button" class="btn-user logout col-xs-4"><img class="pt" src="images/logout.svg" alt="logout"/></button>
+                </div>
+            </div>
+          </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div> 
+
+
+
+
+
+
+<script type="text/javascript">
+
+//Blink Eyes
+function blinkEyes() {
+    if ($("#dog .eyes-open").size()) {
+        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+
+    } else {
+
+        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+    } 
+}
+
+setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+
+
+
+//Sound from beginning
+// $(document).ready(function(){
+//         var audio = new Audio('sound/letsplay.mp3');
+//         setTimeout(function() {
+//             audio.play();
+//         }, 1000);
+//     });
+
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
+      authDomain: "test-91c0f.firebaseapp.com",
+      databaseURL: "https://test-91c0f.firebaseio.com",
+      storageBucket: "test-91c0f.appspot.com",
+      messagingSenderId: "171964898630"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+  </script>
+  <script src="js/all.js"></script>
+  <script>
+    firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
+      setup_coins($("#usercoins .coins"));
+      setup_level($("#level > img"));
+    });
+
+    /*** sound effects ***/
+    // bubble sound on click
+    $("#level img").on('click', play_bubble);
+    $("#theme").on('click', '.slick-current', play_bubble);
+
+    var sound = setup_sound($("footer .sound"));
+    var music = setup_music($("footer .music"));
+  </script>
+
+
+
+  </body>
+</html>

@@ -34,7 +34,8 @@ a:hover {
 /********** body **********/
 
 #select-game, 
-#game {
+#game,
+#home {
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -49,6 +50,17 @@ body {
   background: url("../images/bg.png") repeat #f3f4f4 0px 0px;
 
 }
+
+/********** Home **********/
+
+#logo {
+    margin: 5em 0;
+}
+
+#letsplay img {
+    height: 9.9em;
+}
+
 
 /********** header **********/
 
@@ -227,7 +239,7 @@ button:active {
 }
 
 #figure .object .item {
-    max-width: 70%;
+    max-width: 76%;
     position: relative;
     vertical-align: middle;
     text-align: center;
