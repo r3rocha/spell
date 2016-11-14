@@ -33,7 +33,6 @@
                 this.setup_word_letters(this.word["word"][this.language]);
                 this.setup_guess_box(this.word["word"][this.language]);
                 this.setup_image_box();
-                this.play_word();
             };
 
             Game.prototype.setup_image_box = function() {
