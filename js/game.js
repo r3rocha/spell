@@ -37,7 +37,7 @@
             };
 
             Game.prototype.reset = function() {
-                this.word = this.word = this.pick_word();
+                this.word = this.pick_word();
                 this.$all_letters.html('');
                 this.$guess.html('');
                 this.start_guess();
