@@ -27,6 +27,7 @@
                 this.$all_letters = $all_letters;
                 this.$guess = $guess;
                 this.$object = $object;
+                this._giving_hint = false;
             }
 
             Game.prototype.start_guess = function() {
@@ -96,17 +97,48 @@
                         } else {
                             $(this).addClass("over-wrong");
                         }
-                        // game is finished
-                        var guessed_word = game.$guess.text().replace(/\s/g, '');
-                        if (guessed_word.length === word.length) {
-                            if (guessed_word === word) {
-                                self.win();
-                            } else {
-                                self.lose();
-                            }
-                        }
-
+                        self.check_if_finished();
                     });
+                });
+            };
+
+            Game.prototype.check_if_finished = function () {
+                var guessed_word = this.$guess.text().replace(/\s/g, '');
+                var word = this.word["word"][this.language];
+                if (guessed_word.length === word.length) {
+                    if (guessed_word === word) {
+                        this.win();
+                    } else {
+                        this.lose();
+                    }
+                }
+            };
+
+            Game.prototype.hint = function() {
+                if (this._giving_hint) {
+                    return;
+                }
+                this._giving_hint = true;
+                var $all_visible_letters = this.$all_letters.find("*:visible");
+                var index = Math.floor(Math.random() * $all_visible_letters.size());
+                var $origin = $all_visible_letters.eq(index);
+                var letter = $origin.text();
+                var $destination = this.$guess.find('*[data-expected="' + letter + '"]').not(".over-right").first();
+                var origin_pos = $origin.offset();
+                var destination_pos = $destination.offset();
+                if (!destination_pos || !origin_pos) {
+                    console.log("here")
+                }
+                var destination_coords = {
+                    top: destination_pos.top - origin_pos.top,
+                    left: destination_pos.left - origin_pos.left
+                };
+                var self = this;
+                $origin.css('opacity', '0.5').animate(destination_coords, 1000, function() {
+                    $origin.hide();
+                    $destination.html(letter).addClass("over-right");
+                    self._giving_hint = false;
+                    self.check_if_finished();
                 });
             };
 
@@ -132,4 +164,7 @@
             });
             $(".switch").on('click', function() {
                 game.reset();
+            });
+            $(".hint").on('click', function() {
+                game.hint();
             });
