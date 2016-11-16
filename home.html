@@ -19,19 +19,19 @@
     </header>
     <content id="content">
       <div id="logo" class="row">
-        <img class="col-xs-8 col-xs-offset-2" src="images/logo.svg" alt="Logo"/>
+        <img class="eyes-open col-xs-8 col-xs-offset-2" src="images/logo.svg" alt="Logo"/>
       </div>  
       <div id="letsplay" class="row">
         <div class="col-xs-4 col-xs-offset-4">
-          <a href="#"><img src="images/letsplay.svg" alt="lets play"></a></button>
+          <button type="button"><a href="select-user.html"><img src="images/letsplay.svg" alt="lets play"/></a></button>
         </div>
       </div>
     </content>
     <footer id="footer" class="col-xs-12">
       <center>
         <div class="col-xs-4"></div>
-        <button class="sound col-xs-1"><span> sound</span></button>
-        <button class="music col-xs-1"><span>music</span></button>
+        <button class="sound col-xs-1" type="button"><span> sound</span></button>
+        <button class="music col-xs-1" type="button"><span>music</span></button>
         <button class="about col-xs-1" type="button" data-toggle="modal" data-target="#aboutModal"><span>about</span></button>
         <div class="col-xs-5"></div>
       </center>
@@ -39,7 +39,7 @@
   
 
 
-<!-- User modal -->
+<!-- About modal -->
 <div class="modalbig">
   <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
@@ -54,9 +54,9 @@
                     <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/>
                 </div>
                 <div class="row line2">
-                    <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"></button>
-                    <button type="button" class="btn-about share col-xs-3"><img src="images/share.svg" alt="Share"></button>
-                    <button type="button" class="btn-about contactus col-xs-4"><img class="pt" src="images/contactus.svg" alt="Contact Us"></button>
+                    <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"/></button>
+                    <button type="button" class="btn-about share col-xs-3"><img src="images/share.svg" alt="Share"/></button>
+                    <button type="button" class="btn-about contactus col-xs-4"><img class="pt" src="images/contactus.svg" alt="Contact Us"/></button>
                 </div>
                 <div class="row line3">
                     <div class="a-about rrlogo col-xs-3 col-xs-offset-2"><a href="http://www.renatarocha.com" target="_blank"><img src="images/RRlogo.svg" alt="Leave a review"/></a></div>
@@ -81,12 +81,12 @@
 
 //Blink Eyes
 function blinkEyes() {
-    if ($("#dog .eyes-open").size()) {
-        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+    if ($("#logo .eyes-open").size()) {
+        $(".eyes-open").attr("src","images/logo2.svg").removeClass("eyes-open").addClass("eyes-closed");
 
     } else {
 
-        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+        $(".eyes-closed").attr("src","images/logo.svg").removeClass("eyes-closed").addClass("eyes-open");
     } 
 }
 
@@ -95,36 +95,26 @@ setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,50
 
 
 //Sound from beginning
-// $(document).ready(function(){
-//         var audio = new Audio('sound/letsplay.mp3');
-//         setTimeout(function() {
-//             audio.play();
-//         }, 1000);
-//     });
+$(document).ready(function(){
+        var audio = new Audio('sound/hello.mp3');
+        setTimeout(function() {
+            audio.play();
+        }, 1000);
+    });
 
   </script>
 
-  <!-- <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script> -->
-  <!-- <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
-      authDomain: "test-91c0f.firebaseapp.com",
-      databaseURL: "https://test-91c0f.firebaseio.com",
-      storageBucket: "test-91c0f.appspot.com",
-      messagingSenderId: "171964898630"
-    };
-    firebase.initializeApp(config);
-    var database = firebase.database();
-  </script> -->
   <script src="js/all.js"></script>
-  <!-- <script>
-    firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
-      setup_coins($("#usercoins .coins"));
-      setup_level($("#level > img"));
-    });
+  <script>
 
-  </script> -->
+    /*** sound effects ***/
+    // bubble sound on click
+    $("#letsplay img").on('click', play_bubble);
+    $(".btn-about img").on('click', play_bubble);
+
+    var sound = setup_sound($("footer .sound"));
+    var music = setup_music($("footer .music"));
+  </script>
 
 
 
