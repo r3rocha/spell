@@ -5,8 +5,11 @@ Author: Renata Rocha
 Version: 1.0 - 2016
 */
 
+
 /********* FONTS **********/
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+
 
 /********** button general **********/
 
@@ -35,7 +38,8 @@ a:hover {
 
 #select-game, 
 #game,
-#home {
+#home,
+#select-user {
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -48,7 +52,8 @@ body {
   /*background: -moz-linear-gradient(rgba(243,244,244,1), rgba(255,255,255,1),rgba(243,244,244,1)); /*Fx 3.6-15*/
   /*background: linear-gradient(rgba(243,244,244,1), rgba(255,255,255,1), rgba(243,244,244,1)); /*Standard*/
   background: url("../images/bg.png") repeat #f3f4f4 0px 0px;
-
+  /*font: normal 16px 'Patrick Hands';*/
+  color: #000000;
 }
 
 /********** Home **********/
@@ -65,21 +70,92 @@ body {
     margin: 4em 0 ;
 }
 
-#home .copyright {
-    font: normal 24px 'Patrick Hand', sans-serif;
+
+#home #letsplay img:hover,
+#home #letsplay img:active {
+    transform: scale(1.1,1.1);
+}
+
+/********** About Modal **********/
+
+#aboutModal .copyright {
+    font: normal 2em 'Patrick Hand', sans-serif;
     text-transform: uppercase;
     text-align: center;
 }
 
-#home .line1, 
-#home .line2, 
-#home .line3, 
-#home .line4 {
+#aboutModal .line1, 
+#aboutModal .line2,  
+#aboutModal .line4 {
     margin: 1em 0 2em;
 }
 
-#home .gstlogo {
+#aboutModal .line3 {
+    margin: 3em 0 2em;
+}
+
+
+#aboutModal .gstlogo {
     padding-top: 2em;
+}
+
+#aboutModal .btn-about.review img {
+    transform: scale(0.95);
+}
+
+#aboutModal .btn-about img:hover {
+    transform: scale(1.1,1.1);
+}
+
+#aboutModal .a-about img:hover {
+    transform: scale(1.05,1.05);
+}
+
+
+/********** Select User **********/
+
+    
+#select-user #dog-select {
+
+}
+
+#select-user .add-select {
+    max-height: 575px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#select-user #create-new img {
+    height: 5.4em;
+}
+
+
+
+#select-user .button:hover {
+    transform: scale(1.05);
+}
+
+#select-user #create-new {
+    margin: 18em 0 0;
+}
+
+#old-users .button {
+    background: url(../images/player-bg.svg) transparent no-repeat;
+    display: block;
+    width: 100%;
+    font: normal 2.5em 'Patrick Hand';
+    color: #60C5B7;
+    text-align: left;
+    line-height: 0;
+    margin: 0.3em 0;
+    padding: 0;
+    height: 2.2em;
+}
+
+#old-users .avatar {
+    height: 5.9vh;
+    display: inline-block;
+    padding: 0 0.2em 0 1em;
 }
 
 /********** header **********/
@@ -240,6 +316,22 @@ footer button:active {
 button:active {
     text-decoration: none; 
 } 
+/********** stars **********/
+
+#stars .star {
+    height: 5vh;
+    width: 18%;
+    display: inline-block;
+}
+
+
+#stars .star.on {
+    background: url('../images/star-on.svg') no-repeat transparent;
+}
+
+#stars .star.off {
+    background: url('../images/star-off.svg') no-repeat transparent;
+}
 
 /********** baloon + dog **********/
 .dog-seated {

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spell, the dog | Kids spelling game</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  
+  </head>
+  <body id="select-user" class="grad">
+    <header id="header" class="col-xs-12">
+    </header>
+    <content id="content" class="row">
+      <div id="dog-select" class="col-xs-5 col-xs-offset-1">
+        <img src="images/dog-seluser-open.svg" alt="Dog Spell"/>
+      </div>
+      <div class="add-select col-xs-4 col-xs-offset-1">  
+        <div id="create-new">
+            <button class="button" type="button"><img src="images/player-new-add.svg" alt="create new player"/></button>
+        </div>
+        <div id="old-users">
+            <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button>
+            <button class="button user2" type="button"><img class="avatar" src="images/avatar/10.svg" alt="player"/><span>Arthur</span></button>
+        </div>
+      </div>
+    </content>
+    <footer id="footer" class="col-xs-12">
+      <center>
+        <div class="col-xs-5"></div>
+        <button class="sound col-xs-1"><span> sound</span></button>
+        <button class="music col-xs-1"><span>music</span></button>
+        <button class="about col-xs-1" type="button" data-toggle="modal" data-target="#aboutModal"><span>about</span></button>
+        <div class="col-xs-5"></div>
+      </center>
+    </footer>
+  
+
+
+<!-- About modal -->
+<div class="modalbig">
+  <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content green">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+          <h4 class="modal-title">About</h4>
+        </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/>
+                </div>
+                <div class="row line2">
+                    <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"></button>
+                    <button type="button" class="btn-about share col-xs-3"><img src="images/share.svg" alt="Share"></button>
+                    <button type="button" class="btn-about contactus col-xs-4"><img class="pt" src="images/contactus.svg" alt="Contact Us"></button>
+                </div>
+                <div class="row line3">
+                    <div class="a-about rrlogo col-xs-3 col-xs-offset-2"><a href="http://www.renatarocha.com" target="_blank"><img src="images/RRlogo.svg" alt="Leave a review"/></a></div>
+                    <div class="a-about gstlogo col-xs-7"><a href="http://gst.touro.edu/academics/web-and-multimedia-design.php" target="_blank"><img src="images/GSTlogo.svg" alt="GST"/></a></div>
+                </div>
+                <div class="row line4">
+                    <div class="a-about copyright col-xs-12">© all rights reserved</div>
+                </div>
+            </div>
+          </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div> 
+
+
+
+<!-- Add + create   modal -->
+<div class="modalbig">
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content green">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+          <h4 class="modal-title">About</h4>
+        </div>
+          <div class="modal-body row">
+            <div class="container-fluid bd-example-row">
+                <div class="row line1">
+                    <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/>
+                </div>
+                <div class="row line2">
+                    <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"></button>
+                    <button type="button" class="btn-about share col-xs-3"><img src="images/share.svg" alt="Share"></button>
+                    <button type="button" class="btn-about contactus col-xs-4"><img class="pt" src="images/contactus.svg" alt="Contact Us"></button>
+                </div>
+                <div class="row line3">
+                    <div class="a-about rrlogo col-xs-3 col-xs-offset-2"><a href="http://www.renatarocha.com" target="_blank"><img src="images/RRlogo.svg" alt="Leave a review"/></a></div>
+                    <div class="a-about gstlogo col-xs-7"><a href="http://gst.touro.edu/academics/web-and-multimedia-design.php" target="_blank"><img src="images/GSTlogo.svg" alt="GST"/></a></div>
+                </div>
+                <div class="row line4">
+                    <div class="a-about copyright col-xs-12">© all rights reserved</div>
+                </div>
+            </div>
+          </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div> 
+
+
+
+
+
+
+<script type="text/javascript">
+
+//Blink Eyes
+function blinkEyes() {
+    if ($("#dog .eyes-open").size()) {
+        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+
+    } else {
+
+        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+    } 
+}
+
+setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+
+
+
+  </script>
+
+  <script src="js/all.js"></script>
+  <script>
+
+    /*** sound effects ***/
+    // bubble sound on click
+    $("#letsplay img").on('click', play_bubble);
+    $(".btn-about img").on('click', play_bubble);
+
+    var sound = setup_sound($("footer .sound"));
+    var music = setup_music($("footer .music"));
+  </script>
+
+
+
+  </body>
+</html>
