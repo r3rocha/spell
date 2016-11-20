@@ -84,6 +84,7 @@ Game.prototype.play_word = function() {
     var word_audio = new Audio(this.word["sound"][this.language]);
     word_audio.play();
     this.decrement_star();
+    this.check_if_finished();
 };
 
 Game.prototype.pick_word = function() {
