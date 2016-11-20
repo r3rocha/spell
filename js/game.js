@@ -39,7 +39,12 @@
             };
 
             Game.prototype.reset = function() {
-                this.word = this.pick_word();
+                // avoid resetting to the same word
+                var word = this.pick_word();
+                while (word == this.word) {
+                    word = this.pick_word()
+                }
+                this.word = word;
                 this._reset();
             };
 
