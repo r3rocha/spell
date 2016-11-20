@@ -20,13 +20,14 @@
               return array;
             }
 
-            function Game(theme, language, $all_letters, $guess, $object) {
+            function Game(theme, language, $all_letters, $guess, $object, $stars) {
                 this.theme = theme;
                 this.language = language;
                 this.word = this.pick_word();
                 this.$all_letters = $all_letters;
                 this.$guess = $guess;
                 this.$object = $object;
+                this.$stars = $stars;
                 this._giving_hint = false;
             }
 
@@ -96,6 +97,7 @@
                             $(this).addClass("over-right");
                         } else {
                             $(this).addClass("over-wrong");
+                            self.$stars.find(".on").first().removeClass("on").addClass("off");
                         }
                         self.check_if_finished();
                     });
@@ -111,6 +113,9 @@
                     } else {
                         this.lose();
                     }
+                }
+                if (this.$stars.find(".on").size() === 0) {
+                    this.lose();
                 }
             };
 
@@ -156,7 +161,7 @@
             };
 
 
-            var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"));
+            var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"), $("#stars"));
             game.start_guess();
 
             $(".say").on('click', function() {
