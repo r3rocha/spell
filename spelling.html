@@ -107,7 +107,7 @@
           <div class="modal-body row">
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
-                    <img class="dog-language col-xs-offset-1 col-xs-6" src="images/dog-language.svg" alt="spell"/>
+                    <img class="dog-language col-xs-offset-1 col-xs-6 eyes-open" src="images/dog-language-open.svg" alt="spell"/>
                     <button type="button" class="btn-flag us col-xs-offset-2 col-xs-2"><img src="images/flagbig-us.svg" alt="flag us"/><h6>English</h6></button>
                 </div>
                 <div class="row">
@@ -152,6 +152,20 @@ function blinkEyes() {
 }
 
 setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+
+
+function blinkEyes2() {
+    if ($(".dog-language.eyes-open").size()) {
+        $(".dog-language.eyes-open").attr("src","images/dog-language-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+
+    } else {
+
+        $(".dog-language.eyes-closed").attr("src","images/dog-language-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+    } 
+}
+
+setInterval(blinkEyes2,400); setInterval(blinkEyes2,800); setInterval(blinkEyes2,500);
+
 
 
 
