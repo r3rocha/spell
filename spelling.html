@@ -122,8 +122,23 @@
     </div><!-- /.modal -->
 </div> 
 
+<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
+        authDomain: "test-91c0f.firebaseapp.com",
+        databaseURL: "https://test-91c0f.firebaseio.com",
+        storageBucket: "test-91c0f.appspot.com",
+        messagingSenderId: "171964898630"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+<script src="js/all.js"></script>
 <script type="text/javascript" src="js/dictionary.js"></script>
 <script type="text/javascript" src="js/game.js"></script>
+
 <script type="text/javascript">
     
 function blinkEyes() {
@@ -146,8 +161,9 @@ setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,50
 //             audio.play();
 //         }, 1000);
 //     });
-
-
+firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
+    setup_coins($(".coins"));
+});
 </script>
 
 
