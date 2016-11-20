@@ -210,19 +210,3 @@
             Game.prototype.decrement_star = function() {
                 this.$stars.find(".on").first().removeClass("on").addClass("off");
             };
-
-
-            var game = new Game({
-                theme: "animals",
-                language: "en-us",
-                all_letters: $("#all-letters"),
-                guess: $("#guess"),
-                object: $(".object .item"),
-                stars: $("#stars"),
-
-                repeat_button: $(".repeat"),
-                say_button: $(".say"),
-                switch_button: $(".switch"),
-                hint_button: $(".hint"),
-            });
-            game.start_guess();
