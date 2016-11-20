@@ -299,11 +299,19 @@ footer button:active {
 }
 
 #figure .language button {
-    background: url(../images/flag-us.svg) no-repeat transparent;
     color: transparent;
     width: 5em;
     height: 5em;
 }
+
+#figure .language[data-language="en-us"] {
+    background: url(../images/flag-us.svg) no-repeat transparent;
+}
+
+#figure .language[data-language="es-sp"] {
+    background: url(../images/flag-es.svg) no-repeat transparent;
+}
+
 
 #figure .language button:hover {
     -webkit-transform: rotate(-6deg); /* WebKit */

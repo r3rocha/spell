@@ -178,6 +178,11 @@
                 audio.play();
             };
 
+            Game.prototype.change_language = function(lang) {
+                this.language = lang;
+                this._reset();
+            };
+
 
             var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"), $("#stars"));
             game.start_guess();

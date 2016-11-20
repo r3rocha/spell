@@ -38,7 +38,7 @@
 		<div id="figure">
 			<img class="dog-seated eyes-open col-xs-2" src="images/dog-seated-open.svg" alt="spell "/>
             <div class="object col-xs-4"><center><img class="item"/></center></div>
-			<div class="language col-xs-1"><button type="button" data-toggle="modal" data-target="#idiomModal">language</button></div>
+			<div class="language col-xs-1" data-language="en-us"><button type="button" data-toggle="modal" data-target="#idiomModal">language</button></div>
 			
 		</div>
 
@@ -168,6 +168,15 @@ firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass
 var sound = setup_sound($("footer .sound"));
 var music = setup_music($("footer .music"));
 
+function change_language(lang) {
+    return function () {
+        game.change_language(lang);
+        $("#idiomModal").modal("hide");
+        $("#figure .language").attr("data-language", lang)
+    };
+}
+$(".btn-flag.es").on('click', change_language("es-sp"));
+$(".btn-flag.us").on('click', change_language("en-us"));
 </script>
 
 
