@@ -130,7 +130,7 @@
                             $(this).addClass("over-right");
                         } else {
                             $(this).addClass("over-wrong");
-                            self.$stars.find(".on").first().removeClass("on").addClass("off");
+                            self.decrement_star();
                         }
                         self.check_if_finished();
                     });
@@ -161,6 +161,7 @@
                     return;
                 }
                 this._giving_hint = true;
+                this.decrement_star();
                 var $all_visible_letters = this.$all_letters.find("*:visible");
                 var index = Math.floor(Math.random() * $all_visible_letters.size());
                 var $origin = $all_visible_letters.eq(index);
@@ -204,6 +205,10 @@
             Game.prototype.change_language = function(lang) {
                 this.language = lang;
                 this._reset();
+            };
+
+            Game.prototype.decrement_star = function() {
+                this.$stars.find(".on").first().removeClass("on").addClass("off");
             };
 
 
