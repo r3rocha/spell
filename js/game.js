@@ -20,14 +20,14 @@
               return array;
             }
 
-            function Game(theme, language, $all_letters, $guess, $object, $stars) {
-                this.theme = theme;
-                this.language = language;
+            function Game(options) {
+                this.theme = options.theme;
+                this.language = options.language;
+                this.$all_letters = options.all_letters;
+                this.$guess = options.guess;
+                this.$object = options.object;
+                this.$stars = options.stars;
                 this.word = this.pick_word();
-                this.$all_letters = $all_letters;
-                this.$guess = $guess;
-                this.$object = $object;
-                this.$stars = $stars;
                 this._giving_hint = false;
             }
 
@@ -184,7 +184,14 @@
             };
 
 
-            var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"), $("#stars"));
+            var game = new Game({
+                theme: "animals",
+                language: "en-us",
+                all_letters: $("#all-letters"),
+                guess: $("#guess"),
+                object: $(".object .item"),
+                stars: $("#stars"),
+            });
             game.start_guess();
 
             $(".repeat").on('click', function() {
