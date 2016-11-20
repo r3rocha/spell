@@ -164,6 +164,10 @@ setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,50
 firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
     setup_coins($(".coins"));
 });
+
+var sound = setup_sound($("footer .sound"));
+var music = setup_music($("footer .music"));
+
 </script>
 
 
