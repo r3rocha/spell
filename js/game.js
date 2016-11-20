@@ -81,7 +81,6 @@
                 this.$object.attr("src", this.word["image"]).attr("alt", this.word["alt"]);
             };
             Game.prototype.play_word = function() {
-                // TODO: only if sound is ON
                 var word_audio = new Audio(this.word["sound"][this.language]);
                 word_audio.play();
                 this.decrement_star();
