@@ -35,10 +35,15 @@
                 this.setup_word_letters(this.word["word"][this.language]);
                 this.setup_guess_box(this.word["word"][this.language]);
                 this.setup_image_box();
+                this.setup_coins();
             };
 
             Game.prototype.reset = function() {
                 this.word = this.pick_word();
+                this._reset();
+            };
+
+            Game.prototype._reset = function() {
                 this.$all_letters.html('');
                 this.$guess.html('');
                 this.start_guess();
@@ -104,6 +109,10 @@
                 });
             };
 
+            Game.prototype.setup_coins = function() {
+                this.$stars.find(".star").removeClass("off").addClass("on");
+            };
+
             Game.prototype.check_if_finished = function () {
                 var guessed_word = this.$guess.text().replace(/\s/g, '');
                 var word = this.word["word"][this.language];
@@ -147,6 +156,10 @@
                 });
             };
 
+            Game.prototype.repeat = function() {
+                this._reset(this.word);
+            };
+
             Game.prototype.win = function() {
                 console.log("win");
                 var audio = new Audio("sound/effects/win.mp3");
@@ -164,6 +177,9 @@
             var game = new Game("animals", "en-us", $("#all-letters"), $("#guess"), $(".object .item"), $("#stars"));
             game.start_guess();
 
+            $(".repeat").on('click', function() {
+                game.repeat();
+            });
             $(".say").on('click', function() {
                 game.play_word();
             });
