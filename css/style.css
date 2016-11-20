@@ -299,11 +299,19 @@ footer button:active {
 }
 
 #figure .language button {
-    background: url(../images/flag-us.svg) no-repeat transparent;
     color: transparent;
     width: 5em;
     height: 5em;
 }
+
+#figure .language[data-language="en-us"] {
+    background: url(../images/flag-us.svg) no-repeat transparent;
+}
+
+#figure .language[data-language="es-sp"] {
+    background: url(../images/flag-es.svg) no-repeat transparent;
+}
+
 
 #figure .language button:hover {
     -webkit-transform: rotate(-6deg); /* WebKit */
@@ -375,6 +383,12 @@ button:active {
     background: url(../images/letter-blue.svg) no-repeat transparent;
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+}
+
+#all-letters .letter:active {
+    transform: scale(0.9);
 }
 
 #guess .letter {
@@ -382,6 +396,7 @@ button:active {
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
     margin-left: 0.3em;
+    z-index: 1;
 }
 
 #guess {
