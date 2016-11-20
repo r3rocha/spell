@@ -27,9 +27,32 @@
                 this.$guess = options.guess;
                 this.$object = options.object;
                 this.$stars = options.stars;
+
+                this.$repeat_button = options.repeat_button
+                this.$say_button = options.say_button
+                this.$switch_button = options.switch_button
+                this.$hint_button = options.hint_button
                 this.word = this.pick_word();
+
                 this._giving_hint = false;
+                this._bind_buttons();
             }
+
+            Game.prototype._bind_buttons = function() {
+                var self = this;
+                this.$repeat_button.on('click', function() {
+                    self.repeat();
+                });
+                this.$say_button.on('click', function() {
+                    self.play_word();
+                });
+                this.$switch_button.on('click', function() {
+                    self.reset();
+                });
+                this.$hint_button.on('click', function() {
+                    self.hint();
+                });
+            };
 
             Game.prototype.start_guess = function() {
                 this.setup_word_letters(this.word["word"][this.language]);
@@ -191,18 +214,10 @@
                 guess: $("#guess"),
                 object: $(".object .item"),
                 stars: $("#stars"),
+
+                repeat_button: $(".repeat"),
+                say_button: $(".say"),
+                switch_button: $(".switch"),
+                hint_button: $(".hint"),
             });
             game.start_guess();
-
-            $(".repeat").on('click', function() {
-                game.repeat();
-            });
-            $(".say").on('click', function() {
-                game.play_word();
-            });
-            $(".switch").on('click', function() {
-                game.reset();
-            });
-            $(".hint").on('click', function() {
-                game.hint();
-            });
