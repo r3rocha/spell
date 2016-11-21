@@ -34,6 +34,13 @@ a {
 a:hover {
     color: transparent;
 }
+
+input:focus {
+    outline: none;
+}
+
+
+
 /********** body **********/
 
 #select-game, 
@@ -157,6 +164,57 @@ body {
     display: inline-block;
     padding: 0 0.2em 0 1em;
 }
+
+
+/********** add user modal **********/
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255,255,255,0.8);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255,255,255,0.8);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255,255,255,0.8);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(255,255,255,0.8);
+}
+
+
+
+#adduser input {
+    background: url(../images/player-field.svg) no-repeat transparent center center;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    height: 2em;
+    width: 100%;
+    font: normal 60px 'Patrick Hand', sans-serif;
+    line-height: 0;
+    text-indent: 6%;
+}
+
+#adduser #letsplay {
+    position: relative;
+    clear: both;
+    margin: 2em 0;
+}
+
+#adduser #letsplay button {
+    height: 7em;
+    width: 100%;
+}
+
+#adduser .line1 {
+    padding-top: 1em;
+}
+
+
+#adduser .line4 {
+    padding-bottom: 1em;
+}
+
 
 /********** header **********/
 
@@ -299,19 +357,11 @@ footer button:active {
 }
 
 #figure .language button {
+    background: url(../images/flag-us.svg) no-repeat transparent;
     color: transparent;
     width: 5em;
     height: 5em;
 }
-
-#figure .language[data-language="en-us"] {
-    background: url(../images/flag-us.svg) no-repeat transparent;
-}
-
-#figure .language[data-language="es-sp"] {
-    background: url(../images/flag-es.svg) no-repeat transparent;
-}
-
 
 #figure .language button:hover {
     -webkit-transform: rotate(-6deg); /* WebKit */
@@ -383,12 +433,6 @@ button:active {
     background: url(../images/letter-blue.svg) no-repeat transparent;
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
-    position: relative;
-    z-index: 10;
-}
-
-#all-letters .letter:active {
-    transform: scale(0.9);
 }
 
 #guess .letter {
@@ -396,7 +440,6 @@ button:active {
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
     margin-left: 0.3em;
-    z-index: 1;
 }
 
 #guess {
@@ -414,6 +457,200 @@ button:active {
 #guess .letter.over-wrong {
     background: url(../images/letter-red.svg) no-repeat transparent;
 }
+
+/********** Modal Win **********/
+
+.modalwin .modal {
+    top: 0;
+    background: url(../images/win-baloon.svg) no-repeat transparent center 112px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.modalwin .modal-dialog {
+    width: 100%;
+    margin: 72px auto 0px;
+    top: -80px;
+}
+
+
+.modalwin .winbg {
+    border: none;
+    background-clip: initial;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.modalwin .modal-header {
+    padding: 0;
+    border-bottom: none;
+} 
+
+.modalwin .modal-title {
+    position: absolute;
+    width: 50%;
+    left: 70px;
+    top: 16px;
+}
+
+
+.modalwin .container-fluid {
+    top: 22em;
+    position: relative;
+    width: 92%;
+}
+
+.modalwin .modal-body {
+    position: relative;
+    padding: 0 40px;
+}
+
+
+.modalwin #win-all-letters .win-letter {
+    background: url(../images/letter-green.svg) no-repeat transparent center center;
+    font: normal 3em 'Patrick Hand';
+    text-transform: uppercase;
+    display: inline-block;
+    width: 11%;
+    line-height: 2;
+    vertical-align: middle;
+    margin-right: 0.5%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.modalwin #win-result {
+    background: url(../images/win-coins-bg.svg) no-repeat transparent center center;
+    font: normal 5.4em 'Patrick Hand';
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 2;
+    text-align: center;
+    color: #ffffff;
+}
+
+.modalwin #win-result .col-xs-1,
+.modalwin #win-result .col-xs-2,
+.modalwin #win-result .col-xs-3 {
+    padding: 0;
+    margin: 0 1%;
+}
+
+/********** Modal Try again **********/
+
+
+.modaltry .modal {
+    top: 0;
+    background: url(../images/tryagain-baloon.svg) no-repeat transparent center 112px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.modaltry .modal-dialog {
+    width: 100%;
+    margin: 72px auto 0px;
+    top: -80px;
+}
+
+
+.modaltry .trybg {
+    border: none;
+    background-clip: initial;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.modaltry .modal-header {
+    padding: 0;
+    border-bottom: none;
+} 
+
+.modaltry .modal-title {
+    position: absolute;
+    width: 47%;
+    left: 121px;
+    top: 12px;
+}
+
+.modaltry .container-fluid {
+    top: 24em;
+    position: relative;
+    width: 96%;
+}
+
+.modaltry .modal-body {
+    position: relative;
+    padding: 0 40px;
+}
+
+
+.modaltry span.takehint {
+    font: normal 3em 'Patrick Hand', sans-serif;
+    color: #000000;
+    line-height: 1.8;
+}
+
+
+.modaltry #try-all-letters .try-letter {
+    background: url(../images/letter-green.svg) no-repeat transparent center center;
+    font: normal 3em 'Patrick Hand';
+    text-transform: uppercase;
+    display: inline-block;
+    width: 11%;
+    line-height: 2;
+    vertical-align: middle;
+    margin-right: 0.5%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.modaltry .modal-btn {
+    margin-top: 6%;
+}
+
+
+/********** Modal Win & Try again buttons **********/
+
+
+.modal-btn button span {
+    background: url("../images/icons.png") no-repeat transparent;
+    color: transparent;
+    height: 54px;
+    display: block;
+    width: 68px;
+    margin: 0;
+}
+
+.modal-btn button span:hover {
+    transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg); /* WebKit */
+    -moz-transform: rotate(-4deg); /* Mozilla */
+    -o-transform: rotate(-4deg); /* Opera */
+    -ms-transform: rotate(-4deg); /* Internet Explorer */
+}
+
+.modal-btn .home,
+.modal-btn .repeat,
+.modal-btn .switch {
+    padding: 0;
+}
+
+
+.modal-btn .home span {
+    background-position: -138px 0px;
+}
+
+.modal-btn .repeat span {
+    background-position: -208px 0px;
+}
+
+
+.modal-btn .next span {
+    background-position: -563px 0px;
+}
+
 
 /********** Modal BIG **********/
 
@@ -550,9 +787,6 @@ button:active {
 #idiomModal .btn-flag.us {
     margin: 9em 0 0 18.3%;
 }
-
-
-
 
 
 #idiomModal img.pt {
