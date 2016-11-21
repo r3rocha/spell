@@ -80,6 +80,8 @@ body {
 
 #home #letsplay img:hover,
 #home #letsplay img:active {
+    -ms-transform: scale(1.1,1.1); /* IE 9 */
+    -webkit-transform: scale(1.1,1.1); /* Safari */
     transform: scale(1.1,1.1);
 }
 
@@ -107,14 +109,20 @@ body {
 }
 
 #aboutModal .btn-about.review img {
+    -ms-transform: scale(0.95); /* IE 9 */
+    -webkit-transform: scale(0.95); /* Safari */
     transform: scale(0.95);
 }
 
 #aboutModal .btn-about img:hover {
+    -ms-transform: scale(1.1,1.1); /* IE 9 */
+    -webkit-transform: scale(1.1,1.1); /* Safari */
     transform: scale(1.1,1.1);
 }
 
 #aboutModal .a-about img:hover {
+    -ms-transform: scale(1.05,1.05); /* IE 9 */
+    -webkit-transform: scale(1.05,1.05); /* Safari */
     transform: scale(1.05,1.05);
 }
 
@@ -139,6 +147,8 @@ body {
 
 
 #select-user .button:hover {
+    -ms-transform: scale(1.05,1.05); /* IE 9 */
+    -webkit-transform: scale(1.05,1.05); /* Safari */
     transform: scale(1.05);
 }
 
@@ -183,7 +193,8 @@ body {
 
 
 
-#adduser input {
+#adduser input,
+#forgotpass input {
     background: url(../images/player-field.svg) no-repeat transparent center center;
     border: none;
     color: #ffffff;
@@ -211,10 +222,30 @@ body {
 }
 
 
+#adduser #letsplay img:hover {
+    -ms-transform: matrix(1.05, 0, 0, 1.05, 0, 0) rotate(5deg);
+    -webkit-transform: matrix(1.05, 0, 0, 1.05, 0, 0) rotate(5deg);
+    transform: matrix(1.05, 0, 0, 1.05, 0, 0) rotate(5deg);
+}
+
 #adduser .line4 {
     padding-bottom: 1em;
 }
 
+.btn-adduser {
+    margin-top: 2%;
+}
+
+.btn-adduser:hover {
+    -ms-transform: scale(1.05,1.05); /* IE 9 */
+    -webkit-transform: scale(1.05,1.05); /* Safari */
+    transform: scale(1.05);
+}
+
+#forgotpass #next button {
+    height: auto;
+    width: 100%;
+}
 
 /********** header **********/
 
@@ -289,9 +320,7 @@ height: 5em;
 }
 
 #theme img {
-    -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
-    -o-transform: scale(0.8);
     -webkit-transform: scale(0.8);
     opacity: 0.5;
     transform: scale(0.8);
@@ -303,19 +332,11 @@ height: 5em;
 }
 
 #theme .slick-center img{
-    -moz-transform: scale(1.0);
     -ms-transform: scale(1.0);
-    -o-transform: scale(1.0);
     -webkit-transform: scale(1.0);
     opacity: 1;
     transform: scale(1.0);
 }
-
-/*#theme img:hover {
-    -ms-transform: scale(1.2,1.2);
-    -webkit-transform: scale(1.2,1.2);
-    transform: scale(1.2,1.2);
-}*/
 
 
 #theme .navigation img:hover {
@@ -748,10 +769,8 @@ button:active {
 
 #userModal .btn-user img:hover,
 #userModal .user-status img:hover {
-    -webkit-transform: scale(1.1,1.1); /* WebKit */
-    -moz-transform: scale(1.1,1.1); /* Mozilla */
-    -o-transform: scale(1.1,1.1); /* Opera */
-    -ms-transform: scale(1.1,1.1); /* Internet Explorer */
+    -ms-transform: scale(1.1,1.1); /* IE 9 */
+    -webkit-transform: scale(1.1,1.1); /* Safari */
     transform: scale(1.1,1.1); /* CSS3 */
 }
 
@@ -776,10 +795,8 @@ button:active {
 }
 
 #idiomModal .btn-flag img:hover {
-    -webkit-transform: scale(1.1,1.1); /* WebKit */
-    -moz-transform: scale(1.1,1.1); /* Mozilla */
-    -o-transform: scale(1.1,1.1); /* Opera */
-    -ms-transform: scale(1.1,1.1); /* Internet Explorer */
+    -ms-transform: scale(1.1,1.1); /* IE 9 */
+    -webkit-transform: scale(1.1,1.1); /* Safari */
     transform: scale(1.1,1.1); /* CSS3 */
 }
 

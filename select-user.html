@@ -5,11 +5,12 @@
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   
@@ -18,12 +19,12 @@
     <header id="header" class="col-xs-12">
     </header>
     <content id="content" class="row">
-      <div id="dog-select" class="col-xs-5 col-xs-offset-1">
-        <img src="images/dog-seluser-open.svg" alt="Dog Spell"/>
+      <div id="dog-select" class="col-xs-5 col-xs-offset-1 ">
+        <img class="eyes-open" src="images/dog-seluser-open.svg" alt="Dog Spell"/>
       </div>
       <div class="add-select col-xs-4 col-xs-offset-1">  
         <div id="create-new">
-            <button class="button" type="button"><img src="images/player-new-add.svg" alt="create new player"/></button>
+            <button class="button" type="button" data-toggle="modal" data-target="#addModal"><img src="images/player-new-add.svg" alt="create new player"/></button>
         </div>
         <div id="old-users">
             <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button>
@@ -81,35 +82,82 @@
 <!-- Add + create   modal -->
 <div class="modalbig">
   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content green">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-          <h4 class="modal-title">About</h4>
-        </div>
-          <div class="modal-body row">
-            <div class="container-fluid bd-example-row">
-                <div class="row line1">
-                    <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/>
+
+      <div class="modal-dialog" role="document">
+        <div class="user-addlogin-modal">
+            <div class="modal-content green">
+              
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                    <h4 class="modal-title adduser">Add User</h4>
+                    <h4 class="modal-title wrong-pass hide">Wrong Password</h4>
+                    <h4 class="modal-title forgot-pass hide">Forgot password?</h4>
+                    <h4 class="modal-title remember-seccode hide">Remember secret code</h4>
+                    <h4 class="modal-title pass-recover hide">Password</h4>
                 </div>
-                <div class="row line2">
-                    <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"></button>
-                    <button type="button" class="btn-about share col-xs-3"><img src="images/share.svg" alt="Share"></button>
-                    <button type="button" class="btn-about contactus col-xs-4"><img class="pt" src="images/contactus.svg" alt="Contact Us"></button>
-                </div>
-                <div class="row line3">
-                    <div class="a-about rrlogo col-xs-3 col-xs-offset-2"><a href="http://www.renatarocha.com" target="_blank"><img src="images/RRlogo.svg" alt="Leave a review"/></a></div>
-                    <div class="a-about gstlogo col-xs-7"><a href="http://gst.touro.edu/academics/web-and-multimedia-design.php" target="_blank"><img src="images/GSTlogo.svg" alt="GST"/></a></div>
-                </div>
-                <div class="row line4">
-                    <div class="a-about copyright col-xs-12">© all rights reserved</div>
-                </div>
+                    
+                <div class="modal-body row">
+                      <!-- Login form -->
+                    <div id="adduser" class="container-fluid bd-example-row modal-container">
+                        <form>
+                            <div class="row line1">
+                                <div class="form-username col-xs-offset-2 col-xs-8">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div class="row line2 col-xs-offset-2 col-xs-8">                       
+                                <div class="form-pass">
+                                    <input type="password" placeholder="password" id="password" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div id="letsplay" class="row line3">
+                                <div class="col-xs-4 col-xs-offset-4">
+                                    <button type="submit"><img src="images/letsplay.svg" alt="lets play"/></button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row line4 col-xs-8 col-xs-offset-2">
+                            <button type="button" class="btn-adduser forgot-pass col-xs-6"><img src="images/forgot-pass.svg" alt="Forgot Password"></button>
+                            <button type="button" class="btn-adduser create-new col-xs-6"><img src="images/create-new.svg" alt="Create New User"></button>
+                        </div>
+                    </div>
+                    <!-- end of Login form container -->
+                  
+                    <!-- Wrong Pass -->
+                    <div id="wrongpass" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-wrongpass col-xs-offset-1 col-xs-5" src="images/dog-wrongpass.svg" alt="spell"/>
+                            <div class="user-wrongpass col-xs-offset-1 col-xs-5">
+                                <button type="button" class="btn-adduser try-again col-xs-12"><img src="images/try-again.svg" alt="Try Again"></button>
+                                <button type="button" class="btn-adduser forgot-pass col-xs-9 col-xs-offset-1"><img src="images/forgot-pass.svg" alt="Forgot Password"></button>
+                                <button type="button" class="btn-adduser create-new col-xs-9 col-xs-offset-1"><img src="images/create-new.svg" alt="Create New User"></button>
+                            </div> 
+                        </div>
+                    </div>
+                    <!-- end of Wrong Pass container -->
+
+                    <!-- Forgot Pass Pass -->
+                    <div id="forgotpass" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-wrongpass col-xs-offset-1 col-xs-5" src="images/dog-tellusername.svg" alt="spell"/>
+                            <form class="col-xs-6">
+                                <div class="form-username col-xs-12">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                    <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end of Wrong Pass container -->
+
+                </div><!-- end modal-body -->
             </div>
-          </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-</div> 
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -120,16 +168,24 @@
 
 //Blink Eyes
 function blinkEyes() {
-    if ($("#dog .eyes-open").size()) {
-        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+    if ($("#dog-select .eyes-open").size()) {
+        $(".eyes-open").attr("src","images/dog-seluser-close.svg").removeClass("eyes-open").addClass("eyes-closed");
 
     } else {
 
-        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
+        $(".eyes-closed").attr("src","images/dog-seluser-open.svg").removeClass("eyes-closed").addClass("eyes-open");
     } 
 }
 
 setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+
+
+//show wrong pass
+$(".forgot-pass").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.forgot-pass, #forgotpass").removeClass("hide");
+});
+
 
 
 
