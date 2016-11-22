@@ -194,7 +194,10 @@ body {
 
 
 #adduser input,
-#forgotpass input {
+#forgotpass input,
+#pass-recover input,
+#create-user input,
+#user-taken input {
     background: url(../images/player-field.svg) no-repeat transparent center center;
     border: none;
     color: #ffffff;
@@ -242,9 +245,48 @@ body {
     transform: scale(1.05);
 }
 
-#forgotpass #next button {
+#forgotpass #next button,
+#remember-seccode #next button, 
+#pass-recover #next button,
+#create-user #next button,
+#user-taken #back button,
+#create-seccode #next button,
+#select-avatar #next button,
+#change-avatar #next button {
     height: auto;
     width: 100%;
+}
+
+
+#remember-seccode .line2 span.col-xs-4,
+#create-seccode .line2 span.col-xs-4,
+#select-avatar .line2 span.col-xs-2,
+#change-avatar .line2 span.col-xs-2 {
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+}
+
+#remember-seccode .line2 img:hover,
+#create-seccode .line2 img:hover,
+#select-avatar .line2 img:hover,
+#change-avatar .line2 img:hover {
+    -ms-transform: scale(1.05,1.05); /* IE 9 */
+    -webkit-transform: scale(1.05,1.05); /* Safari */
+    transform: scale(1.05);
+}
+
+#remember-seccode .line2 h6,
+#create-seccode .line2 h6 {
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+}
+
+
+#create-user h6 {
+    text-align: center;
+    margin-top: 1%;
 }
 
 /********** header **********/
@@ -896,3 +938,119 @@ button:active {
 #footer .about span {
     background-position: -493px 0px;
 }
+
+
+
+
+
+/**************************/
+/******** dogs SVG ********/
+/**************************/
+
+
+
+
+  /******** Steps ********/
+
+  g#step1 {
+      position: relative;
+      animation-name: stepa;
+      animation-duration: 5s;
+      animation-timing-function: step-end;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      transform-origin: 0% 0%;
+  }
+  /* Standard syntax */
+  @keyframes stepa {
+      0%   {opacity:0; left:0px;}
+      25% {opacity:1; right: :0px;}
+      50% {opacity:1; right:20px !important;}
+      75% {opacity:1; right:20px !important;}
+      100% {opacity:1; right:20px !important;}
+  }
+
+
+  g#step2_1_ {
+      position: relative;
+      animation-name: stepb;
+      animation-duration: 5s;
+      animation-timing-function: step-end;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      transform-origin: 0% 0%;
+  }
+  /* Standard syntax */
+  @keyframes stepb {
+      0%   {opacity:0; left:0px;}
+      25% {opacity:0; right: :0px;}
+      50% {opacity:1; right:20px !important;}
+      75% {opacity:1; right:20px !important;}
+      100% {opacity:1; right:20px !important;}
+  }
+
+  g#step3 {
+      position: relative;
+      animation-name: stepc;
+      animation-duration: 5s;
+      animation-timing-function: step-end;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      transform-origin: 0% 0%;
+  }
+  /* Standard syntax */
+  @keyframes stepc {
+      0%   {opacity:0; left:0px;}
+      25% {opacity:0; right: :0px;}
+      50% {opacity:0; right:20px !important;}
+      75% {opacity:1; right:20px !important;}
+      100% {opacity:1; right:20px !important;}
+  }
+
+  /******** Eyes ********/
+
+  g#eyeclose {
+      position: relative;
+      animation-name: eyeclose;
+      animation-duration: 0.7s;
+      animation-timing-function: step-start;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      transform-origin: 0% 0%;
+  }
+
+  /* Standard syntax */
+  @keyframes eyeclose {
+      0%   {opacity: 0;}
+      25% {opacity: 1;}
+      50% {opacity: 1;}
+      75% {opacity: 0;}
+      100% {opacity: 1;}
+  }
+
+  /******** tail ********/
+
+  path#tail {
+
+      position: relative;
+      animation-name: tail;
+      animation-duration: 0.1s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      transform-origin: 100% 20%;
+  }
+
+  /* Standard syntax */
+  @keyframes tail {
+      0%   {transform: matrix(1, 0, 0, 1, 2, 1)rotate(-2deg);}
+      25% {transform: matrix(1, 0, 0, 1, 2, 1)rotate(-4deg);}
+      50% {transform: matrix(1, 0, 0, 1, 2, 1)rotate(-6deg);}
+      75% {transform: matrix(1, 0, 0, 1, 2, 1)rotate(-8deg);}
+      100% {transform: matrix(1, 0, 0, 1, 2, 1)rotate(-10deg);}
+  }

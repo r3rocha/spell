@@ -4,14 +4,14 @@
     <title>Spell, the dog | Kids spelling game</title>
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   
   </head>
@@ -93,11 +93,15 @@
                     <h4 class="modal-title wrong-pass hide">Wrong Password</h4>
                     <h4 class="modal-title forgot-pass hide">Forgot password?</h4>
                     <h4 class="modal-title remember-seccode hide">Remember secret code</h4>
-                    <h4 class="modal-title pass-recover hide">Password</h4>
+                    <h4 class="modal-title pass-recover hide">Your Password is..</h4>
+                    <h4 class="modal-title create-user hide">Create the user</h4>
+                    <h4 class="modal-title user-taken hide">Username already taken</h4>
+                    <h4 class="modal-title create-seccode hide">Create Secret code</h4>
+                    <h4 class="modal-title select-avatar hide">Select your avatar</h4>
                 </div>
                     
                 <div class="modal-body row">
-                      <!-- Login form -->
+                    <!-- Login form -->
                     <div id="adduser" class="container-fluid bd-example-row modal-container">
                         <form>
                             <div class="row line1">
@@ -146,11 +150,183 @@
                                 </div>
                                 <div id="next" class="col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                                    <span class="toseccode">remember-seccode</span>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- end of Wrong Pass container -->
+                    <!-- end of Forgot Pass container -->
+                    <!-- Remember sec code -->
+                    <div id="remember-seccode" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <svg id="svg-dog-RemSecCode" class="dog-RemSecCode col-xs-offset-2 col-xs-8"></svg>
+                        </div>
+                        <div class="row line2">                       
+                            <div class="RemSecCode-fruit col-xs-4">
+                                <h6>Pick your favorite fruit</h6>
+                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg"></span>
+                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg"></span>
+                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg"></span>
+                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg"></span>
+                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg"></span>
+                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg"></span>
+                            </div>
+                            <div class="RemSecCode-animal col-xs-4">
+                                <h6>Pick your favorite animal</h6>
+                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg"></span>
+                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg"></span>
+                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg"></span>
+                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg"></span>
+                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg"></span>
+                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg"></span>
+                            </div>
+                            <div class="RemSecCode-color col-xs-4">
+                                <h6>Pick your favorite color</h6>
+                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg"></span>
+                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg"></span>
+                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg"></span>
+                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg"></span>
+                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg"></span>
+                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg"></span>
+                            </div>    
+                        </div>
+                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                            <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                            <span class="toyourpass">yourpass</span>
+                        </div>
+                    </div>
+                    <!-- end of Remember sec code form container -->
+                    <!-- Your Pass -->
+                    <div id="pass-recover" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-correctpass col-xs-offset-1 col-xs-5" src="images/dog-correctpass.svg" alt="spell"/>
+                            <form class="col-xs-6">
+                                <div class="form-username col-xs-12">
+                                    <input type="text" placeholder="username" id="yourusername" autocomplete="off"/>
+                                    <input type="text" placeholder="password" id="yourpassword" autocomplete="off"/>
+                                </div>
+                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                    <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                                    <span class="toadduser">toadduser</span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end of Your Pass container -->
+                    <!-- Create User & Pass -->
+                    <div id="create-user" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-createuser col-xs-offset-1 col-xs-5" src="images/dog-createuser.svg" alt="spell"/>
+                            <form class="col-xs-6">
+                                <div class="form-username col-xs-12">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+                                <div class="form-pass">
+                                    <input type="password" placeholder="password" id="password" autocomplete="off"/>
+                                </div>
+                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                    <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                                </div>
+                            </form>
+                            <span class="instruction col-xs-6"><h6>*your username or password must be at least 6 characteres long</h6></span>
+                            <br/>
+                            <span class="tousertaken">usertaken</span>
+                            <span class="tocreatesc">create Secret Code</span>
+                        </div>
+                    </div>
+                    <!-- end of Create User container -->
+                    <!-- User taken -->
+                    <div id="user-taken" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-usertaken col-xs-offset-1 col-xs-5" src="images/dog-usertaken.svg" alt="spell"/>
+                            <form class="col-xs-6">
+                                <div class="form-username-option one col-xs-12">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+                                <div class="form-username-option two col-xs-12">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+                                <div class="form-username-option three col-xs-12">
+                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
+                                </div>
+
+                                <div id="back" class="col-xs-offset-3 col-xs-5">
+                                    <button type="button"><img src="images/back.svg" alt="back"/></button>
+                                </div>
+                            </form>
+                            <br/>
+                            <span class="tousertaken">usertaken</span>
+                            <span class="tocreatesc">create Secret Code</span>
+                        </div>
+                    </div>
+                    <!-- end of Forgot Pass container -->
+                    <!-- Create sec code -->
+                    <div id="create-seccode" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <!-- <svg id="svg-dog-CreateSecCode" class="dog-CreateSecCode col-xs-offset-2 col-xs-8"></svg> -->
+                            <img class="dog-CreateSecCode col-xs-offset-1 col-xs-5" src="images/dog-CreateSecCode.svg" alt="spell"/>
+                        </div>
+                        <div class="row line2">                       
+                            <div class="CreateSecCode-fruit col-xs-4">
+                                <h6>Pick your favorite fruit</h6>
+                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg"></span>
+                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg"></span>
+                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg"></span>
+                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg"></span>
+                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg"></span>
+                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg"></span>
+                            </div>
+                            <div class="CreateSecCode-animal col-xs-4">
+                                <h6>Pick your favorite animal</h6>
+                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg"></span>
+                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg"></span>
+                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg"></span>
+                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg"></span>
+                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg"></span>
+                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg"></span>
+                            </div>
+                            <div class="CreateSecCode-color col-xs-4">
+                                <h6>Pick your favorite color</h6>
+                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg"></span>
+                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg"></span>
+                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg"></span>
+                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg"></span>
+                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg"></span>
+                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg"></span>
+                            </div>    
+                        </div>
+                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                            <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                            <span class="toselect-avatar">Select avatar</span>
+                        </div>
+                    </div>
+                    <!-- end of create sec code form container -->
+                    <!-- Create Avatar -->
+                    <div id="select-avatar" class="container-fluid bd-example-row modal-container hide">
+                        <div class="row line1">
+                            <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/>
+                        </div>
+                        <div class="row line2">                       
+                            <div class="select-avatar col-xs-12">
+                                <span class="avatar one col-xs-2"><img src="images/avatar/01.svg"></span>
+                                <span class="avatar two col-xs-2"><img src="images/avatar/02.svg"></span>
+                                <span class="avatar three col-xs-2"><img src="images/avatar/03.svg"></span>
+                                <span class="avatar four col-xs-2"><img src="images/avatar/04.svg"></span>
+                                <span class="avatar five col-xs-2"><img src="images/avatar/05.svg"></span>
+                                <span class="avatar six col-xs-2"><img src="images/avatar/06.svg"></span>
+                                <span class="avatar seven col-xs-2"><img src="images/avatar/07.svg"></span>
+                                <span class="avatar eight col-xs-2"><img src="images/avatar/08.svg"></span>
+                                <span class="avatar nine col-xs-2"><img src="images/avatar/09.svg"></span>
+                                <span class="avatar ten col-xs-2"><img src="images/avatar/10.svg"></span>
+                                <span class="avatar eleven col-xs-2"><img src="images/avatar/11.svg"></span>
+                                <span class="avatar twelve col-xs-2"><img src="images/avatar/12.svg"></span>
+                            </div>
+                        </div>
+                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                            <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                        </div>
+                    </div>
+                    <!-- end of create Avatar form container -->
 
                 </div><!-- end modal-body -->
             </div>
@@ -180,10 +356,67 @@ function blinkEyes() {
 setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
 
 
-//show wrong pass
+//show forgot pass 
 $(".forgot-pass").on('click', function(){
     $(".modal-title, .modal-container").addClass("hide");
     $("h4.forgot-pass, #forgotpass").removeClass("hide");
+});
+
+//show remember sec code 
+$(".toseccode").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.remember-seccode, #remember-seccode").removeClass("hide");
+});
+
+//show your pass 
+$(".toyourpass").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.pass-recover, #pass-recover").removeClass("hide");
+});
+
+//show add user 
+$(".toadduser").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.adduser, #adduser").removeClass("hide");
+});
+
+//show create user 
+$(".create-new").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.create-user, #create-user").removeClass("hide");
+});
+
+//show user taken 
+$(".tousertaken").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.user-taken, #user-taken").removeClass("hide");
+});
+
+//go back to create user, from user taken
+$("#user-taken #back button").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.create-user, #create-user").removeClass("hide");
+});
+
+//show create sec code 
+$(".tocreatesc").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.create-seccode, #create-seccode").removeClass("hide");
+});
+
+//show Select avatar
+$(".toselect-avatar").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.select-avatar, #select-avatar").removeClass("hide");
+});
+
+
+
+
+var s = Snap("#svg-dog-RemSecCode");
+Snap.load("images/dog-RemSecCode.svg", function (f) {
+    g = f.select("svg");
+    s.append(g);
 });
 
 
