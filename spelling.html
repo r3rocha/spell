@@ -70,20 +70,23 @@
 
 <!-- User modal -->
 <div class="modalbig">
-	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-	        <h4 class="modal-title">My user status</h4>
-	      </div>
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h4 class="modal-title">My user status</h4>
+            <h4 class="modal-title change-avatar hide">Select your avatar</h4>
+          </div>
           <div class="modal-body row">
-            <div class="container-fluid bd-example-row">
+
+            <!-- User Status container -->
+            <div id="user-status" class="container-fluid bd-example-row modal-container">
                 <div class="row line1">
                     <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
                     <div class="user-status col-xs-5">
                         <img src="images/avatar/01.svg" alt="spell"/>
-                        <div id="status-usercoins"><span class="coins">1200</span></div>
+                        <div id="usercoins"><span class="coins">1200</span></div>
                     </div> 
                 </div>
                 <div class="row line2">
@@ -91,11 +94,39 @@
                     <button type="button" class="btn-user change-user col-xs-4"><img src="images/change-user.svg" alt="Change User"/></button>
                     <button type="button" class="btn-user logout col-xs-4"><img class="pt" src="images/logout.svg" alt="logout"/></button>
                 </div>
+            </div><!-- end of user Status container -->
+            <!-- change Avatar -->
+            <div id="change-avatar" class="container-fluid bd-example-row modal-container hide">
+                <div class="row line1">
+                    <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/>
+                </div>
+                <div class="row line2">                       
+                    <div class="select-avatar col-xs-12">
+                        <span class="avatar one col-xs-2"><img src="images/avatar/01.svg"></span>
+                        <span class="avatar two col-xs-2"><img src="images/avatar/02.svg"></span>
+                        <span class="avatar three col-xs-2"><img src="images/avatar/03.svg"></span>
+                        <span class="avatar four col-xs-2"><img src="images/avatar/04.svg"></span>
+                        <span class="avatar five col-xs-2"><img src="images/avatar/05.svg"></span>
+                        <span class="avatar six col-xs-2"><img src="images/avatar/06.svg"></span>
+                        <span class="avatar seven col-xs-2"><img src="images/avatar/07.svg"></span>
+                        <span class="avatar eight col-xs-2"><img src="images/avatar/08.svg"></span>
+                        <span class="avatar nine col-xs-2"><img src="images/avatar/09.svg"></span>
+                        <span class="avatar ten col-xs-2"><img src="images/avatar/10.svg"></span>
+                        <span class="avatar eleven col-xs-2"><img src="images/avatar/11.svg"></span>
+                        <span class="avatar twelve col-xs-2"><img src="images/avatar/12.svg"></span>
+                    </div>
+                </div>
+                <div id="next" class="col-xs-offset-10 col-xs-2">
+                    <button type="submit"><img src="images/next.svg" alt="next"/></button>
+                </div>
             </div>
+            <!-- end of create Avatar form container -->
+
+
           </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </div> 
 
 <!-- Idiom modal -->
@@ -211,15 +242,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -264,7 +286,11 @@ function blinkEyes2() {
 
 setInterval(blinkEyes2,400); setInterval(blinkEyes2,800); setInterval(blinkEyes2,500);
 
-
+//show change avatar
+$(".btn-user.change-avatar").on('click', function(){
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.change-avatar, #change-avatar").removeClass("hide");
+});
 
 
 // $(document).ready(function(){
