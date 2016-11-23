@@ -178,6 +178,7 @@ $(".btn-user.change-avatar").on('click', function(){
 		firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
 			setup_coins($("#usercoins .coins"));
 			setup_level($("#level > img"));
+			setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
 		});
 
 		/*** sound effects ***/

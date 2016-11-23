@@ -19,7 +19,8 @@ function signup_user(user, pass, secret) {
         database.ref("/users/" + result.uid).set({
             username: user,
             coins: 0,
-            current_level: "easy"
+            current_level: "easy",
+            avatar: "01.svg",
         });
     }).catch(function(error) {
         console.log(error);
@@ -30,6 +31,13 @@ function setup_coins($elem) {
     var uid = firebase.auth().currentUser.uid;            
     database.ref("/users/" + uid + "/coins").on('value', function(result) {
         $elem.html(result.val());
+    });
+}
+
+function setup_avatar($elem, prefix) {
+    var uid = firebase.auth().currentUser.uid;
+    database.ref("/users/" + uid + "/avatar").on('value', function(result) {
+        $elem.attr("src", prefix + "/" + result.val());
     });
 }
 
