@@ -178,6 +178,19 @@ $(".btn-user.change-avatar").on('click', function(){
 		firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
 			setup_coins($("#usercoins .coins"));
 			setup_level($("#level > img"));
+			setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
+		});
+
+		$("#change-avatar .select-avatar .avatar").on('click', function() {
+			$(".select-avatar").removeClass("avatar-selected");
+			$(this).addClass("avatar-selected");
+		});
+		$("#change-avatar #next").on('click', function() {
+			var src = $(".avatar-selected img").attr("src");
+			var avatar = src.split("/").reverse()[0];
+			console.log('changing avatar to', avatar);
+			change_avatar(avatar);
+			$("#userModal").modal("hide");
 		});
 
 		/*** sound effects ***/

@@ -301,6 +301,7 @@ $(".btn-user.change-avatar").on('click', function(){
 //     });
 firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
     setup_coins($(".coins"));
+    setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
 });
 
 var sound = setup_sound($("footer .sound"));
