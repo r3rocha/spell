@@ -326,6 +326,10 @@ height: 5em;
 }
 
 
+#change-avatar .select-avatar .avatar-selected {
+    transform: scale(1.2);
+}
+
 /********** level **********/
 
 #level {

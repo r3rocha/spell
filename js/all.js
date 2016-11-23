@@ -41,6 +41,11 @@ function setup_avatar($elem, prefix) {
     });
 }
 
+function change_avatar(value) {
+    var uid = firebase.auth().currentUser.uid;
+    database.ref("/users/" + uid + "/avatar").set(value);
+}
+
 function setup_level($elems) {
     get_current_level(function (current_level) {
         console.log("current_level", current_level);
