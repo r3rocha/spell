@@ -175,6 +175,10 @@ body {
     padding: 0 0.2em 0 1em;
 }
 
+#select-user #remember-seccode .selected {
+    transform: scale(1.2);
+}
+
 
 /********** add user modal **********/
 

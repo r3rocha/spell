@@ -27,8 +27,8 @@
             <button class="button" type="button" data-toggle="modal" data-target="#addModal"><img src="images/player-new-add.svg" alt="create new player"/></button>
         </div>
         <div id="old-users">
-            <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button>
-            <button class="button user2" type="button"><img class="avatar" src="images/avatar/10.svg" alt="player"/><span>Arthur</span></button>
+            <!-- <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button> -->
+            <!-- <button class="button user2" type="button"><img class="avatar" src="images/avatar/10.svg" alt="player"/><span>Arthur</span></button> -->
         </div>
       </div>
     </content>
@@ -164,30 +164,30 @@
                         <div class="row line2">                       
                             <div class="RemSecCode-fruit col-xs-4">
                                 <h6>Pick your favorite fruit</h6>
-                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg"></span>
-                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg"></span>
-                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg"></span>
-                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg"></span>
-                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg"></span>
-                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg"></span>
+                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg" data-id="one"></span>
+                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg" data-id="two"></span>
+                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg" data-id="three"></span>
+                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg" data-id="four"></span>
+                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg" data-id="five"></span>
+                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg" data-id="six"></span>
                             </div>
                             <div class="RemSecCode-animal col-xs-4">
                                 <h6>Pick your favorite animal</h6>
-                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg"></span>
-                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg"></span>
-                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg"></span>
-                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg"></span>
-                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg"></span>
-                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg"></span>
+                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg" data-id="one"></span>
+                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg" data-id="two"></span>
+                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg" data-id="three"></span>
+                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg" data-id="four"></span>
+                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg" data-id="five"></span>
+                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg" data-id="six"></span>
                             </div>
                             <div class="RemSecCode-color col-xs-4">
                                 <h6>Pick your favorite color</h6>
-                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg"></span>
-                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg"></span>
-                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg"></span>
-                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg"></span>
-                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg"></span>
-                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg"></span>
+                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg" data-id="one"></span>
+                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg" data-id="two"></span>
+                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg" data-id="three"></span>
+                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg" data-id="four"></span>
+                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg" data-id="five"></span>
+                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg" data-id="six"></span>
                             </div>    
                         </div>
                         <div id="next" class="col-xs-offset-10 col-xs-2">
@@ -339,6 +339,20 @@
 
 
 
+<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
+        authDomain: "test-91c0f.firebaseapp.com",
+        databaseURL: "https://test-91c0f.firebaseio.com",
+        storageBucket: "test-91c0f.appspot.com",
+        messagingSenderId: "171964898630"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+<script src="js/all.js"></script>
 
 <script type="text/javascript">
 
@@ -413,6 +427,44 @@ $(".toselect-avatar").on('click', function(){
 
 
 
+$("#adduser form button").on('click', function(event) {
+    event.preventDefault();
+    var user = $("#adduser form #username").val();
+    var pass = $("#adduser form #password").val();
+    console.log("login:", user, "password:", pass);
+    firebase.auth().signInWithEmailAndPassword(get_email(user), get_password(pass)).then(function(result) {
+            // setup
+        }).catch(function(error) {
+            console.log(error);
+        });
+});
+
+$("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span").on('click', function() {
+    $(this).parent().find(".selected").removeClass('selected');
+    $(this).addClass('selected');
+});
+
+$("#select-user #remember-seccode button").on('click', function () {
+    var code = "";
+    $("#select-user #remember-seccode .selected img").each(function() {
+        code += $(this).data("id");
+    });
+    console.log("code", code);
+    var user = $("#forgotpass form #username").val();
+    remember_password(user, code, function(pass) {
+        console.log("pass", pass);
+        if (pass) {
+            $("#pass-recover form #yourusername").val(user);
+            $("#pass-recover form #yourpassword").val(pass);
+            $(".modal-title, .modal-container").addClass("hide");
+            $("h4.pass-recover, #pass-recover").removeClass("hide");
+            // TODO: go to level page
+        } else {
+            console.log("wrong security code");
+        }
+    })
+});
+
 var s = Snap("#svg-dog-RemSecCode");
 Snap.load("images/dog-RemSecCode.svg", function (f) {
     g = f.select("svg");
@@ -420,11 +472,12 @@ Snap.load("images/dog-RemSecCode.svg", function (f) {
 });
 
 
+load_old_users($("#old-users"));
+
 
 
   </script>
 
-  <script src="js/all.js"></script>
   <script>
 
     /*** sound effects ***/
