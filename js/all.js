@@ -83,6 +83,15 @@ function remember_password(user, code, callback) {
     });
 }
 
+function load_old_users($old_users) {
+    if (localStorage["spell_game:users"]) {
+        var old_users = JSON.parse(localStorage["spell_game:users"]);
+        console.log(old_users);
+        old_users.forEach(function(user, index) {
+            $old_users.append('<button class="button" type="button"><img class="avatar" src="images/avatar/' + user.avatar + '" alt="player" data-pass="' + user.pass + '"><span>' + user.user + '</span></button>');
+        });
+    }
+}
 
 
 /* sound effects */

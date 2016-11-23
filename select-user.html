@@ -27,8 +27,8 @@
             <button class="button" type="button" data-toggle="modal" data-target="#addModal"><img src="images/player-new-add.svg" alt="create new player"/></button>
         </div>
         <div id="old-users">
-            <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button>
-            <button class="button user2" type="button"><img class="avatar" src="images/avatar/10.svg" alt="player"/><span>Arthur</span></button>
+            <!-- <button class="button user1" type="button"><img class="avatar" src="images/avatar/01.svg" alt="player"/><span>Zoe</span></button> -->
+            <!-- <button class="button user2" type="button"><img class="avatar" src="images/avatar/10.svg" alt="player"/><span>Arthur</span></button> -->
         </div>
       </div>
     </content>
@@ -339,6 +339,20 @@
 
 
 
+<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCeMDvkKv7vf3h-9qxl_RnwmJF7okhQGTw",
+        authDomain: "test-91c0f.firebaseapp.com",
+        databaseURL: "https://test-91c0f.firebaseio.com",
+        storageBucket: "test-91c0f.appspot.com",
+        messagingSenderId: "171964898630"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+<script src="js/all.js"></script>
 
 <script type="text/javascript">
 
@@ -458,11 +472,12 @@ Snap.load("images/dog-RemSecCode.svg", function (f) {
 });
 
 
+load_old_users($("#old-users"));
+
 
 
   </script>
 
-  <script src="js/all.js"></script>
   <script>
 
     /*** sound effects ***/
