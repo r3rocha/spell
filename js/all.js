@@ -77,8 +77,11 @@ function get_current_level(callback) {
     });
 }
 
-
-
+function remember_password(user, code, callback) {
+    database.ref("/password_recovery/" + user + code).once('value', function(r) {
+        callback(r.val());
+    });
+}
 
 
 
