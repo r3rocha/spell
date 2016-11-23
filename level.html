@@ -182,13 +182,13 @@ $(".btn-user.change-avatar").on('click', function(){
 		});
 
 		$("#change-avatar .select-avatar .avatar").on('click', function() {
-			$("#change-avatar .select-avatar .avatar").removeClass("avatar-selected");
+			$(".select-avatar").removeClass("avatar-selected");
 			$(this).addClass("avatar-selected");
 		});
 		$("#change-avatar #next").on('click', function() {
-			var src = $("#change-avatar .select-avatar .avatar-selected img").attr("src");
+			var src = $(".avatar-selected img").attr("src");
 			var avatar = src.split("/").reverse()[0];
-			console.log('changing to', avatar);
+			console.log('changing avatar to', avatar);
 			change_avatar(avatar);
 			$("#userModal").modal("hide");
 		});
