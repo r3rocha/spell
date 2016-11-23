@@ -95,12 +95,13 @@ Game.prototype.setup_word_letters = function(word) {
     var self = this;
     var letters_shuffled = shuffle(word.split(''));
     letters_shuffled.forEach(function(letter, index) {
-        var $letter = $('<span draggable="true"  class="letter">' + letter + "</span>");
+        var $letter = $('<span class="letter">' + letter + "</span>");
         self.$all_letters.append($letter);
-        $letter.on("dragstart", function(event) {
-            event.originalEvent.dataTransfer.setData("text", letter + index);
-            event.originalEvent.dataTransfer.effectAllowed = "move";
-
+        $letter.draggable({
+            stack: "#guess .letter",
+            cursor: "move",
+            revert: true,
+            opacity: 0.5,
         });
     });
 };
@@ -110,30 +111,28 @@ Game.prototype.setup_guess_box = function(word) {
     word.split('').forEach(function(letter, index) {
         var $letter = $('<span class="letter" data-expected="' + letter + '">&nbsp;</span>');
         self.$guess.append($letter);
-        $letter.on("dragover", function(event) {
-            event.preventDefault();
-        });
-        $letter.on("dragenter", function(event) {
-            $(this).addClass("over");
-        });
-        $letter.on("dragleave", function(event) {
-            $(this).removeClass("over");
-        });
-        $letter.on("drop", function(event) {
-            event.preventDefault();
-            var letter_and_index = event.originalEvent.dataTransfer.getData("text");
-            var letter_dropped = letter_and_index[0];
-            var index = parseInt(letter_and_index.slice(1), 10);
-            self.$all_letters.find(":nth(" + index + ")").hide();
-            $(this).html(letter_dropped);
-            $(this).removeClass("over");
-            if (letter_dropped === letter) {
-                $(this).addClass("over-right");
+        var handleDrop = function(event, ui) {
+            ui.draggable.draggable( 'option', 'revert', false );
+            ui.draggable.draggable( 'option', 'disabled', true );
+            ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+            var got = ui.draggable.text();
+            var expected = $(this).data( 'expected' );
+            console.log(expected, got);
+            if (got == expected) {
+                ui.draggable.addClass("over-right");
             } else {
-                $(this).addClass("over-wrong");
+                ui.draggable.addClass("over-wrong");
                 self.decrement_star();
             }
+            $(this).html(got);
             self.check_if_finished();
+        };
+        $letter.droppable({
+            accept: "#all-letters .letter",
+            drop: handleDrop,
+            classes: {
+                "ui-droppable-hover": "over"
+            }
         });
     });
 };

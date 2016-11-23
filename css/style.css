@@ -520,12 +520,12 @@ button:active {
 
 
 #guess .letter.over {
-    background: url(../images/letter-gray.svg) no-repeat transparent;
+    background-color: yellow;
 }
-#guess .letter.over-right {
+#all-letters .letter.over-right {
     background: url(../images/letter-green.svg) no-repeat transparent;
 }
-#guess .letter.over-wrong {
+#all-letters .letter.over-wrong {
     background: url(../images/letter-red.svg) no-repeat transparent;
 }
 
