@@ -329,7 +329,7 @@ var game = new Game({
     hint_button: $("#footer .hint"),
 
     win_box: $("#win-all-letters"),
-    try_box: $("#try-all-letters"),
+    try_again_box: $("#try-all-letters"),
 
     on_win: function () {
         console.log("win");
@@ -337,8 +337,8 @@ var game = new Game({
         audio.play();
         $("#winModal").modal('show');
     },
-    on_lose: function() {
-        console.log("lose");
+    on_try_again: function() {
+        console.log("try again");
         var audio = new Audio("sound/effects/tryagain.mp3");
         audio.play();
         $("#tryModal").modal('show');

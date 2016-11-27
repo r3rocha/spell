@@ -28,7 +28,7 @@ function Game(options) {
     this.$object = options.object;
     this.$stars = options.stars;
     this.$win_box = options.win_box;
-    this.$try_box = options.try_box;
+    this.$try_again_box = options.try_again_box;
 
     this.$repeat_button = options.repeat_button
     this.$say_button = options.say_button
@@ -37,7 +37,7 @@ function Game(options) {
     this.word = this.pick_word();
 
     this.win = options.on_win;
-    this.lose = options.on_lose;
+    this.try_again = options.on_try_again;
 
     this._giving_hint = false;
     this._bind_buttons();
@@ -65,7 +65,7 @@ Game.prototype.start_guess = function() {
     this.setup_image_box();
     this.setup_coins();
     this.setup_win_box(this.word["word"][this.language]);
-    this.setup_try_box(this.word["word"][this.language]);
+    this.setup_try_again_box(this.word["word"][this.language]);
 };
 
 Game.prototype.reset = function() {
@@ -175,14 +175,14 @@ Game.prototype.setup_win_box = function(word) {
     });
 };
 
-Game.prototype.setup_try_box = function(word) {
+Game.prototype.setup_try_again_box = function(word) {
     var self = this;
-    self.$try_box.html('');
+    self.$try_again_box.html('');
     word.split('').forEach(function(letter, index) {
         if (Math.random() < 0.3) {
-            self.$try_box.append($('<span class="try-letter">*</span>"'));
+            self.$try_again_box.append($('<span class="try-letter">*</span>"'));
         } else {
-            self.$try_box.append($('<span class="try-letter">' + letter + "</span>"));
+            self.$try_again_box.append($('<span class="try-letter">' + letter + "</span>"));
         }
     });
 };
@@ -194,11 +194,11 @@ Game.prototype.check_if_finished = function () {
         if (guessed_word === word) {
             this.win();
         } else {
-            this.lose();
+            this.try_again();
         }
     }
     if (this.$stars.find(".on").size() === 0) {
-        this.lose();
+        this.try_again();
     }
 };
 
