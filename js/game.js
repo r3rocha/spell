@@ -28,6 +28,7 @@ function Game(options) {
     this.$object = options.object;
     this.$stars = options.stars;
     this.$win_box = options.win_box;
+    this.$try_box = options.try_box;
 
     this.$repeat_button = options.repeat_button
     this.$say_button = options.say_button
@@ -64,6 +65,7 @@ Game.prototype.start_guess = function() {
     this.setup_image_box();
     this.setup_coins();
     this.setup_win_box(this.word["word"][this.language]);
+    this.setup_try_box(this.word["word"][this.language]);
 };
 
 Game.prototype.reset = function() {
@@ -170,6 +172,18 @@ Game.prototype.setup_win_box = function(word) {
     self.$win_box.html('');
     word.split('').forEach(function(letter, index) {
         self.$win_box.append($('<span class="win-letter">' + letter + "</span>"));
+    });
+};
+
+Game.prototype.setup_try_box = function(word) {
+    var self = this;
+    self.$try_box.html('');
+    word.split('').forEach(function(letter, index) {
+        if (Math.random() < 0.3) {
+            self.$try_box.append($('<span class="try-letter">*</span>"'));
+        } else {
+            self.$try_box.append($('<span class="try-letter">' + letter + "</span>"));
+        }
     });
 };
 
