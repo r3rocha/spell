@@ -523,6 +523,9 @@ button:active {
 .drop-over {
     background-color: yellow;
 }
+#all-letters {
+    height: 24em;
+}
 #all-letters .letter.over-right {
     background: url(../images/letter-green.svg) no-repeat transparent;
 }

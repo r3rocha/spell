@@ -106,6 +106,21 @@ Game.prototype.setup_word_letters = function(word) {
             snapMode: "inner",
         });
     });
+    var handleDrop = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', false );
+        ui.draggable.removeClass("over-wrong").removeClass("over-right");
+        ui.draggable.css("left", 0);
+        ui.draggable.css("top", 0);
+    };
+    var handleOut = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', true);
+    };
+    self.$all_letters.droppable({
+        classes: {"ui-droppable-hover": "drop-over"},
+        drop: handleDrop,
+        accept: "#all-letters .letter.over-right, #all-letters .letter.over-wrong",
+        out: handleOut,
+    });
 };
 
 Game.prototype.setup_guess_box = function(word) {
