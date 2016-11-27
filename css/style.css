@@ -428,10 +428,17 @@ footer button:active {
 }
 
 #figure .language button {
-    background: url(../images/flag-us.svg) no-repeat transparent;
     color: transparent;
     width: 5em;
     height: 5em;
+}
+
+#figure .language[data-language="en-us"] {
+    background: url(../images/flag-us.svg) no-repeat transparent;
+}
+
+#figure .language[data-language="es-sp"] {
+    background: url(../images/flag-es.svg) no-repeat transparent;
 }
 
 #figure .language button:hover {
@@ -440,6 +447,8 @@ footer button:active {
     -o-transform: rotate(-6deg); /* Opera */
     -ms-transform: rotate(-6deg); /* Internet Explorer */
     transform: rotate(-6deg); /* CSS3 */
+    position: relative;
+    z-index: 10;
 }
 
 button:active {
