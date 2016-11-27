@@ -181,11 +181,13 @@ Game.prototype.hint = function() {
     }
     this._giving_hint = true;
     this.decrement_star();
-    var $all_visible_letters = this.$all_letters.find("*:visible");
+    var $all_visible_letters = this.$all_letters.find("*:not(.over-right):not(.over-wrong)");
     var index = Math.floor(Math.random() * $all_visible_letters.size());
     var $origin = $all_visible_letters.eq(index);
     var letter = $origin.text();
-    var $destination = this.$guess.find('*[data-expected="' + letter + '"]').not(".over-right").first();
+    var $destination = this.$guess.find('*').filter(function() {
+        return $(this).data('expected') === letter && $(this).html() === "&nbsp;";
+    }).first();
     var origin_pos = $origin.offset();
     var destination_pos = $destination.offset();
     if (!destination_pos || !origin_pos) {
@@ -197,8 +199,8 @@ Game.prototype.hint = function() {
     };
     var self = this;
     $origin.css('opacity', '0.5').animate(destination_coords, 1000, function() {
-        $origin.hide();
-        $destination.html(letter).addClass("over-right");
+        $origin.css('opacity', '1').addClass("over-right");
+        $destination.html(letter);
         self._giving_hint = false;
         self.check_if_finished();
     });

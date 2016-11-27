@@ -504,6 +504,7 @@ button:active {
     background: url(../images/letter-blue.svg) no-repeat transparent;
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
+    z-index: 10;
 }
 
 #guess .letter {
@@ -511,6 +512,7 @@ button:active {
     font: normal 6em 'Patrick Hand';
     text-transform: uppercase;
     margin-left: 0.3em;
+    z-index: 1;
 }
 
 #guess {
