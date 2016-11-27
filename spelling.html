@@ -319,10 +319,10 @@ var game = new Game({
     object: $(".object .item"),
     stars: $("#stars"),
 
-    repeat_button: $(".repeat"),
-    say_button: $(".say"),
-    switch_button: $(".switch"),
-    hint_button: $(".hint"),
+    repeat_button: $("#footer .repeat"),
+    say_button: $("#footer .say"),
+    switch_button: $("#footer .switch"),
+    hint_button: $("#footer .hint"),
 
     on_win: function () {
         console.log("win");
@@ -348,6 +348,18 @@ function change_language(lang) {
 }
 $(".btn-flag.es").on('click', change_language("es-sp"));
 $(".btn-flag.us").on('click', change_language("en-us"));
+
+// set up repeat/next actions for modals
+$("#winModal .repeat, #tryModal .repeat").on('click', function() {
+    $("#winModal").modal('hide');
+    $("#tryModal").modal('hide');
+    game.repeat();
+});
+$("#winModal .next, #tryModal .next").on('click', function() {
+    $("#winModal").modal('hide');
+    $("#tryModal").modal('hide');
+    game.reset();
+});
 </script>
 
 
