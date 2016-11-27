@@ -34,6 +34,9 @@ function Game(options) {
     this.$hint_button = options.hint_button
     this.word = this.pick_word();
 
+    this.win = options.on_win;
+    this.lose = options.on_lose;
+
     this._giving_hint = false;
     this._bind_buttons();
 }
@@ -208,19 +211,6 @@ Game.prototype.hint = function() {
 
 Game.prototype.repeat = function() {
     this._reset(this.word);
-};
-
-Game.prototype.win = function() {
-    console.log("win");
-    var audio = new Audio("sound/effects/win.mp3");
-    audio.play();
-
-};
-
-Game.prototype.lose = function() {
-    console.log("lose");
-    var audio = new Audio("sound/effects/tryagain.mp3");
-    audio.play();
 };
 
 Game.prototype.change_language = function(lang) {

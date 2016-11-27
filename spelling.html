@@ -323,6 +323,19 @@ var game = new Game({
     say_button: $(".say"),
     switch_button: $(".switch"),
     hint_button: $(".hint"),
+
+    on_win: function () {
+        console.log("win");
+        var audio = new Audio("sound/effects/win.mp3");
+        audio.play();
+        $("#winModal").modal('show');
+    },
+    on_lose: function() {
+        console.log("lose");
+        var audio = new Audio("sound/effects/tryagain.mp3");
+        audio.play();
+        $("#tryModal").modal('show');
+    }
 });
 game.start_guess();
 
