@@ -519,7 +519,8 @@ button:active {
 }
 
 
-#guess .letter.over {
+#guess .letter.over,
+.drop-over {
     background-color: yellow;
 }
 #all-letters .letter.over-right {

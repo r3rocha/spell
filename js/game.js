@@ -102,6 +102,8 @@ Game.prototype.setup_word_letters = function(word) {
             cursor: "move",
             revert: true,
             opacity: 0.5,
+            snap: "#guess .letter",
+            snapMode: "inner",
         });
     });
 };
@@ -113,26 +115,28 @@ Game.prototype.setup_guess_box = function(word) {
         self.$guess.append($letter);
         var handleDrop = function(event, ui) {
             ui.draggable.draggable( 'option', 'revert', false );
-            ui.draggable.draggable( 'option', 'disabled', true );
             ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
             var got = ui.draggable.text();
             var expected = $(this).data( 'expected' );
             console.log(expected, got);
-            if (got == expected) {
-                ui.draggable.addClass("over-right");
+            if (got === expected) {
+                ui.draggable.removeClass("over-wrong").addClass("over-right");
             } else {
-                ui.draggable.addClass("over-wrong");
+                ui.draggable.removeClass("over-right").addClass("over-wrong");
                 self.decrement_star();
             }
             $(this).html(got);
             self.check_if_finished();
         };
+        var handleOut = function(event, ui) {
+            ui.draggable.draggable( 'option', 'revert', true);
+            $(this).html('&nbsp;');
+        };
         $letter.droppable({
             accept: "#all-letters .letter",
             drop: handleDrop,
-            classes: {
-                "ui-droppable-hover": "over"
-            }
+            out: handleOut,
+            classes: {"ui-droppable-hover": "over"}
         });
     });
 };
