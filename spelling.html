@@ -173,12 +173,14 @@
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
                     <div id="win-all-letters" class="col-xs-12">
+<!--
                     	<span class="win-letter">t</span>
                     	<span class="win-letter">u</span>
                     	<span class="win-letter">r</span>
                     	<span class="win-letter">t</span>
                     	<span class="win-letter">l</span>
                     	<span class="win-letter">e</span>
+-->
                     </div>    
                 </div>
                 <div class="row line2">
@@ -221,12 +223,14 @@
                 <div class="row line1">
                 	<span class="takehint col-xs-12">Take this hint and play again!</span>
                     <div id="try-all-letters" class="col-xs-12">
+<!--
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">u</span>
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">t</span>
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">e</span>
+-->
                     </div>    
                 </div>
                 <div class="row modal-btn line2">
@@ -323,6 +327,8 @@ var game = new Game({
     say_button: $("#footer .say"),
     switch_button: $("#footer .switch"),
     hint_button: $("#footer .hint"),
+
+    win_box: $("#win-all-letters"),
 
     on_win: function () {
         console.log("win");
