@@ -179,7 +179,7 @@ Game.prototype.setup_try_again_box = function(word) {
     var self = this;
     self.$try_again_box.html('');
     word.split('').forEach(function(letter, index) {
-        if (Math.random() < 0.3) {
+        if (Math.random() < 0.5) {
             self.$try_again_box.append($('<span class="try-letter">*</span>"'));
         } else {
             self.$try_again_box.append($('<span class="try-letter">' + letter + "</span>"));
