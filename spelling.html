@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	
 	</head>
@@ -20,8 +22,8 @@
 	<header id="header" class="col-xs-12">
 
 		<div id="user" class="col-xs-3 col-xs-offset-9">
-			<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img src="images/avatar/01.svg"></button>
-			<div id="usercoins"><span class="coins">1200</span></div>
+			<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img /></button>
+			<div id="usercoins"><span class="coins"></span></div>
 		</div>
 		<div id="stars" class="col-xs-3 col-xs-offset-9">
 			<div class="star on"></div>
@@ -171,12 +173,14 @@
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
                     <div id="win-all-letters" class="col-xs-12">
+<!--
                     	<span class="win-letter">t</span>
                     	<span class="win-letter">u</span>
                     	<span class="win-letter">r</span>
                     	<span class="win-letter">t</span>
                     	<span class="win-letter">l</span>
                     	<span class="win-letter">e</span>
+-->
                     </div>    
                 </div>
                 <div class="row line2">
@@ -219,12 +223,14 @@
                 <div class="row line1">
                 	<span class="takehint col-xs-12">Take this hint and play again!</span>
                     <div id="try-all-letters" class="col-xs-12">
+<!--
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">u</span>
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">t</span>
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">e</span>
+-->
                     </div>    
                 </div>
                 <div class="row modal-btn line2">
@@ -317,10 +323,26 @@ var game = new Game({
     object: $(".object .item"),
     stars: $("#stars"),
 
-    repeat_button: $(".repeat"),
-    say_button: $(".say"),
-    switch_button: $(".switch"),
-    hint_button: $(".hint"),
+    repeat_button: $("#footer .repeat"),
+    say_button: $("#footer .say"),
+    switch_button: $("#footer .switch"),
+    hint_button: $("#footer .hint"),
+
+    win_box: $("#win-all-letters"),
+    try_again_box: $("#try-all-letters"),
+
+    on_win: function () {
+        console.log("win");
+        var audio = new Audio("sound/effects/win.mp3");
+        audio.play();
+        $("#winModal").modal('show');
+    },
+    on_try_again: function() {
+        console.log("try again");
+        var audio = new Audio("sound/effects/tryagain.mp3");
+        audio.play();
+        $("#tryModal").modal('show');
+    }
 });
 game.start_guess();
 
@@ -333,6 +355,18 @@ function change_language(lang) {
 }
 $(".btn-flag.es").on('click', change_language("es-sp"));
 $(".btn-flag.us").on('click', change_language("en-us"));
+
+// set up repeat/next actions for modals
+$("#winModal .repeat, #tryModal .repeat").on('click', function() {
+    $("#winModal").modal('hide');
+    $("#tryModal").modal('hide');
+    game.repeat();
+});
+$("#winModal .next, #tryModal .next").on('click', function() {
+    $("#winModal").modal('hide');
+    $("#tryModal").modal('hide');
+    game.reset();
+});
 </script>
 
 

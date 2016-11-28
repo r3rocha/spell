@@ -27,12 +27,17 @@ function Game(options) {
     this.$guess = options.guess;
     this.$object = options.object;
     this.$stars = options.stars;
+    this.$win_box = options.win_box;
+    this.$try_again_box = options.try_again_box;
 
     this.$repeat_button = options.repeat_button
     this.$say_button = options.say_button
     this.$switch_button = options.switch_button
     this.$hint_button = options.hint_button
     this.word = this.pick_word();
+
+    this.win = options.on_win;
+    this.try_again = options.on_try_again;
 
     this._giving_hint = false;
     this._bind_buttons();
@@ -59,6 +64,8 @@ Game.prototype.start_guess = function() {
     this.setup_guess_box(this.word["word"][this.language]);
     this.setup_image_box();
     this.setup_coins();
+    this.setup_win_box(this.word["word"][this.language]);
+    this.setup_try_again_box(this.word["word"][this.language]);
 };
 
 Game.prototype.reset = function() {
@@ -95,13 +102,31 @@ Game.prototype.setup_word_letters = function(word) {
     var self = this;
     var letters_shuffled = shuffle(word.split(''));
     letters_shuffled.forEach(function(letter, index) {
-        var $letter = $('<span draggable="true"  class="letter">' + letter + "</span>");
+        var $letter = $('<span class="letter">' + letter + "</span>");
         self.$all_letters.append($letter);
-        $letter.on("dragstart", function(event) {
-            event.originalEvent.dataTransfer.setData("text", letter + index);
-            event.originalEvent.dataTransfer.effectAllowed = "move";
-
+        $letter.draggable({
+            stack: "#guess .letter",
+            cursor: "move",
+            revert: true,
+            opacity: 0.5,
+            snap: "#guess .letter",
+            snapMode: "inner",
         });
+    });
+    var handleDrop = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', false );
+        ui.draggable.removeClass("over-wrong").removeClass("over-right");
+        ui.draggable.css("left", 0);
+        ui.draggable.css("top", 0);
+    };
+    var handleOut = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', true);
+    };
+    self.$all_letters.droppable({
+        classes: {"ui-droppable-hover": "drop-over"},
+        drop: handleDrop,
+        accept: "#all-letters .letter.over-right, #all-letters .letter.over-wrong",
+        out: handleOut,
     });
 };
 
@@ -110,36 +135,56 @@ Game.prototype.setup_guess_box = function(word) {
     word.split('').forEach(function(letter, index) {
         var $letter = $('<span class="letter" data-expected="' + letter + '">&nbsp;</span>');
         self.$guess.append($letter);
-        $letter.on("dragover", function(event) {
-            event.preventDefault();
-        });
-        $letter.on("dragenter", function(event) {
-            $(this).addClass("over");
-        });
-        $letter.on("dragleave", function(event) {
-            $(this).removeClass("over");
-        });
-        $letter.on("drop", function(event) {
-            event.preventDefault();
-            var letter_and_index = event.originalEvent.dataTransfer.getData("text");
-            var letter_dropped = letter_and_index[0];
-            var index = parseInt(letter_and_index.slice(1), 10);
-            self.$all_letters.find(":nth(" + index + ")").hide();
-            $(this).html(letter_dropped);
-            $(this).removeClass("over");
-            if (letter_dropped === letter) {
-                $(this).addClass("over-right");
+        var handleDrop = function(event, ui) {
+            ui.draggable.draggable( 'option', 'revert', false );
+            ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+            var got = ui.draggable.text();
+            var expected = $(this).data( 'expected' );
+            console.log(expected, got);
+            if (got === expected) {
+                ui.draggable.removeClass("over-wrong").addClass("over-right");
             } else {
-                $(this).addClass("over-wrong");
+                ui.draggable.removeClass("over-right").addClass("over-wrong");
                 self.decrement_star();
             }
+            $(this).html(got);
             self.check_if_finished();
+        };
+        var handleOut = function(event, ui) {
+            ui.draggable.draggable( 'option', 'revert', true);
+            $(this).html('&nbsp;');
+        };
+        $letter.droppable({
+            accept: "#all-letters .letter",
+            drop: handleDrop,
+            out: handleOut,
+            classes: {"ui-droppable-hover": "over"}
         });
     });
 };
 
 Game.prototype.setup_coins = function() {
     this.$stars.find(".star").removeClass("off").addClass("on");
+};
+
+Game.prototype.setup_win_box = function(word) {
+    var self = this;
+    self.$win_box.html('');
+    word.split('').forEach(function(letter, index) {
+        self.$win_box.append($('<span class="win-letter">' + letter + "</span>"));
+    });
+};
+
+Game.prototype.setup_try_again_box = function(word) {
+    var self = this;
+    self.$try_again_box.html('');
+    word.split('').forEach(function(letter, index) {
+        if (Math.random() < 0.5) {
+            self.$try_again_box.append($('<span class="try-letter">*</span>"'));
+        } else {
+            self.$try_again_box.append($('<span class="try-letter">' + letter + "</span>"));
+        }
+    });
 };
 
 Game.prototype.check_if_finished = function () {
@@ -149,11 +194,11 @@ Game.prototype.check_if_finished = function () {
         if (guessed_word === word) {
             this.win();
         } else {
-            this.lose();
+            this.try_again();
         }
     }
     if (this.$stars.find(".on").size() === 0) {
-        this.lose();
+        this.try_again();
     }
 };
 
@@ -163,11 +208,13 @@ Game.prototype.hint = function() {
     }
     this._giving_hint = true;
     this.decrement_star();
-    var $all_visible_letters = this.$all_letters.find("*:visible");
+    var $all_visible_letters = this.$all_letters.find("*:not(.over-right):not(.over-wrong)");
     var index = Math.floor(Math.random() * $all_visible_letters.size());
     var $origin = $all_visible_letters.eq(index);
     var letter = $origin.text();
-    var $destination = this.$guess.find('*[data-expected="' + letter + '"]').not(".over-right").first();
+    var $destination = this.$guess.find('*').filter(function() {
+        return $(this).data('expected') === letter && $(this).html() === "&nbsp;";
+    }).first();
     var origin_pos = $origin.offset();
     var destination_pos = $destination.offset();
     if (!destination_pos || !origin_pos) {
@@ -179,8 +226,8 @@ Game.prototype.hint = function() {
     };
     var self = this;
     $origin.css('opacity', '0.5').animate(destination_coords, 1000, function() {
-        $origin.hide();
-        $destination.html(letter).addClass("over-right");
+        $origin.css('opacity', '1').addClass("over-right");
+        $destination.html(letter);
         self._giving_hint = false;
         self.check_if_finished();
     });
@@ -188,19 +235,6 @@ Game.prototype.hint = function() {
 
 Game.prototype.repeat = function() {
     this._reset(this.word);
-};
-
-Game.prototype.win = function() {
-    console.log("win");
-    var audio = new Audio("sound/effects/win.mp3");
-    audio.play();
-
-};
-
-Game.prototype.lose = function() {
-    console.log("lose");
-    var audio = new Audio("sound/effects/tryagain.mp3");
-    audio.play();
 };
 
 Game.prototype.change_language = function(lang) {
