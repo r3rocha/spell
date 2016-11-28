@@ -162,14 +162,15 @@
 	<div class="modal fade" id="winModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content winbg">
-          <div class="modal-header">
+          <div class="modal-header row">
           	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-	        <h4 class="modal-title"><img src="images/dog-win.svg" alt="spell"/></h4>
+	        <h4 class="modal-title col-xs-3"><img src="images/dog-win.svg" alt="spell"/></h4>
+            <h4 class="modal-title col-xs-9"><img src="images/welldone-text.svg" alt="spell"/></h4>
 	      </div>
-          <div class="modal-body row ">
+          <div class="modal-body row">
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
-                    <div id="win-all-letters" class="col-xs-11 col-xs-offset-1">
+                    <div id="win-all-letters" class="col-xs-12">
                     	<span class="win-letter">t</span>
                     	<span class="win-letter">u</span>
                     	<span class="win-letter">r</span>
@@ -179,7 +180,7 @@
                     </div>    
                 </div>
                 <div class="row line2">
-                    <div id="win-result" class="col-xs-8 col-xs-offset-2">
+                    <div id="win-result" class="col-xs-6 col-xs-offset-3">
                         <span class="win-number col-xs-offset-1 col-xs-2">5</span>
                         <span class="win-star col-xs-2"><img src="images/win-star.svg" alt="star"/></span>
                         <span class="win-equal col-xs-2">=</span>
@@ -189,11 +190,10 @@
                 </div>
                 <div class="row modal-btn line3">
                     <center class="col-xs-12">
-                        <button class="home"><span>home</span></button>
-                        <button class="repeat"><span>repeat</span></button>
-                        <button class="next"><span>next</span></button>
+                        <button class="home col-xs-2 col-xs-offset-2"><span>home</span></button>
+                        <button class="repeat col-xs-2 col-xs-offset-1"><span>repeat</span></button>
+                        <button class="next col-xs-3"><span>next</span></button>
                     </center> 
-
                 </div>
             </div>
           </div>
@@ -203,20 +203,22 @@
 </div> 
 
 
-<!-- win modal -->
+<!-- Try again modal -->
 <div class="modaltry">
 	<div class="modal fade" id="tryModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content trybg">
-          <div class="modal-header">
+          <div class="modal-header row" >
           	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-	        <h4 class="modal-title"><img src="images/dog-tryagain.svg" alt="spell"/></h4>
+	        <h4 class="modal-title col-xs-4"><img src="images/dog-tryagain.svg" alt="spell"/></h4>
+            <h4 class="modal-title col-xs-8"><img src="images/tryagain-text.svg" alt="spell"/></h4>
 	      </div>
-          <div class="modal-body row ">
+
+          <div class="modal-body row">
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
-                	<span class="takehint col-xs-offset-1">Take this hint and play again!</span>
-                    <div id="try-all-letters" class="col-xs-11 col-xs-offset-1">
+                	<span class="takehint col-xs-12">Take this hint and play again!</span>
+                    <div id="try-all-letters" class="col-xs-12">
                     	<span class="try-letter">*</span>
                     	<span class="try-letter">u</span>
                     	<span class="try-letter">*</span>
@@ -227,11 +229,10 @@
                 </div>
                 <div class="row modal-btn line2">
                     <center class="col-xs-12">
-                        <button class="home"><span>home</span></button>
-                        <button class="repeat"><span>repeat</span></button>
-                        <button class="next"><span>next</span></button>
+                        <button class="home col-xs-2 col-xs-offset-2"><span>home</span></button>
+                        <button class="repeat col-xs-2 col-xs-offset-1"><span>repeat</span></button>
+                        <button class="next col-xs-3"><span>next</span></button>
                     </center> 
-
                 </div>
             </div>
           </div>

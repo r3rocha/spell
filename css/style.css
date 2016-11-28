@@ -59,7 +59,7 @@ body {
   /*background: -moz-linear-gradient(rgba(243,244,244,1), rgba(255,255,255,1),rgba(243,244,244,1)); /*Fx 3.6-15*/
   /*background: linear-gradient(rgba(243,244,244,1), rgba(255,255,255,1), rgba(243,244,244,1)); /*Standard*/
   background: url("../images/bg.png") repeat #f3f4f4 0px 0px;
-  /*font: normal 16px 'Patrick Hands';*/
+  font: normal 14px 'Patrick Hand', sans-serif;
   color: #000000;
 }
 
@@ -529,61 +529,37 @@ button:active {
     background: url(../images/letter-red.svg) no-repeat transparent;
 }
 
-/********** Modal Win **********/
-
-.modalwin .modal {
-    top: 0;
-    background: url(../images/win-baloon.svg) no-repeat transparent center 112px;
-    width: 65%;
-    margin: 0 auto;
-}
-
-.modalwin .modal-dialog {
-    width: 100%;
-    margin: 72px auto 0px;
-    top: -80px;
-}
+/********** Modal Win + Modal Try **********/
 
 
-.modalwin .winbg {
+.modalwin .modal-header,
+.modaltry .modal-header {
     border: none;
-    background-clip: initial;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: transparent;
-}
-
-.modalwin .modal-header {
-    padding: 0;
-    border-bottom: none;
-} 
-
-.modalwin .modal-title {
-    position: absolute;
-    width: 50%;
-    left: 70px;
-    top: 16px;
-}
-
-
-.modalwin .container-fluid {
-    top: 22em;
     position: relative;
-    width: 92%;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    top: 10px;
 }
 
-.modalwin .modal-body {
-    position: relative;
-    padding: 0 40px;
+
+.modalwin .line1,
+.modalwin .line2,
+.modalwin .line3,
+.modaltry .line1 {
+    margin: 2% 0;
+    text-align: center;
 }
 
 
-.modalwin #win-all-letters .win-letter {
+.modalwin #win-all-letters .win-letter,
+.modaltry #try-all-letters .try-letter {
     background: url(../images/letter-green.svg) no-repeat transparent center center;
     font: normal 3em 'Patrick Hand';
     text-transform: uppercase;
     display: inline-block;
-    width: 11%;
+    width: 13%;
     line-height: 2;
     vertical-align: middle;
     margin-right: 0.5%;
@@ -591,9 +567,12 @@ button:active {
     color: #ffffff;
 }
 
+
+/********** Modal win  **********/
+
 .modalwin #win-result {
     background: url(../images/win-coins-bg.svg) no-repeat transparent center center;
-    font: normal 5.4em 'Patrick Hand';
+    font: normal 3em 'Patrick Hand';
     text-transform: uppercase;
     display: inline-block;
     line-height: 2;
@@ -611,76 +590,17 @@ button:active {
 /********** Modal Try again **********/
 
 
-.modaltry .modal {
-    top: 0;
-    background: url(../images/tryagain-baloon.svg) no-repeat transparent center 112px;
-    width: 65%;
-    margin: 0 auto;
-}
-
-.modaltry .modal-dialog {
-    width: 100%;
-    margin: 72px auto 0px;
-    top: -80px;
-}
-
-
-.modaltry .trybg {
-    border: none;
-    background-clip: initial;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: transparent;
-}
-
-.modaltry .modal-header {
-    padding: 0;
-    border-bottom: none;
-} 
-
-.modaltry .modal-title {
-    position: absolute;
-    width: 47%;
-    left: 121px;
-    top: 12px;
-}
-
-.modaltry .container-fluid {
-    top: 24em;
-    position: relative;
-    width: 96%;
-}
-
-.modaltry .modal-body {
-    position: relative;
-    padding: 0 40px;
-}
-
-
 .modaltry span.takehint {
-    font: normal 3em 'Patrick Hand', sans-serif;
+    font-size: 2.4vh;
     color: #000000;
     line-height: 1.8;
-}
-
-
-.modaltry #try-all-letters .try-letter {
-    background: url(../images/letter-green.svg) no-repeat transparent center center;
-    font: normal 3em 'Patrick Hand';
-    text-transform: uppercase;
-    display: inline-block;
-    width: 11%;
-    line-height: 2;
-    vertical-align: middle;
-    margin-right: 0.5%;
     text-align: center;
-    color: #ffffff;
 }
+
 
 .modaltry .modal-btn {
     margin-top: 6%;
 }
-
 
 /********** Modal Win & Try again buttons **********/
 
@@ -704,7 +624,7 @@ button:active {
 
 .modal-btn .home,
 .modal-btn .repeat,
-.modal-btn .switch {
+.modal-btn .next {
     padding: 0;
 }
 
@@ -714,16 +634,19 @@ button:active {
 }
 
 .modal-btn .repeat span {
-    background-position: -208px 0px;
+     background-position: -210px 0px; 
+ /*   background: url(../images/icons.svg#music-on-view) no-repeat transparent;
+    background-size: contain;
+    background-size: 100% 100%;*/
 }
-
 
 .modal-btn .next span {
-    background-position: -563px 0px;
+    background: url(../images/next.svg) no-repeat transparent;
+    width: 100%;
 }
 
 
-/********** Modal BIG **********/
+/********** Modal BIG (+ win & try)**********/
 
 
 .modalbig h4 {
@@ -744,12 +667,18 @@ button:active {
     border-bottom: none;
 } 
 
+
+.modalwin .modal-dialog,
+.modaltry .modal-dialog,
 .modalbig .modal-dialog {
-    width: 750px !important;
-    margin: 50px auto;
+    width: 50%;
+    margin: 5% auto;
 }
 
-.modalbig .modal-body {
+
+.modalbig .modal-body,
+.modalwin .modal-body,
+.modaltry .modal-body {
     position: relative;
     padding: 15px;
     background-color: #ffffff;
@@ -759,22 +688,34 @@ button:active {
     border-top-right-radius: 5px;
 }
 
-.modalbig .modal-content {
-    background-color: #34a7c4;
+.modalbig .modal-content,
+.modalwin .modal-content,
+.modaltry .modal-content {
     border: 0;
     box-shadow: 6px 8px 0px rgba(170,170,170,1);
-    padding: 4px 14px 21px;
     border-bottom-left-radius: 90px;
     border-bottom-right-radius: 90px;
     border-top-left-radius: 90px;
     border-top-right-radius: 100px;
     padding: 0 29px 13px 30px;
-
 }
 
-.modalbig .modal-content.green {
+.modal-content {
+    background-color: #34a7c4;
+}
+
+.modal-content.green {
     background-color: #61c5b7;
 }
+
+.modal-content.winbg {
+   background-color: #4db967; 
+}
+
+.modal-content.trybg {
+  background-color: #f7941d;  
+}
+
 
 .modalbig .modal-header .close {
     background: transparent url(../images/button-x.svg) no-repeat;
