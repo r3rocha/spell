@@ -793,7 +793,6 @@ button:active {
 }
 
 
-
 #idiomModal .btn-flag {
     /*margin: 0 3.5%;*/
     padding: 0;
@@ -806,16 +805,6 @@ button:active {
     transform: scale(1.1,1.1); /* CSS3 */
 }
 
-
-#idiomModal .btn-flag.us {
-    margin: 9em 0 0 18.3%;
-}
-
-
-#idiomModal img.pt {
-    margin-left: 0;
-    padding-left: 17px;
-}
 
 /********** footer **********/
 
