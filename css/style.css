@@ -684,11 +684,16 @@ button:active {
 
 
 .modalwin .modal-dialog,
-.modaltry .modal-dialog,
-.modalbig .modal-dialog {
+.modaltry .modal-dialog {
     width: 50%;
     margin: 5% auto;
 }
+
+.modalbig .modal-dialog {
+    width: 60%;
+    margin: 5% auto;
+}
+
 
 
 .modalbig .modal-body,
@@ -760,10 +765,10 @@ button:active {
 }
 
 #userModal span.coins {
-    padding: 0 0 0 2.7em;
-    font: normal 3em 'Patrick Hand', sans-serif;
+    padding: 0 0 0 5.4vh;
+    font-size: 2.7vh;
     position: relative;
-    top: 0.4em;
+    top: 0.7vh;
 }
 
 
