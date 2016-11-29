@@ -464,6 +464,25 @@ $("#select-user #remember-seccode button").on('click', function () {
     })
 });
 
+$("#create-user button").on('click', function(event) {
+    event.preventDefault();
+    var username = $(this).parent().parent().find("#username").val();
+    var password = $(this).parent().parent().find("#password").val();
+    check_if_user_exists(username, function() {
+        // exists
+        console.log("ERROR: user is taken");
+
+    }, function() {
+        // does not exist
+        console.log("user is available, pick the secret code");
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.create-seccode, #create-seccode").removeClass("hide");
+
+
+    });
+});
+
+
 var svgseluser = Snap("#svg-dog-seluser");
 Snap.load("images/dog-seluser.svg", function (f) {
     g = f.select("svg");
@@ -487,7 +506,6 @@ Snap.load("images/dog-forgotpass.svg", function (f) {
     g = f.select("svg");
     svgforgotpass.append(g);
 });
-
 
 var svgseccode = Snap("#svg-dog-RemSecCode");
 Snap.load("images/dog-RemSecCode.svg", function (f) {
@@ -531,7 +549,7 @@ Snap.load("images/dog-selecteavatar.svg", function (f) {
 
 
 
-load_old_users($("#old-users"));
+load_old_users($("#old-users"), "images/avatar/");
 
 
 
