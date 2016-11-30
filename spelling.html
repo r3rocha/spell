@@ -309,6 +309,14 @@ firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass
     setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
 });
 
+setup_change_avatar(
+    $("#change-avatar .select-avatar .avatar"),
+    $("#change-avatar #next"),
+    function() {
+        $("#userModal").modal("hide");
+    }
+);
+
 var sound = setup_sound($("footer .sound"));
 var music = setup_music($("footer .music"));
 

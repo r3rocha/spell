@@ -41,6 +41,20 @@ function setup_avatar($elem, prefix) {
     });
 }
 
+function setup_change_avatar($avatars, $next, callback) {
+    $avatars.on('click', function() {
+        $(".avatar-selected").removeClass("avatar-selected");
+        $(this).addClass("avatar-selected");
+    });
+    $next.on('click', function() {
+        var src = $(".avatar-selected img").attr("src");
+        var avatar = src.split("/").reverse()[0];
+        console.log('changing avatar to', avatar);
+        change_avatar(avatar);
+        callback();
+    });
+}
+
 function change_avatar(value) {
     var uid = firebase.auth().currentUser.uid;
     database.ref("/users/" + uid + "/avatar").set(value);
