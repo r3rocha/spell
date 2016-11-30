@@ -150,6 +150,16 @@ $(".btn-user.change-avatar, .user-status img").on('click', function(){
     $("h4.change-avatar, #change-avatar").removeClass("hide");
 });
 
+//reset modal
+$(".close").on('click', function(){
+    $(".modal-title, .modal-container").removeClass("hide");
+    $("h4.change-avatar, #change-avatar").addClass("hide");
+});
+
+
+
+
+
 //Sound from beginning
 // $(document).ready(function(){
 //         var audio = new Audio('sound/level.mp3');

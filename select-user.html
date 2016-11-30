@@ -424,7 +424,11 @@ $(".toselect-avatar").on('click', function(){
     $("h4.select-avatar, #select-avatar").removeClass("hide");
 });
 
-
+//reset modal
+$(".close").on('click', function(){
+    $(".modal-title, .modal-container").removeClass("hide");
+    $("h4.forgot-pass, #forgotpass, h4.remember-seccode, #remember-seccode, h4.pass-recover, #pass-recover, h4.create-user, #create-user, h4.user-taken, #user-taken, h4.create-user, #create-user, h4.create-seccode, #create-seccode, h4.select-avatar, #select-avatar, h4.wrong-pass, #wrongpass").addClass("hide");
+});
 
 
 $("#adduser form button").on('click', function(event) {
