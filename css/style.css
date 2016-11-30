@@ -177,6 +177,11 @@ body {
 
 #select-user #remember-seccode .selected {
     transform: scale(1.2);
+    background-color: rgba(97,197,183,0.6);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+    border-bottom-right-radius: 26px;
 }
 
 
@@ -206,11 +211,13 @@ body {
     border: none;
     color: #ffffff;
     text-align: left;
-    height: 2em;
+    height: 6vh;
     width: 100%;
-    font: normal 60px 'Patrick Hand', sans-serif;
+    font-size: 3vh;
     line-height: 0;
-    text-indent: 6%;
+    text-indent: 0;
+    text-align: center;
+    margin-bottom: 1vh;
 }
 
 #adduser #letsplay {
@@ -332,6 +339,13 @@ height: 5em;
 
 #change-avatar .select-avatar .avatar-selected {
     transform: scale(1.2);
+    background-color: rgba(230,230,230,0.5);
+    border-top-left-radius: 36px;
+    border-top-right-radius: 35px;
+    border-bottom-left-radius: 37px;
+    border-bottom-right-radius: 46px;
+    background-blend-mode: overlay;
+    box-shadow: 1px 1px 1px gray;
 }
 
 /********** level **********/
@@ -665,14 +679,14 @@ button:active {
 
 
 .modalbig h4 {
-    font: normal 55px 'Patrick Hand';
+    font-size: 3.4em;
     color: #ffffff;
     text-align: center;
     text-transform: uppercase;
 }
 
 .modalbig h6 {
-    font: normal 27px 'Patrick Hand';
+    font-size: 1.8em;
     color: #0e76bc;
     text-transform: uppercase;
 }
