@@ -11,18 +11,19 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   
   </head>
   <body id="home" class="grad">
     <header id="header" class="col-xs-12">
     </header>
-    <content id="content">
-      <div id="logo" class="row">
-        <img class="eyes-open col-xs-8 col-xs-offset-2" src="images/logo.svg" alt="Logo"/>
-      </div>  
+    <content id="content row">
+      <div id="logo" class="col-xs-12">
+        <svg id="svg-home" class="dog-home"></svg>
+      </div>
       <div id="letsplay" class="row">
-        <div class="col-xs-4 col-xs-offset-4">
+        <div class="col-xs-12">
           <button type="button"><a href="select-user.html"><img src="images/letsplay.svg" alt="lets play"/></a></button>
         </div>
       </div>
@@ -76,23 +77,26 @@
 
 
 
-
+<script src="js/all.js"></script>
 <script type="text/javascript">
 
-//Blink Eyes
-function blinkEyes() {
-    if ($("#logo .eyes-open").size()) {
-        $(".eyes-open").attr("src","images/logo2.svg").removeClass("eyes-open").addClass("eyes-closed");
+/*** Load svg ***/
 
-    } else {
-
-        $(".eyes-closed").attr("src","images/logo.svg").removeClass("eyes-closed").addClass("eyes-open");
-    } 
-}
-
-setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+    var s = Snap("#svg-home");
+        Snap.load("images/dog-home.svg", function (f) {
+        g = f.select("svg");
+        s.append(g);   
+    });
 
 
+
+/*** sound effects ***/
+// bubble sound on click
+  $("#letsplay img").on('click', play_bubble);
+  $(".btn-about img").on('click', play_bubble);
+
+  var sound = setup_sound($("footer .sound"));
+  var music = setup_music($("footer .music"));
 
 //Sound from beginning
 $(document).ready(function(){
@@ -102,21 +106,9 @@ $(document).ready(function(){
         }, 1000);
     });
 
-  </script>
-
-  <script src="js/all.js"></script>
-  <script>
-
-    /*** sound effects ***/
-    // bubble sound on click
-    $("#letsplay img").on('click', play_bubble);
-    $(".btn-about img").on('click', play_bubble);
-
-    var sound = setup_sound($("footer .sound"));
-    var music = setup_music($("footer .music"));
-  </script>
 
 
+</script>
 
   </body>
 </html>
