@@ -117,6 +117,30 @@ function play_bubble() {
     }
 }
 
+function play_click() {
+    // assume `sound` is a global var
+    if (sound.is_on()) {
+        var audio = new Audio("sound/effects/click.mp3");
+        audio.play();
+    }
+}
+
+function play_pop() {
+    // assume `sound` is a global var
+    if (sound.is_on()) {
+        var audio = new Audio("sound/effects/bubble-pop.mp3");
+        audio.play();
+    }
+}
+
+function play_reload() {
+    // assume `sound` is a global var
+    if (sound.is_on()) {
+        var audio = new Audio("sound/effects/reload.mp3");
+        audio.play();
+    }
+}
+
 /* sound */
 
 OnOffState = function(name, $elem) {

@@ -202,6 +202,10 @@ $(".close").on('click', function(){
 		// bubble sound on click
 		$("#level img").on('click', play_bubble);
 		$("#theme").on('click', '.slick-current', play_bubble);
+		$(".close").on('click', play_click);
+    	$("#footer .sound, #footer .home, #footer .music, #footer .hint, #footer .switch").on('click', play_pop);
+    	$("#footer .repeat").on('click', play_reload);
+
 
 		var sound = setup_sound($("footer .sound"));
 		var music = setup_music($("footer .music"));
