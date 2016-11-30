@@ -389,7 +389,7 @@ height: 5em;
 #theme img {
     -ms-transform: scale(0.8);
     -webkit-transform: scale(0.8);
-    opacity: 0.5;
+    opacity: 1;
     transform: scale(0.8);
     transition: all 300ms ease;
 }
@@ -420,6 +420,19 @@ height: 5em;
 
 #theme-buttons #next {
     float: right;
+}
+
+#theme img.locker {
+    position: absolute;
+    top: -1px;
+}
+
+#theme span.unlock-coins {
+    position: absolute;
+    color: #ffffff;
+    top: 140px;
+    font-size: 2vh;
+    left: 142px;
 }
 
 /********** button effects **********/
