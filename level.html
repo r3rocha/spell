@@ -145,7 +145,7 @@ function blinkEyes() {
 setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
 
 //show change avatar
-$(".btn-user.change-avatar").on('click', function(){
+$(".btn-user.change-avatar, .user-status img").on('click', function(){
     $(".modal-title, .modal-container").addClass("hide");
     $("h4.change-avatar, #change-avatar").removeClass("hide");
 });
