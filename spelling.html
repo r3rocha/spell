@@ -320,10 +320,15 @@ setup_change_avatar(
 var sound = setup_sound($("footer .sound"));
 var music = setup_music($("footer .music"));
 
+// "animals" is the fallback theme if nothing is passed in the URL
+// `location.hash` should be "#animals", "#food," "#kitchen", etc
+var theme = location.hash.slice(1) || "animals";
+// english is the default language
+var language = "en-us";
 
 var game = new Game({
-    theme: "animals",
-    language: "en-us",
+    theme: theme,
+    language: language,
     all_letters: $("#all-letters"),
     guess: $("#guess"),
     object: $(".object .item"),
