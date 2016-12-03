@@ -141,6 +141,14 @@ function play_reload() {
     }
 }
 
+function play_pop2() {
+    // assume `sound` is a global var
+    if (sound.is_on()) {
+        var audio = new Audio("sound/effects/pop.mp3");
+        audio.play();
+    }
+}
+
 /* sound */
 
 OnOffState = function(name, $elem) {

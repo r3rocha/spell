@@ -92,8 +92,12 @@
 
 /*** sound effects ***/
 // bubble sound on click
-  $("#letsplay img").on('click', play_bubble);
-  $(".btn-about img").on('click', play_bubble);
+    $("#home #letsplay").on('click', play_bubble);
+    $("#footer span").on('click', play_pop);
+    $(".close").on('click', play_click);
+    $("#aboutModal .btn-about").on('click', play_bubble);
+    $("#aboutModal .line3 a").on('click', play_pop);
+    
 
   var sound = setup_sound($("footer .sound"));
   var music = setup_music($("footer .music"));
