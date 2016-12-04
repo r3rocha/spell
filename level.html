@@ -12,13 +12,16 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+   		<script src="js/bootstrap.min.js"></script>
 	
 	</head>
 	<body id="select-game" class="grad">
 		<header id="header" class="col-xs-12">
 			<div id="dog">
-				<img class="dog-level eyes-open col-xs-4" src="images/dog-level.svg" alt="Pick a level!"><img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">
+				<svg id="svg-dog-level" class="dog-level col-xs-4"></svg>
+				<!-- <img class="dog-level eyes-open col-xs-4" src="images/dog-level.svg" alt="Pick a level!"> -->
+				<img class="ballon-level col-xs-5" src="images/ballon-level.svg" alt="Pick a level!">				
 			</div>
 			<div id="user" class="col-xs-3">
 				<button id="useravatar" type="button" data-toggle="modal" data-target="#userModal"><img /></button>
@@ -205,10 +208,24 @@ $(".close").on('click', function(){
 		$(".close").on('click', play_click);
     	$("#footer .sound, #footer .home, #footer .music, #footer .hint, #footer .switch").on('click', play_pop);
     	$("#footer .repeat").on('click', play_reload);
-
+    	$("#theme-buttons #next, #theme-buttons #prev").on('click', play_pop2);
 
 		var sound = setup_sound($("footer .sound"));
 		var music = setup_music($("footer .music"));
+
+
+
+/*** Load svg ***/
+
+    var svglevel = Snap("#svg-dog-level");
+        Snap.load("images/dog-level.svg", function (f) {
+        g = f.select("svg");
+        svglevel.append(g);   
+    });
+
+
+
+
 	</script>
 
 

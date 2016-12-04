@@ -14,7 +14,8 @@
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 	
 	</head>
 	<body id="game" class="grad">
@@ -38,7 +39,8 @@
 	<content id="content" class="row">
 
 		<div id="figure">
-			<img class="dog-seated eyes-open col-xs-2" src="images/dog-seated-open.svg" alt="spell "/>
+			<!-- <img class="dog-seated col-xs-2" src="images/dog-seated.svg" alt="spell "/> -->
+            <svg id="svg-dog-seated" class="dog-seated col-xs-2"></svg>
             <div class="object col-xs-4"><center><img class="item"/></center></div>
 			<div class="language col-xs-1" data-language="en-us"><button type="button" data-toggle="modal" data-target="#idiomModal">language</button></div>
 			
@@ -85,7 +87,8 @@
             <!-- User Status container -->
             <div id="user-status" class="container-fluid bd-example-row modal-container">
                 <div class="row line1">
-                    <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
+                    <!-- <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/> -->
+                    <svg id="svg-dog-user" class="dog-user col-xs-offset-1 col-xs-6"></svg>
                     <div class="user-status col-xs-5">
                         <img src="images/avatar/01.svg" alt="spell"/>
                         <div id="usercoins"><span class="coins">1200</span></div>
@@ -100,7 +103,8 @@
             <!-- change Avatar -->
             <div id="change-avatar" class="container-fluid bd-example-row modal-container hide">
                 <div class="row line1">
-                    <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/>
+                    <!-- <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/> -->
+                    <svg id="svg-dog-selecteavatar" class="dog-selecteavatar col-xs-offset-4 col-xs-5"></svg>
                 </div>
                 <div class="row line2">                       
                     <div class="select-avatar col-xs-12">
@@ -143,7 +147,8 @@
           <div class="modal-body row">
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
-                    <img class="dog-language col-xs-offset-2 col-xs-8 eyes-open" src="images/dog-language-open.svg" alt="spell"/>
+                    <!-- <img class="dog-language col-xs-offset-2 col-xs-8 eyes-open" src="images/dog-language.svg" alt="spell"/> -->
+                    <svg id="svg-dog-language" class="dog-language col-xs-offset-2 col-xs-8"></svg>
                 </div>
                 <div class="row">
                     <button type="button" class="btn-flag us col-xs-2 col-xs-offset-3"><img src="images/flagbig-us.svg" alt="flag us"/><h6>English</h6></button>
@@ -164,7 +169,7 @@
 	    <div class="modal-content winbg">
           <div class="modal-header row">
           	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-	        <h4 class="modal-title col-xs-3"><img src="images/dog-win.svg" alt="spell"/></h4>
+	        <h4 class="modal-title col-xs-3"><svg id="svg-dog-win" class="dog-win"></svg><!-- <img src="images/dog-win.svg" alt="spell"/> --></h4>
             <h4 class="modal-title col-xs-9"><img src="images/welldone-text.svg" alt="spell"/></h4>
 	      </div>
           <div class="modal-body row">
@@ -212,7 +217,7 @@
 	    <div class="modal-content trybg">
           <div class="modal-header row" >
           	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-	        <h4 class="modal-title col-xs-4"><img src="images/dog-tryagain.svg" alt="spell"/></h4>
+	        <h4 class="modal-title col-xs-4"><svg id="svg-dog-tryagain" class="dog-tryagain"></svg><!-- <img src="images/dog-tryagain.svg" alt="spell"/> --></h4>
             <h4 class="modal-title col-xs-8"><img src="images/tryagain-text.svg" alt="spell"/></h4>
 	      </div>
 
@@ -266,30 +271,45 @@
 
 <script type="text/javascript">
     
-function blinkEyes() {
-    if ($("#figure .eyes-open").size()) {
-        $(".dog-seated.eyes-open").attr("src","images/dog-seated-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+/*** Load svg ***/
 
-    } else {
-
-        $(".dog-seated.eyes-closed").attr("src","images/dog-seated-open.svg").removeClass("eyes-closed").addClass("eyes-open");
-    } 
-}
-
-setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
+    var svglanguage = Snap("#svg-dog-language");
+        Snap.load("images/dog-language.svg", function (f) {
+        g = f.select("svg");
+        svglanguage.append(g);   
+    });
 
 
-function blinkEyes2() {
-    if ($(".dog-language.eyes-open").size()) {
-        $(".dog-language.eyes-open").attr("src","images/dog-language-close.svg").removeClass("eyes-open").addClass("eyes-closed");
+    var svgseated = Snap("#svg-dog-seated");
+        Snap.load("images/dog-seated.svg", function (f) {
+        g = f.select("svg");
+        svgseated.append(g);   
+    });
 
-    } else {
+    var svgselecteavatar = Snap("#svg-dog-selecteavatar");
+        Snap.load("images/dog-selecteavatar.svg", function (f) {
+        g = f.select("svg");
+        svgselecteavatar.append(g);   
+    });
 
-        $(".dog-language.eyes-closed").attr("src","images/dog-language-open.svg").removeClass("eyes-closed").addClass("eyes-open");
-    } 
-}
+    var svguser = Snap("#svg-dog-user");
+        Snap.load("images/dog-userstatus.svg", function (f) {
+        g = f.select("svg");
+        svguser.append(g);   
+    });
 
-setInterval(blinkEyes2,400); setInterval(blinkEyes2,800); setInterval(blinkEyes2,500);
+
+    var svgwin = Snap("#svg-dog-win");
+        Snap.load("images/dog-win.svg", function (f) {
+        g = f.select("svg");
+        svgwin.append(g);   
+    });
+
+    var svgtryagain = Snap("#svg-dog-tryagain");
+        Snap.load("images/dog-tryagain.svg", function (f) {
+        g = f.select("svg");
+        svgtryagain.append(g);   
+    });
 
 //show change avatar
 $(".btn-user.change-avatar, .user-status img").on('click', function(){

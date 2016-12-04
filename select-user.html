@@ -20,7 +20,8 @@
     </header>
     <content id="content" class="row">
       <div id="dog-select" class="col-xs-5 col-xs-offset-1 ">
-        <img class="eyes-open" src="images/dog-seluser-open.svg" alt="Dog Spell"/>
+        <!-- <img class="eyes-open" src="images/dog-seluser-open.svg" alt="Dog Spell"/> -->
+        <svg id="svg-dog-seluser" class="dog-seluser"></svg>
       </div>
       <div class="add-select col-xs-4 col-xs-offset-1">  
         <div id="create-new">
@@ -56,7 +57,8 @@
           <div class="modal-body row">
             <div class="container-fluid bd-example-row">
                 <div class="row line1">
-                    <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/>
+                    <!-- <img class="dog-logo col-xs-offset-2 col-xs-8" src="images/logo.svg" alt="spell"/> -->
+                    <svg id="svg-dog-logo" class="dog-logo col-xs-offset-2 col-xs-8"></svg>
                 </div>
                 <div class="row line2">
                     <button type="button" class="btn-about review col-xs-5"><img src="images/leaveareview.svg" alt="Leave a review"></button>
@@ -130,7 +132,8 @@
                     <!-- Wrong Pass -->
                     <div id="wrongpass" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-wrongpass col-xs-offset-1 col-xs-5" src="images/dog-wrongpass.svg" alt="spell"/>
+                            <!-- <img class="dog-wrongpass col-xs-offset-1 col-xs-5" src="images/dog-wrongpass.svg" alt="spell"/> -->
+                            <svg id="svg-dog-wrongpass" class="dog-wrongpass col-xs-offset-1 col-xs-5"></svg>
                             <div class="user-wrongpass col-xs-offset-1 col-xs-5">
                                 <button type="button" class="btn-adduser try-again col-xs-12"><img src="images/try-again.svg" alt="Try Again"></button>
                                 <button type="button" class="btn-adduser forgot-pass col-xs-9 col-xs-offset-1"><img src="images/forgot-pass.svg" alt="Forgot Password"></button>
@@ -143,7 +146,8 @@
                     <!-- Forgot Pass Pass -->
                     <div id="forgotpass" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-wrongpass col-xs-offset-1 col-xs-5" src="images/dog-tellusername.svg" alt="spell"/>
+                            <!-- <img class="dog-forgotpass col-xs-offset-1 col-xs-5" src="images/dog-tellusername.svg" alt="spell"/> -->
+                            <svg id="svg-dog-forgotpass" class="dog-forgotpass col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username col-xs-12">
                                     <input type="text" placeholder="username" id="username" autocomplete="off"/>
@@ -199,7 +203,8 @@
                     <!-- Your Pass -->
                     <div id="pass-recover" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-correctpass col-xs-offset-1 col-xs-5" src="images/dog-correctpass.svg" alt="spell"/>
+                            <!-- <img class="dog-correctpass col-xs-offset-1 col-xs-5" src="images/dog-correctpass.svg" alt="spell"/> -->
+                            <svg id="svg-dog-correctpass" class="dog-correctpass col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username col-xs-12">
                                     <input type="text" placeholder="username" id="yourusername" autocomplete="off"/>
@@ -216,7 +221,8 @@
                     <!-- Create User & Pass -->
                     <div id="create-user" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-createuser col-xs-offset-1 col-xs-5" src="images/dog-createuser.svg" alt="spell"/>
+                            <!-- <img class="dog-createuser col-xs-offset-1 col-xs-5" src="images/dog-createuser.svg" alt="spell"/> -->
+                            <svg id="svg-dog-createuser" class="dog-createuser col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username col-xs-12">
                                     <input type="text" placeholder="username" id="username" autocomplete="off"/>
@@ -238,7 +244,8 @@
                     <!-- User taken -->
                     <div id="user-taken" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-usertaken col-xs-offset-1 col-xs-5" src="images/dog-usertaken.svg" alt="spell"/>
+                            <!-- <img class="dog-usertaken col-xs-offset-1 col-xs-5" src="images/dog-usertaken.svg" alt="spell"/> -->
+                            <svg id="svg-dog-usertaken" class="dog-usertaken col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username-option one col-xs-12">
                                     <input type="text" placeholder="username" id="username" autocomplete="off"/>
@@ -263,8 +270,8 @@
                     <!-- Create sec code -->
                     <div id="create-seccode" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <!-- <svg id="svg-dog-CreateSecCode" class="dog-CreateSecCode col-xs-offset-2 col-xs-8"></svg> -->
-                            <img class="dog-CreateSecCode col-xs-offset-1 col-xs-5" src="images/dog-CreateSecCode.svg" alt="spell"/>
+                            <svg id="svg-dog-CreateSecCode" class="dog-CreateSecCode col-xs-offset-2 col-xs-8"></svg>
+                            <!-- <img class="dog-CreateSecCode col-xs-offset-1 col-xs-5" src="images/dog-CreateSecCode.svg" alt="spell"/> -->
                         </div>
                         <div class="row line2">                       
                             <div class="CreateSecCode-fruit col-xs-4">
@@ -304,7 +311,8 @@
                     <!-- Create Avatar -->
                     <div id="select-avatar" class="container-fluid bd-example-row modal-container hide">
                         <div class="row line1">
-                            <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/>
+                            <!-- <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/> -->
+                            <svg id="svg-dog-selecteavatar" class="dog-selecteavatar col-xs-offset-4 col-xs-5"></svg>
                         </div>
                         <div class="row line2">                       
                             <div class="select-avatar col-xs-12">
@@ -469,11 +477,71 @@ $("#select-user #remember-seccode button").on('click', function () {
     })
 });
 
-var s = Snap("#svg-dog-RemSecCode");
+var svgseluser = Snap("#svg-dog-seluser");
+Snap.load("images/dog-seluser.svg", function (f) {
+    g = f.select("svg");
+    svgseluser.append(g);
+});
+
+var svglogo = Snap("#svg-dog-logo");
+Snap.load("images/logo.svg", function (f) {
+    g = f.select("svg");
+    svglogo.append(g);
+});
+
+var svgwrongpass = Snap("#svg-dog-wrongpass");
+Snap.load("images/dog-wrongpass.svg", function (f) {
+    g = f.select("svg");
+    svgwrongpass.append(g);
+});
+
+var svgforgotpass = Snap("#svg-dog-forgotpass");
+Snap.load("images/dog-forgotpass.svg", function (f) {
+    g = f.select("svg");
+    svgforgotpass.append(g);
+});
+
+
+var svgseccode = Snap("#svg-dog-RemSecCode");
 Snap.load("images/dog-RemSecCode.svg", function (f) {
     g = f.select("svg");
-    s.append(g);
+    svgseccode.append(g);
 });
+
+var svgcorrectpass = Snap("#svg-dog-correctpass");
+Snap.load("images/dog-correctpass.svg", function (f) {
+    g = f.select("svg");
+    svgcorrectpass.append(g);
+});
+
+var svgcreateseccode = Snap("#svg-dog-CreateSecCode");
+Snap.load("images/dog-CreateSecCode.svg", function (f) {
+    g = f.select("svg");
+    svgcreateseccode.append(g);
+});
+
+var svgcreateuser = Snap("#svg-dog-createuser");
+Snap.load("images/dog-createuser.svg", function (f) {
+    g = f.select("svg");
+    svgcreateuser.append(g);
+});
+
+var svgusertaken = Snap("#svg-dog-usertaken");
+Snap.load("images/dog-usertaken.svg", function (f) {
+    g = f.select("svg");
+    svgusertaken.append(g);
+});
+
+var svgselecteavatar = Snap("#svg-dog-selecteavatar");
+Snap.load("images/dog-selecteavatar.svg", function (f) {
+    g = f.select("svg");
+    svgselecteavatar.append(g);
+});
+
+
+
+
+
 
 
 load_old_users($("#old-users"));
