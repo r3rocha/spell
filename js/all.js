@@ -34,6 +34,32 @@ function setup_coins($elem) {
     });
 }
 
+function setup_locked_coins($elems) {
+    // disable click on every element from $elems
+    $elems.each(function() {
+        $(this).on('click', function(event) {
+            event.preventDefault();
+        });
+    });
+    // get coins value from database
+    var uid = firebase.auth().currentUser.uid;
+    database.ref("/users/" + uid + "/coins").on('value', function(result) {
+        var user_coins = result.val();
+        $elems.each(function() {
+            var minimum_coins = parseInt($(this).data('minimum-coins'), 10);
+            // check if this category is unlocked
+            if (user_coins >= minimum_coins) {
+                // hide locker box
+                $(this).find(".unlock-coins-box").hide();
+                // remove click disable
+                $(this).unbind('click');
+            }
+            // change opacity afterwards to avoid visual flicker
+            $(this).css('opacity', 1);
+        });
+    });
+}
+
 function setup_avatar($elem, prefix) {
     var uid = firebase.auth().currentUser.uid;
     database.ref("/users/" + uid + "/avatar").on('value', function(result) {

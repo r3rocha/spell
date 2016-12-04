@@ -434,6 +434,12 @@ height: 5em;
     font-size: 2vh;
     left: 142px;
 }
+#theme [data-minimum-coins] {
+/* change opacity to 0 and expect javascript to set it to 1
+this is meant to avoid visual flicker when configuring the lockers
+*/
+    opacity: 0;
+}
 
 /********** button effects **********/
 #theme .slick-center img:active,
