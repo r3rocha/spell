@@ -947,6 +947,48 @@ svg#svg-home {
     text-align: center;
 }
 
+svg#svg-dog-level {
+    height: 12vh;
+    text-align: center;
+}
+
+svg#svg-dog-seluser {
+    height: 53vh;
+    text-align: center;
+    width: 100%;
+}
+
+svg#svg-dog-forgotpass {
+    height: 27vh;
+    text-align: center;
+}
+
+svg#svg-dog-correctpass {
+    height: 27vh;
+    text-align: center;
+}
+
+svg#svg-dog-createuser {
+    text-align: center;
+    height: 29vh;
+}
+
+svg#svg-dog-usertaken {
+    text-align: center;
+    height: 29vh;
+}
+
+
+svg#svg-dog-selecteavatar {
+    text-align: center;
+    height: 18vh;
+}
+
+svg#svg-dog-user {
+    text-align: center;
+    height: 23vh;
+}
+
   /******** Steps ********/
 
   g#step1 {
