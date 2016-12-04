@@ -209,18 +209,6 @@ var WORDS = {
             },
         },
         {
-            "alt": "French fries",
-            "image": "images/words/frenchfries.svg",
-            "word": {
-                "en-us": "French fries",
-                "es-sp": "papas fritas"
-            },
-            "sound": {
-                "en-us": "sound/en-us/frenchfries.mp3",
-                "es-sp": "sound/es-sp/papasfritas.mp3"
-            }
-        },
-        {
             "alt": "bacon",
             "image": "images/words/bacon.svg",
             "word": {
