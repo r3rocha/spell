@@ -565,10 +565,18 @@ button:active {
     text-align: center;
 }
 
+#all-letters.drop-over {
+    background-color: rgba(173,173,173,0.3);
+    border-top-right-radius: 80px;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 80px;
+}
 
 #guess .letter.over,
-.drop-over {
-    background-color: yellow;
+#guess .drop-over {
+    background: url(../images/letter-gray.svg) no-repeat transparent;
+    transform: scale(1.1);
 }
 #all-letters {
     height: 24em;
