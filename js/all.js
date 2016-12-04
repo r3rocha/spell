@@ -175,6 +175,14 @@ function play_pop2() {
     }
 }
 
+function play_boing() {
+    // assume `sound` is a global var
+    if (sound.is_on()) {
+        var audio = new Audio("sound/effects/boing.mp3");
+        audio.play();
+    }
+}
+
 /* sound */
 
 OnOffState = function(name, $elem) {

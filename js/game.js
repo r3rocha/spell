@@ -111,6 +111,7 @@ Game.prototype.setup_word_letters = function(word) {
             opacity: 0.5,
             snap: "#guess .letter",
             snapMode: "inner",
+            start: play_bubble,
         });
     });
     var handleDrop = function(event, ui) {
@@ -244,4 +245,5 @@ Game.prototype.change_language = function(lang) {
 
 Game.prototype.decrement_star = function() {
     this.$stars.find(".on").first().removeClass("on").addClass("off");
+    play_boing();
 };
