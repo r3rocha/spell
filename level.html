@@ -71,7 +71,8 @@
           	<!-- User Status container -->
             <div id="user-status" class="container-fluid bd-example-row modal-container">
                 <div class="row line1">
-                    <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/>
+                    <!-- <img class="dog-user col-xs-offset-1 col-xs-6" src="images/dog-userstatus.svg" alt="spell"/> -->
+                    <svg id="svg-dog-user" class="dog-user col-xs-offset-1 col-xs-6"></svg>
                     <div class="user-status col-xs-5">
                         <img src="images/avatar/01.svg" alt="spell"/>
                         <div id="usercoins"><span class="coins">1200</span></div>
@@ -86,7 +87,8 @@
             <!-- change Avatar -->
             <div id="change-avatar" class="container-fluid bd-example-row modal-container hide">
                 <div class="row line1">
-                    <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/>
+                    <!-- <img class="dog-selecteavatar col-xs-offset-4 col-xs-5" src="images/dog-selecteavatar.svg" alt="spell"/> -->
+                    <svg id="svg-dog-selecteavatar" class="dog-selecteavatar col-xs-offset-4 col-xs-5"></svg>
                 </div>
                 <div class="row line2">                       
                     <div class="select-avatar col-xs-12">
@@ -224,7 +226,17 @@ $(".close").on('click', function(){
         svglevel.append(g);   
     });
 
+    var svgselecteavatar = Snap("#svg-dog-selecteavatar");
+        Snap.load("images/dog-selecteavatar.svg", function (f) {
+        g = f.select("svg");
+        svgselecteavatar.append(g);   
+    });
 
+    var svguser = Snap("#svg-dog-user");
+        Snap.load("images/dog-userstatus.svg", function (f) {
+        g = f.select("svg");
+        svguser.append(g);   
+    });
 
 
 	</script>
