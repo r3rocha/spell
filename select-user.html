@@ -431,11 +431,7 @@ $("#adduser form button").on('click', function(event) {
     var user = $("#adduser form #username").val();
     var pass = $("#adduser form #password").val();
     console.log("login:", user, "password:", pass);
-    firebase.auth().signInWithEmailAndPassword(get_email(user), get_password(pass)).then(function(result) {
-            // setup
-        }).catch(function(error) {
-            console.log(error);
-        });
+    sign_in_user(user, pass);
 });
 
 $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span").on('click', function() {
