@@ -128,20 +128,16 @@ function remember_password(user, code, callback) {
 }
 
 function load_old_users($old_users, avatar_img_prefix) {
-    if (localStorage["spell_game:users"]) {
-        var old_users = JSON.parse(localStorage["spell_game:users"]);
-        console.log(old_users);
-        old_users.forEach(function(user, index) {
-            var $button = $('<button class="button" type="button" data-password="' + user.pass + '" data-username="' + user.user + '"><img class="avatar" src="' + avatar_img_prefix + user.avatar + '" alt="player" /><span>' + user.user + '</span></button>');
-            $old_users.append($button);
-            $button.on('click', function(event) {
-                var password = $(this).data('password');
-                var username = $(this).data('username');
-                sign_in_user(username, password, function(avatar) {
-                    old_users[index].avatar = avatar;
-                    localStorage["spell_game:users"] = JSON.stringify(old_users);
-                })
-            });
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    console.log("old_users", old_users);
+    for (var i in old_users) {
+        var user = old_users[i];
+        var $button = $('<button class="button" type="button" data-password="' + user.pass + '" data-username="' + user.user + '"><img class="avatar" src="' + avatar_img_prefix + user.avatar + '" alt="player" /><span>' + user.user + '</span></button>');
+        $old_users.append($button);
+        $button.on('click', function(event) {
+            var password = $(this).data('password');
+            var username = $(this).data('username');
+            sign_in_user(username, password);
         });
     }
 }
@@ -158,14 +154,19 @@ function check_if_user_exists(username, on_exists, on_not_found) {
     });
 }
 
-function sign_in_user(username, password, callback) {
+function sign_in_user(username, password) {
     firebase.auth().signInWithEmailAndPassword(get_email(username), get_password(password))
     .then(function() {
-        // call callback function with avatar image
         var uid = firebase.auth().currentUser.uid;
-        database.ref("/users/" + uid + "/avatar").on('value', function(result) {
-            callback(result.val());
-            // go to the level page after calling callback function
+        database.ref("/users/" + uid).once('value', function(result) {
+            var db_user = result.val();
+            var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+            old_users[username] = {
+                avatar: db_user.avatar,
+                user: username,
+                pass: password,
+            };
+            localStorage["spell_game:users"] = JSON.stringify(old_users);
             window.location = "/level.html";
         });
     })
