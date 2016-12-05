@@ -355,19 +355,6 @@
 
 <script type="text/javascript">
 
-//Blink Eyes
-function blinkEyes() {
-    if ($("#dog-select .eyes-open").size()) {
-        $(".eyes-open").attr("src","images/dog-seluser-close.svg").removeClass("eyes-open").addClass("eyes-closed");
-
-    } else {
-
-        $(".eyes-closed").attr("src","images/dog-seluser-open.svg").removeClass("eyes-closed").addClass("eyes-open");
-    } 
-}
-
-setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
-
 
 //show forgot pass 
 $(".forgot-pass").on('click', function(){

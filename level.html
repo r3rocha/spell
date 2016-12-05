@@ -133,18 +133,6 @@ $(document).ready(function(){
   });
 });
 
-//Blink Eyes
-function blinkEyes() {
-    if ($("#dog .eyes-open").size()) {
-        $(".dog-level.eyes-open").attr("src","images/dog-level-close.svg").removeClass("eyes-open").addClass("eyes-closed");
-
-    } else {
-
-        $(".dog-level.eyes-closed").attr("src","images/dog-level-open.svg").removeClass("eyes-closed").addClass("eyes-open");
-    } 
-}
-
-setInterval(blinkEyes,400); setInterval(blinkEyes,800); setInterval(blinkEyes,500);
 
 //show change avatar
 $(".btn-user.change-avatar, .user-status img").on('click', function(){
