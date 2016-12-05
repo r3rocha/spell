@@ -73,9 +73,9 @@
 			c17.2-4,21.8-15.9,20.6-32C590.6,96.6,565.5,42.1,558.6,29.1z"/>
 	</g>
 	
-		<text transform="matrix(0.9828 -0.1845 0.1845 0.9828 375.9966 92.2655)" style="font-family:'PatrickHand-Regular'; font-size:44.0812px;">How about </text>
+		<text transform="matrix(0.9828 -0.1845 0.1845 0.9828 375.9966 92.2655)" style="font-family:'PatrickHand-Regular'; font-size:44.0798px;">How about </text>
 	
-		<text transform="matrix(0.9828 -0.1845 0.1845 0.9828 363.4089 141.7352)" style="font-family:'PatrickHand-Regular'; font-size:44.0812px;">one of these?</text>
+		<text transform="matrix(0.9828 -0.1845 0.1845 0.9828 363.4089 141.7352)" style="font-family:'PatrickHand-Regular'; font-size:44.0798px;">one of these?</text>
 	<g>
 		<path style="fill:#A7A8AC;" d="M14.7,75.5C22.4,50.6,26,38.6,44,37.1c28.1-2.3,217.7,39,237.2,45c15.1,4.6,25.3,14.9,30.7,35.5
 			c4.4,17,17.6,69.4,18.5,82.1c1.2,16.4,14.4,50.3-10.6,55.7c-9.5,2.1-35.5,4.9-40.5,5.2c-27.1,1.4-32.2,1.5-26,9.7
@@ -91,11 +91,11 @@
 			c-10.7-4-23.3-10.2-31-19.3c-19.3,1.9-139.5-2.9-144.9-3.1c-17.6-0.7-24.4-11.4-26.2-27.5C8.5,206.8,16.7,92.9,21,78.8z"/>
 	</g>
 	
-		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 42.3046 124.7071)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">This username </text>
+		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 42.3041 124.7071)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">This username </text>
 	
-		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 70.8597 171.1212)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">is taken by </text>
+		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 70.8593 171.1212)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">is taken by </text>
 	
-		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 52.1448 217.3476)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">someone else!</text>
+		<text transform="matrix(0.991 3.924566e-03 -3.960008e-03 1 52.1443 217.3476)" style="font-family:'PatrickHand-Regular'; font-size:44.0828px;">someone else!</text>
 </g>
 <g id="dog">
 	<path id="hand2" style="fill:#B56F29;" d="M412.5,452.5c0,0,38.5,31.3,42,33c7,3.3,12.9-9.6,19.5-5.6c4.6,2.8,9.2,12.1,5.3,15.9
@@ -145,16 +145,16 @@
 		<path style="fill:#F69220;" d="M409.3,356.3c0,0,0.4-9.4,6.7-17.3c9.6-12,44.7-22.3,50.5-18.4c4.4,3,4.3,12.5,3.3,14.3
 			C468.8,336.6,409.3,356.3,409.3,356.3z"/>
 	</g>
-	<g id="eyesclosed" style="display:none;">
-		<circle style="display:inline;fill:#E48525;" cx="458" cy="304.3" r="24.6"/>
-		<path style="display:inline;fill:#603A17;" d="M482.4,307.8l-0.6,3c0,0-9-1.4-21.5,1.4c-9.4,2.1-19.1,7.4-24,13l-1.1-2.6
+	<g id="eyesclosed">
+		<circle style="fill:#E48525;" cx="458" cy="304.3" r="24.6"/>
+		<path style="fill:#603A17;" d="M482.4,307.8l-0.6,3c0,0-9-1.4-21.5,1.4c-9.4,2.1-19.1,7.4-24,13l-1.1-2.6
 			C435.2,322.5,446.7,304.5,482.4,307.8z"/>
-		<path style="display:inline;fill:#E48525;" d="M443.1,315.8c0,18-14.6,32.6-32.6,32.6s-32.6-14.6-32.6-32.6s14.6-32.6,32.6-32.6
+		<path style="fill:#E48525;" d="M443.1,315.8c0,18-14.6,32.6-32.6,32.6s-32.6-14.6-32.6-32.6s14.6-32.6,32.6-32.6
 			C428.5,283.2,443.1,297.8,443.1,315.8z"/>
-		<path style="display:inline;fill:#603A17;" d="M443.1,315.6c0,0,0.2,2.4,0.2,1.7c0.1-0.7-0.4,1.6-0.4,1.6s-14.3-1.1-29.7,3
+		<path style="fill:#603A17;" d="M443.1,315.6c0,0,0.2,2.4,0.2,1.7c0.1-0.7-0.4,1.6-0.4,1.6s-14.3-1.1-29.7,3
 			c-11.7,3.1-21.6,7.9-27.3,15.2l-2.1-2.6C383.9,334.5,398.7,312.4,443.1,315.6z"/>
-		<path style="display:inline;fill:#F69220;" d="M409.3,356.3c0,0,0.4-9.4,6.7-17.3c9.6-12,44.7-22.3,50.5-18.4
-			c4.4,3,4.3,12.5,3.3,14.3C468.8,336.6,409.3,356.3,409.3,356.3z"/>
+		<path style="fill:#F69220;" d="M409.3,356.3c0,0,0.4-9.4,6.7-17.3c9.6-12,44.7-22.3,50.5-18.4c4.4,3,4.3,12.5,3.3,14.3
+			C468.8,336.6,409.3,356.3,409.3,356.3z"/>
 	</g>
 	<g id="nose">
 		<ellipse cx="526" cy="388.4" rx="41" ry="43.4"/>
