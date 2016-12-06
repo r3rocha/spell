@@ -248,16 +248,6 @@
                         <div class="row line1">
                             <svg id="svg-dog-usertaken" class="dog-usertaken col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
-                                <div class="form-username-option one col-xs-12">
-                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
-                                </div>
-                                <div class="form-username-option two col-xs-12">
-                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
-                                </div>
-                                <div class="form-username-option three col-xs-12">
-                                    <input type="text" placeholder="username" id="username" autocomplete="off"/>
-                                </div>
-
                                 <div id="back" class="col-xs-offset-3 col-xs-5">
                                     <button type="button"><img src="images/back.svg" alt="back"/></button>
                                 </div>
@@ -276,30 +266,30 @@
                         <div class="row line2">                       
                             <div class="CreateSecCode-fruit col-xs-4">
                                 <h6>Pick your favorite fruit</h6>
-                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg"></span>
-                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg"></span>
-                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg"></span>
-                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg"></span>
-                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg"></span>
-                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg"></span>
+                                <span class="fruit one col-xs-4"><img src="images/sc-fruit-1.svg" data-id="one"></span>
+                                <span class="fruit two col-xs-4"><img src="images/sc-fruit-2.svg" data-id="two"></span>
+                                <span class="fruit three col-xs-4"><img src="images/sc-fruit-3.svg" data-id="three"></span>
+                                <span class="fruit four col-xs-4"><img src="images/sc-fruit-4.svg" data-id="four"></span>
+                                <span class="fruit five col-xs-4"><img src="images/sc-fruit-5.svg" data-id="five"></span>
+                                <span class="fruit six col-xs-4"><img src="images/sc-fruit-6.svg" data-id="six"></span>
                             </div>
                             <div class="CreateSecCode-animal col-xs-4">
                                 <h6>Pick your favorite animal</h6>
-                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg"></span>
-                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg"></span>
-                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg"></span>
-                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg"></span>
-                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg"></span>
-                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg"></span>
+                                <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg" data-id="one"></span>
+                                <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg" data-id="two"></span>
+                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg" data-id=xs""></span>
+                                <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg" data-id="four"></span>
+                                <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg" data-id="five"></span>
+                                <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg" data-id="six"></span>
                             </div>
                             <div class="CreateSecCode-color col-xs-4">
                                 <h6>Pick your favorite color</h6>
-                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg"></span>
-                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg"></span>
-                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg"></span>
-                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg"></span>
-                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg"></span>
-                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg"></span>
+                                <span class="color one col-xs-4"><img src="images/sc-color-1.svg" data-id="one"></span>
+                                <span class="color two col-xs-4"><img src="images/sc-color-2.svg" data-id="two"></span>
+                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg" data-id=""three></span>
+                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg" data-id=""four></span>
+                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg" data-id=""five></span>
+                                <span class="color six col-xs-4"><img src="images/sc-color-6.svg" data-id="six"></span>
                             </div>    
                         </div>
                         <div id="next" class="col-xs-offset-10 col-xs-2">
@@ -431,14 +421,10 @@ $("#adduser form button").on('click', function(event) {
     var user = $("#adduser form #username").val();
     var pass = $("#adduser form #password").val();
     console.log("login:", user, "password:", pass);
-    firebase.auth().signInWithEmailAndPassword(get_email(user), get_password(pass)).then(function(result) {
-            // setup
-        }).catch(function(error) {
-            console.log(error);
-        });
+    sign_in_user(user, pass);
 });
 
-$("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span").on('click', function() {
+$("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span, #create-seccode .CreateSecCode-fruit span, #create-seccode .CreateSecCode-animal span, #create-seccode .CreateSecCode-color span, #select-avatar .select-avatar .avatar").on('click', function() {
     $(this).parent().find(".selected").removeClass('selected');
     $(this).addClass('selected');
 });
@@ -464,6 +450,65 @@ $("#select-user #remember-seccode button").on('click', function () {
     })
 });
 
+$("#create-user button").on('click', function(event) {
+    event.preventDefault();
+    var username = $(this).parent().parent().find("#username").val();
+    var password = $(this).parent().parent().find("#password").val();
+    check_if_user_exists(username, function() {
+        // exists
+        console.log("ERROR: user is taken");
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.user-taken, #user-taken").removeClass("hide");
+        $('.form-username-option').remove();
+        // suggest other usernames
+        for (var i = 3 ; i >=1 ; i--) {
+            var suggested_username = username + i;
+            var $input = $('<div class="form-username-option one col-xs-12"><input type="text" readonly="readonly" value="' + suggested_username + '"/></div>');
+            $input.on('click', function() {
+                console.log("user", $(this).find("input").val());
+                $("#create-user #username").val($(this).find("input").val());
+                $(".modal-title, .modal-container").addClass("hide");
+                $("h4.create-user, #create-user").removeClass("hide");
+            });
+            $("#user-taken form").prepend($input);
+        }
+
+    }, function() {
+        // does not exist
+        console.log("user is available, pick the secret code");
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.create-seccode, #create-seccode").removeClass("hide");
+    });
+});
+
+$("#create-seccode #next").on('click', function() {
+    var $selected = $("#create-seccode .CreateSecCode-fruit .selected, #create-seccode .CreateSecCode-animal .selected, #create-seccode .CreateSecCode-color .selected");
+    if ($selected.size() !== 3) {
+        console.log("not everything is selected");
+        return false;
+    }
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.select-avatar, #select-avatar").removeClass("hide");
+});
+
+$("#select-avatar #next").on('click', function() {
+    var username = $("#create-user #username").val();
+    var password = $("#create-user #password").val();
+    var code = "";
+    $("#create-seccode .selected img").each(function() {
+        code += $(this).data("id");
+    });
+    var avatar = $("#select-avatar .select-avatar .selected img").attr('src').split('/').reverse()[0];
+    console.log("username", username);
+    console.log("password", password);
+    console.log("code", code);
+    console.log("avatar", avatar);
+    signup_user(username, password, code, avatar, function() {
+        window.location = "/level.html";
+    });
+});
+
+
 var svgseluser = Snap("#svg-dog-seluser");
 Snap.load("images/dog-seluser.svg", function (f) {
     g = f.select("svg");
@@ -487,7 +532,6 @@ Snap.load("images/dog-forgotpass.svg", function (f) {
     g = f.select("svg");
     svgforgotpass.append(g);
 });
-
 
 var svgseccode = Snap("#svg-dog-RemSecCode");
 Snap.load("images/dog-RemSecCode.svg", function (f) {
@@ -526,12 +570,10 @@ Snap.load("images/dog-selecteavatar.svg", function (f) {
 });
 
 
+// on page load, sign out current user
+firebase.auth().signOut();
 
-
-
-
-
-load_old_users($("#old-users"));
+load_old_users($("#old-users"), "images/avatar/");
 
 
 

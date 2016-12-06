@@ -8,7 +8,7 @@ function get_password(pass) {
     return password;
 }
 
-function signup_user(user, pass, secret) {
+function signup_user(user, pass, secret, avatar, callback) {
     var email = get_email(user);
     var password = get_password(pass);
     console.log("signup user", user);
@@ -20,10 +20,16 @@ function signup_user(user, pass, secret) {
             username: user,
             coins: 0,
             current_level: "easy",
-            avatar: "01.svg",
+            avatar: avatar,
         });
+        save_old_user(user, pass, avatar);
+        callback();
     }).catch(function(error) {
         console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+            // suggest_usernames();
+            console.log("SUGGESTING USERNAMES");
+        }
     });
 }
 
@@ -123,16 +129,58 @@ function remember_password(user, code, callback) {
     });
 }
 
-function load_old_users($old_users) {
-    if (localStorage["spell_game:users"]) {
-        var old_users = JSON.parse(localStorage["spell_game:users"]);
-        console.log(old_users);
-        old_users.forEach(function(user, index) {
-            $old_users.append('<button class="button" type="button"><img class="avatar" src="images/avatar/' + user.avatar + '" alt="player" data-pass="' + user.pass + '"><span>' + user.user + '</span></button>');
+function load_old_users($old_users, avatar_img_prefix) {
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    console.log("old_users", old_users);
+    for (var i in old_users) {
+        var user = old_users[i];
+        var $button = $('<button class="button" type="button" data-password="' + user.pass + '" data-username="' + user.user + '"><img class="avatar" src="' + avatar_img_prefix + user.avatar + '" alt="player" /><span>' + user.user + '</span></button>');
+        $old_users.append($button);
+        $button.on('click', function(event) {
+            var password = $(this).data('password');
+            var username = $(this).data('username');
+            sign_in_user(username, password);
         });
     }
 }
 
+function check_if_user_exists(username, on_exists, on_not_found) {
+    firebase.auth().signInWithEmailAndPassword(get_email(username), "password that does not exist").catch(function(error) {
+        if (error.code === "auth/wrong-password") {
+            on_exists();
+        } else if (error.code === "auth/user-not-found") {
+            on_not_found();
+        } else {
+            console.log("ERROR on check_if_user_exists", error);
+        }
+    });
+}
+
+function sign_in_user(username, password) {
+    firebase.auth().signInWithEmailAndPassword(get_email(username), get_password(password))
+    .then(function() {
+        var uid = firebase.auth().currentUser.uid;
+        database.ref("/users/" + uid).once('value', function(result) {
+            var db_user = result.val();
+            var avatar = db_user.avatar;
+            save_old_user(username, password, avatar);
+            window.location = "/level.html";
+        });
+    })
+    .catch(function(error) {
+        console.log("ERROR on sign_in_user", error);
+    });
+}
+
+function save_old_user(username, password, avatar) {
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    old_users[username] = {
+        avatar: avatar,
+        user: username,
+        pass: password,
+    };
+    localStorage["spell_game:users"] = JSON.stringify(old_users);
+}
 
 /* sound effects */
 function play_bubble() {

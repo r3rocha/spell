@@ -182,7 +182,11 @@ $(".close").on('click', function(){
 	</script>
 	<script src="js/all.js"></script>
 	<script>
-		firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
+		firebase.auth().onAuthStateChanged(function(user) {
+			// not logged in
+			if (!user) {
+				return;
+			}
 			setup_coins($("#usercoins .coins"));
 			setup_level($("#level > img"));
 			setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
