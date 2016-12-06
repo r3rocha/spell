@@ -347,11 +347,11 @@ setup_change_avatar(
 
 
     /*** sound effects ***/
-    // bubble sound on click
+    // play sound on click
     $(".close").on('click', play_click);
     $("#footer .sound, #footer .home, #footer .music, #footer .hint, #footer .switch").on('click', play_pop);
     $("#footer .repeat").on('click', play_reload);
-    $("button#useravatar, .user-status").on('click', play_bubble);
+    $("#useravatar img, .user-status img, .btn-user, .avatar").on('click', play_bubble);
 
 var sound = setup_sound($("footer .sound"));
 var music = setup_music($("footer .music"));
