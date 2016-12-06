@@ -8,7 +8,7 @@ function get_password(pass) {
     return password;
 }
 
-function signup_user(user, pass, secret) {
+function signup_user(user, pass, secret, avatar, callback) {
     var email = get_email(user);
     var password = get_password(pass);
     console.log("signup user", user);
@@ -20,8 +20,10 @@ function signup_user(user, pass, secret) {
             username: user,
             coins: 0,
             current_level: "easy",
-            avatar: "01.svg",
+            avatar: avatar,
         });
+        save_old_user(user, pass, avatar);
+        callback();
     }).catch(function(error) {
         console.log(error);
         if (error.code === "auth/email-already-in-use") {
@@ -160,19 +162,24 @@ function sign_in_user(username, password) {
         var uid = firebase.auth().currentUser.uid;
         database.ref("/users/" + uid).once('value', function(result) {
             var db_user = result.val();
-            var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
-            old_users[username] = {
-                avatar: db_user.avatar,
-                user: username,
-                pass: password,
-            };
-            localStorage["spell_game:users"] = JSON.stringify(old_users);
+            var avatar = db_user.avatar;
+            save_old_user(username, password, avatar);
             window.location = "/level.html";
         });
     })
     .catch(function(error) {
         console.log("ERROR on sign_in_user", error);
     });
+}
+
+function save_old_user(username, password, avatar) {
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    old_users[username] = {
+        avatar: avatar,
+        user: username,
+        pass: password,
+    };
+    localStorage["spell_game:users"] = JSON.stringify(old_users);
 }
 
 /* sound effects */

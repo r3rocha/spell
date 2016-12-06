@@ -178,7 +178,9 @@ body {
     padding: 0 0.2em 0 1em;
 }
 
-#select-user #remember-seccode .selected {
+#select-user #remember-seccode .selected,
+#create-seccode .selected,
+#select-avatar .select-avatar .selected {
     transform: scale(1.2);
     background-color: rgba(97,197,183,0.6);
     border-top-left-radius: 24px;
