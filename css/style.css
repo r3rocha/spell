@@ -9,8 +9,6 @@ Version: 1.0 - 2016
 /********* FONTS **********/
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 
-
-
 /********** button general **********/
 
 
@@ -33,6 +31,7 @@ a {
 
 a:hover {
     color: transparent;
+    text-decoration: none;
 }
 
 input:focus {
@@ -74,12 +73,10 @@ body {
     text-align: center;
     margin-top:2vh;
 }
+
 #home #letsplay {
     text-align: center;
-
 }
-
-
 
 #home #letsplay img:hover,
 #home #letsplay img:active {
@@ -146,8 +143,6 @@ body {
 #select-user #create-new img {
     height: 5.4em;
 }
-
-
 
 #select-user .button:hover {
     -ms-transform: scale(1.05,1.05); /* IE 9 */
@@ -312,6 +307,7 @@ body {
     height: 1%;
     padding: 0;
 }
+
 #game #header {
 height: 5em;
 }
@@ -379,8 +375,6 @@ height: 5em;
 }
 
 
-
-
 /********** theme **********/
 #theme {
   display: inline-block;
@@ -436,6 +430,7 @@ height: 5em;
     font-size: 2vh;
     left: 142px;
 }
+
 #theme [data-minimum-coins] {
 /* change opacity to 0 and expect javascript to set it to 1
 this is meant to avoid visual flicker when configuring the lockers
