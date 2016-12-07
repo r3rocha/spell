@@ -211,8 +211,8 @@
                             <svg id="svg-dog-correctpass" class="dog-correctpass col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username col-xs-12">
-                                    <input type="text" placeholder="username" id="yourusername" autocomplete="off"/>
-                                    <input type="text" placeholder="password" id="yourpassword" autocomplete="off"/>
+                                    <input type="text" placeholder="username" id="yourusername" readonly="readonly" autocomplete="off"/>
+                                    <input type="text" placeholder="password" id="yourpassword" readonly="readonly" autocomplete="off"/>
                                 </div>
                                 <div id="next" class="col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
@@ -430,7 +430,14 @@ $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember
     $(this).addClass('selected');
 });
 
-$("#select-user #remember-seccode button").on('click', function () {
+/**************** FORGOT PASSWORD ****************/
+$("#forgotpass #next button").on('click', function() {
+    event.preventDefault();
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.remember-seccode, #remember-seccode").removeClass("hide");
+});
+
+$("#remember-seccode #next button").on('click', function () {
     var code = "";
     $("#select-user #remember-seccode .selected img").each(function() {
         code += $(this).data("id");
@@ -444,12 +451,24 @@ $("#select-user #remember-seccode button").on('click', function () {
             $("#pass-recover form #yourpassword").val(pass);
             $(".modal-title, .modal-container").addClass("hide");
             $("h4.pass-recover, #pass-recover").removeClass("hide");
-            // TODO: go to level page
         } else {
+            $(".modal-title, .modal-container").addClass("hide");
+            $("h4.pass-recover, #wrongpass").removeClass("hide");
             console.log("wrong security code");
         }
     })
 });
+
+$("#pass-recover #next button").on('click', function() {
+    event.preventDefault();
+    console.log("login:", user, "password:", pass);
+    var user = $("#pass-recover form #yourusername").val();
+    var pass = $("#pass-recover form #yourpassword").val();
+    sign_in_user(user, pass);
+});
+
+/****************************************************************************/
+
 
 $("#create-user button").on('click', function(event) {
     event.preventDefault();
