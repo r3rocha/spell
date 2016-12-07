@@ -422,7 +422,11 @@ $("#adduser form button").on('click', function(event) {
     var user = $("#adduser form #username").val();
     var pass = $("#adduser form #password").val();
     console.log("login:", user, "password:", pass);
-    sign_in_user(user, pass);
+    var on_wrong_pass = function() {
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.pass-recover, #wrongpass").removeClass("hide");
+    };
+    sign_in_user(user, pass, on_wrong_pass);
 });
 
 $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span, #create-seccode .CreateSecCode-fruit span, #create-seccode .CreateSecCode-animal span, #create-seccode .CreateSecCode-color span, #select-avatar .select-avatar .avatar").on('click', function() {
@@ -461,9 +465,9 @@ $("#remember-seccode #next button").on('click', function () {
 
 $("#pass-recover #next button").on('click', function() {
     event.preventDefault();
-    console.log("login:", user, "password:", pass);
     var user = $("#pass-recover form #yourusername").val();
     var pass = $("#pass-recover form #yourpassword").val();
+    console.log("login:", user, "password:", pass);
     sign_in_user(user, pass);
 });
 
@@ -527,6 +531,15 @@ $("#select-avatar #next").on('click', function() {
         window.location = "/level.html";
     });
 });
+
+/*********************** WRONG PASS ***********************/
+// try again goes to home of create user
+$('#wrongpass .try-again').on('click', function() {
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.adduser, #adduser").removeClass("hide");
+});
+/**********************************************************/
+
 
 
 var svgseluser = Snap("#svg-dog-seluser");

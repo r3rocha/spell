@@ -156,7 +156,7 @@ function check_if_user_exists(username, on_exists, on_not_found) {
     });
 }
 
-function sign_in_user(username, password) {
+function sign_in_user(username, password, on_wrong_pass) {
     firebase.auth().signInWithEmailAndPassword(get_email(username), get_password(password))
     .then(function() {
         var uid = firebase.auth().currentUser.uid;
@@ -169,6 +169,7 @@ function sign_in_user(username, password) {
     })
     .catch(function(error) {
         console.log("ERROR on sign_in_user", error);
+        on_wrong_pass();
     });
 }
 
