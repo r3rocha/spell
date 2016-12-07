@@ -172,6 +172,10 @@ function sign_in_user(username, password) {
     });
 }
 
+function sign_out_user() {
+    firebase.auth().signOut();
+}
+
 function save_old_user(username, password, avatar) {
     var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
     old_users[username] = {
