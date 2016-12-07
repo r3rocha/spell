@@ -385,10 +385,13 @@ var game = new Game({
     win_box: $("#win-all-letters"),
     try_again_box: $("#try-all-letters"),
 
-    on_win: function () {
+    on_win: function (coins, points) {
         console.log("win");
         var audio = new Audio("sound/effects/win.mp3");
         audio.play();
+        save_user_points(points);
+        $("#win-result .win-number").html(coins);
+        $("#win-result .win-total").html(points);
         $("#winModal").modal('show');
     },
     on_try_again: function() {

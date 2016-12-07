@@ -41,6 +41,14 @@ function setup_coins($elem) {
     });
 }
 
+function save_user_points(points) {
+    var uid = firebase.auth().currentUser.uid;
+    database.ref("/users/" + uid + "/coins").transaction(function(coins) {
+        return coins + points;
+    });
+}
+
+
 function setup_locked_coins($elems) {
     // disable click on every element from $elems
     $elems.each(function() {
