@@ -15,7 +15,7 @@ function signup_user(user, pass, secret, avatar, callback) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         console.log(result, result.uid);
         console.log("set password recovery");
-        database.ref("/password_recovery/" + user + secret).set(password);
+        database.ref("/password_recovery/" + user + secret).set(pass);
         database.ref("/users/" + result.uid).set({
             username: user,
             coins: 0,
@@ -23,6 +23,7 @@ function signup_user(user, pass, secret, avatar, callback) {
             avatar: avatar,
         });
         save_old_user(user, pass, avatar);
+        save_current_username(user);
         callback();
     }).catch(function(error) {
         console.log(error);
@@ -156,7 +157,7 @@ function check_if_user_exists(username, on_exists, on_not_found) {
     });
 }
 
-function sign_in_user(username, password) {
+function sign_in_user(username, password, on_wrong_pass) {
     firebase.auth().signInWithEmailAndPassword(get_email(username), get_password(password))
     .then(function() {
         var uid = firebase.auth().currentUser.uid;
@@ -164,12 +165,24 @@ function sign_in_user(username, password) {
             var db_user = result.val();
             var avatar = db_user.avatar;
             save_old_user(username, password, avatar);
+            save_current_username(username);
             window.location = "/level.html";
         });
     })
     .catch(function(error) {
         console.log("ERROR on sign_in_user", error);
+        on_wrong_pass();
     });
+}
+
+function sign_out_user() {
+    firebase.auth().signOut();
+}
+
+function logout() {
+    sign_out_user();
+    remove_current_username();
+    window.location = '/select-user.html';
 }
 
 function save_old_user(username, password, avatar) {
@@ -181,6 +194,26 @@ function save_old_user(username, password, avatar) {
     };
     localStorage["spell_game:users"] = JSON.stringify(old_users);
 }
+
+function remove_old_user(username) {
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    delete old_users[username];
+    localStorage["spell_game:users"] = JSON.stringify(old_users);
+}
+
+function save_current_username(username) {
+    localStorage["spell_game:current_username"] = username;
+}
+
+function get_current_username() {
+    return localStorage["spell_game:current_username"];
+}
+
+function remove_current_username() {
+    remove_old_user(get_current_username());
+    delete localStorage["spell_game:current_username"];
+}
+
 
 /* sound effects */
 function play_bubble() {

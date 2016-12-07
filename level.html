@@ -200,6 +200,10 @@ $(".close").on('click', function(){
 				$("#userModal").modal("hide");
 			}
 		);
+        $("#user-status .logout").on('click', function() {
+            logout();
+        });
+
 		/*** sound effects ***/
 		// play sound on click
 		$("#level img").on('click', play_bubble);

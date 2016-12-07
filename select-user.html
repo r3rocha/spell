@@ -211,8 +211,8 @@
                             <svg id="svg-dog-correctpass" class="dog-correctpass col-xs-offset-1 col-xs-5"></svg>
                             <form class="col-xs-6">
                                 <div class="form-username col-xs-12">
-                                    <input type="text" placeholder="username" id="yourusername" autocomplete="off"/>
-                                    <input type="text" placeholder="password" id="yourpassword" autocomplete="off"/>
+                                    <input type="text" placeholder="username" id="yourusername" readonly="readonly" autocomplete="off"/>
+                                    <input type="text" placeholder="password" id="yourpassword" readonly="readonly" autocomplete="off"/>
                                 </div>
                                 <div id="next" class="col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
@@ -278,7 +278,7 @@
                                 <h6>Pick your favorite animal</h6>
                                 <span class="animal one col-xs-4"><img src="images/sc-animal-1.svg" data-id="one"></span>
                                 <span class="animal two col-xs-4"><img src="images/sc-animal-2.svg" data-id="two"></span>
-                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg" data-id=xs""></span>
+                                <span class="animal three col-xs-4"><img src="images/sc-animal-3.svg" data-id="three"></span>
                                 <span class="animal four col-xs-4"><img src="images/sc-animal-4.svg" data-id="four"></span>
                                 <span class="animal five col-xs-4"><img src="images/sc-animal-5.svg" data-id="five"></span>
                                 <span class="animal six col-xs-4"><img src="images/sc-animal-6.svg" data-id="six"></span>
@@ -287,9 +287,9 @@
                                 <h6>Pick your favorite color</h6>
                                 <span class="color one col-xs-4"><img src="images/sc-color-1.svg" data-id="one"></span>
                                 <span class="color two col-xs-4"><img src="images/sc-color-2.svg" data-id="two"></span>
-                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg" data-id=""three></span>
-                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg" data-id=""four></span>
-                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg" data-id=""five></span>
+                                <span class="color three col-xs-4"><img src="images/sc-color-3.svg" data-id="three"></span>
+                                <span class="color four col-xs-4"><img src="images/sc-color-4.svg" data-id="four"></span>
+                                <span class="color five col-xs-4"><img src="images/sc-color-5.svg" data-id="five"></span>
                                 <span class="color six col-xs-4"><img src="images/sc-color-6.svg" data-id="six"></span>
                             </div>    
                         </div>
@@ -422,7 +422,11 @@ $("#adduser form button").on('click', function(event) {
     var user = $("#adduser form #username").val();
     var pass = $("#adduser form #password").val();
     console.log("login:", user, "password:", pass);
-    sign_in_user(user, pass);
+    var on_wrong_pass = function() {
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.pass-recover, #wrongpass").removeClass("hide");
+    };
+    sign_in_user(user, pass, on_wrong_pass);
 });
 
 $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span, #create-seccode .CreateSecCode-fruit span, #create-seccode .CreateSecCode-animal span, #create-seccode .CreateSecCode-color span, #select-avatar .select-avatar .avatar").on('click', function() {
@@ -430,7 +434,14 @@ $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember
     $(this).addClass('selected');
 });
 
-$("#select-user #remember-seccode button").on('click', function () {
+/**************** FORGOT PASSWORD ****************/
+$("#forgotpass #next button").on('click', function() {
+    event.preventDefault();
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.remember-seccode, #remember-seccode").removeClass("hide");
+});
+
+$("#remember-seccode #next button").on('click', function () {
     var code = "";
     $("#select-user #remember-seccode .selected img").each(function() {
         code += $(this).data("id");
@@ -444,12 +455,24 @@ $("#select-user #remember-seccode button").on('click', function () {
             $("#pass-recover form #yourpassword").val(pass);
             $(".modal-title, .modal-container").addClass("hide");
             $("h4.pass-recover, #pass-recover").removeClass("hide");
-            // TODO: go to level page
         } else {
+            $(".modal-title, .modal-container").addClass("hide");
+            $("h4.pass-recover, #wrongpass").removeClass("hide");
             console.log("wrong security code");
         }
     })
 });
+
+$("#pass-recover #next button").on('click', function() {
+    event.preventDefault();
+    var user = $("#pass-recover form #yourusername").val();
+    var pass = $("#pass-recover form #yourpassword").val();
+    console.log("login:", user, "password:", pass);
+    sign_in_user(user, pass);
+});
+
+/****************************************************************************/
+
 
 $("#create-user button").on('click', function(event) {
     event.preventDefault();
@@ -508,6 +531,15 @@ $("#select-avatar #next").on('click', function() {
         window.location = "/level.html";
     });
 });
+
+/*********************** WRONG PASS ***********************/
+// try again goes to home of create user
+$('#wrongpass .try-again').on('click', function() {
+    $(".modal-title, .modal-container").addClass("hide");
+    $("h4.adduser, #adduser").removeClass("hide");
+});
+/**********************************************************/
+
 
 
 var svgseluser = Snap("#svg-dog-seluser");
@@ -572,7 +604,7 @@ Snap.load("images/dog-selecteavatar.svg", function (f) {
 
 
 // on page load, sign out current user
-firebase.auth().signOut();
+sign_out_user();
 
 load_old_users($("#old-users"), "images/avatar/");
 
