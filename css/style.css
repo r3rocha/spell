@@ -87,10 +87,15 @@ body {
 
 /********** About Modal **********/
 
-#aboutModal .copyright {
+
+
+#aboutModal .a-about {
+    text-align: center;
+}
+
+#aboutModal .a-about.copyright {
     font: normal 2em 'Patrick Hand', sans-serif;
     text-transform: uppercase;
-    text-align: center;
 }
 
 #aboutModal .line1, 
@@ -685,8 +690,8 @@ button:active {
 }
 
 
-.modal-btn .home span {
-    background-position: -138px 0px;
+.modal-btn .level span {
+    background-position: -635px 0px;
 }
 
 .modal-btn .repeat span {
@@ -870,16 +875,19 @@ button:active {
 #footer button span {
     background: url("../images/icons.png") no-repeat transparent;
     color: transparent;
-    height: 54px;
+    height: 50px;
     display: block;
     width: 68px;
     margin: 0;
 }
 
 #footer .sound.sound-off span,
-#footer .music.music-off span {
+#footer .music.music-off span,
+#footer .say.say-off span,
+#footer .hint.hint-off span {
     background-position-y: -56px;
 }
+
 
 #footer button span:hover {
     transform: rotate(-4deg);
@@ -890,17 +898,6 @@ button:active {
 }
 
 
-#footer .sound,
-#footer .music,
-#footer .home,
-#footer .repeat,
-#footer .say,
-#footer .hint,
-#footer .switch,
-#footer .about {
-    padding: 0;
-}
-
 #home #footer .col-xs-4 {
     margin-left: 5%;
 }
@@ -908,7 +905,6 @@ button:active {
 #footer .sound span {
     background-position: 0px 0px;
 }
-
 
 #footer .music span {
     background-position: -69px 0px;
@@ -923,7 +919,7 @@ button:active {
 }
 
 #footer .say span {
-    background-position: -276px 0px;
+    background-position: -278px 0px;
 }
 
 #footer .hint span {
@@ -938,7 +934,9 @@ button:active {
     background-position: -493px 0px;
 }
 
-
+#footer .level span {
+    background-position: -635px 0px;
+}
 
 
 
