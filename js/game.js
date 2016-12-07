@@ -89,9 +89,15 @@ Game.prototype.setup_image_box = function() {
 };
 Game.prototype.play_word = function() {
     var word_audio = new Audio(this.word["sound"][this.language]);
+    var self = this;
+
+    // decrement star after playing word
+    word_audio.onended = function() {
+        self.decrement_star();
+        self.check_if_finished();
+    };
+
     word_audio.play();
-    this.decrement_star();
-    this.check_if_finished();
 };
 
 Game.prototype.pick_word = function() {
@@ -212,7 +218,13 @@ Game.prototype.hint = function() {
         return;
     }
     this._giving_hint = true;
-    this.decrement_star();
+
+    // wait 1 second and then decrement a star (and play sound)
+    var self = this;
+    setTimeout(function() {
+        self.decrement_star();
+    }, 1000);
+
     var $all_visible_letters = this.$all_letters.find("*:not(.over-right):not(.over-wrong)");
     var index = Math.floor(Math.random() * $all_visible_letters.size());
     var $origin = $all_visible_letters.eq(index);
