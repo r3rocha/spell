@@ -15,7 +15,7 @@ function signup_user(user, pass, secret, avatar, callback) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         console.log(result, result.uid);
         console.log("set password recovery");
-        database.ref("/password_recovery/" + user + secret).set(password);
+        database.ref("/password_recovery/" + user + secret).set(pass);
         database.ref("/users/" + result.uid).set({
             username: user,
             coins: 0,
