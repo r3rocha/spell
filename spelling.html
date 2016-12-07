@@ -331,8 +331,12 @@ $(".close").on('click', function(){
 //             audio.play();
 //         }, 1000);
 //     });
-firebase.auth().signInWithEmailAndPassword(get_email("user"), get_password("pass")).then(function(result) {
-    setup_coins($(".coins"));
+firebase.auth().onAuthStateChanged(function(user) {
+    // not logged in
+    if (!user) {
+        return;
+    }
+    setup_coins($("#usercoins .coins"));
     setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
 });
 
@@ -343,6 +347,9 @@ setup_change_avatar(
         $("#userModal").modal("hide");
     }
 );
+$("#user-status .logout").on('click', function() {
+    logout();
+});
 
 
 

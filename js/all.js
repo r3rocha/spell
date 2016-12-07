@@ -23,6 +23,7 @@ function signup_user(user, pass, secret, avatar, callback) {
             avatar: avatar,
         });
         save_old_user(user, pass, avatar);
+        save_current_username(user);
         callback();
     }).catch(function(error) {
         console.log(error);
@@ -164,6 +165,7 @@ function sign_in_user(username, password, on_wrong_pass) {
             var db_user = result.val();
             var avatar = db_user.avatar;
             save_old_user(username, password, avatar);
+            save_current_username(username);
             window.location = "/level.html";
         });
     })
@@ -177,6 +179,12 @@ function sign_out_user() {
     firebase.auth().signOut();
 }
 
+function logout() {
+    sign_out_user();
+    remove_current_username();
+    window.location = '/select-user.html';
+}
+
 function save_old_user(username, password, avatar) {
     var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
     old_users[username] = {
@@ -186,6 +194,26 @@ function save_old_user(username, password, avatar) {
     };
     localStorage["spell_game:users"] = JSON.stringify(old_users);
 }
+
+function remove_old_user(username) {
+    var old_users = JSON.parse(localStorage["spell_game:users"] || "{}");
+    delete old_users[username];
+    localStorage["spell_game:users"] = JSON.stringify(old_users);
+}
+
+function save_current_username(username) {
+    localStorage["spell_game:current_username"] = username;
+}
+
+function get_current_username() {
+    return localStorage["spell_game:current_username"];
+}
+
+function remove_current_username() {
+    remove_old_user(get_current_username());
+    delete localStorage["spell_game:current_username"];
+}
+
 
 /* sound effects */
 function play_bubble() {
