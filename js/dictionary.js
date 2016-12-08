@@ -131,7 +131,7 @@ var WORDS = {
             },
             "sound": {
                 "en-us": "sound/en-us/pan.mp3",
-                "es-sp": "sound/es-sp/sartén.mp3"
+                "es-sp": "sound/es-sp/sarten.mp3"
             },
         },
         {
@@ -193,7 +193,7 @@ var WORDS = {
             },
             "sound": {
                 "en-us": "sound/en-us/egg.mp3",
-                "es-sp": "sound/es-sp/huevos.mp3"
+                "es-sp": "sound/es-sp/huevo.mp3"
             },
         },
         {
@@ -220,18 +220,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/tocino.mp3"
             }
         },
-        {
-            "alt": "pancakes",
-            "image": "images/words/pancakes.svg",
-            "word": {
-                "en-us": "pancakes",
-                "es-sp": "panqueques"
-            },
-            "sound": {
-                "en-us": "sound/en-us/pancakes.mp3",
-                "es-sp": "sound/es-sp/panqueques.mp3"
-            }
-        }
+        // {
+        //     "alt": "pancakes",
+        //     "image": "images/words/pancakes.svg",
+        //     "word": {
+        //         "en-us": "pancakes",
+        //         "es-sp": "panqueques"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/pancakes.mp3",
+        //         "es-sp": "sound/es-sp/panqueques.mp3"
+        //     }
+        // }
     ],
     "clothes":[
         {
