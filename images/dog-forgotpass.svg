@@ -237,7 +237,7 @@
 	<g id="nose">
 		<circle cx="453.2" cy="305.7" r="49.7"/>
 		
-			<ellipse transform="matrix(0.9686 -0.2486 0.2486 0.9686 -55.1408 119.5591)" style="fill:#343433;" cx="445.8" cy="278.1" rx="28" ry="12.6"/>
+			<ellipse transform="matrix(0.9686 -0.2486 0.2486 0.9686 -55.1409 119.5565)" style="fill:#343433;" cx="445.8" cy="278.1" rx="28" ry="12.6"/>
 	</g>
 	<ellipse id="belly" style="fill:#754D24;" cx="290" cy="524.6" rx="6" ry="5.7"/>
 </g>
