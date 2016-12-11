@@ -23,6 +23,7 @@ function shuffle(arr) {
 function Game(options) {
     this.theme = options.theme;
     this.language = options.language;
+    this.level = options.level;
     this.$all_letters = options.all_letters;
     this.$guess = options.guess;
     this.$object = options.object;
@@ -200,8 +201,14 @@ Game.prototype.check_if_finished = function () {
     var positive_coins = this.$stars.find(".on").size();
     if (guessed_word.length === word.length) {
         if (guessed_word === word) {
-            // TODO: change this in the future
-            var level_points = 5;
+            var level_points;
+            if (this.level === "easy") {
+                level_points = 10;
+            } else if (this.level === "medium") {
+                level_points = 20;
+            } else if (this.level === "hard") {
+                level_points = 30;
+            }
             var points = positive_coins * level_points;
             this.win(positive_coins, points);
         } else {
