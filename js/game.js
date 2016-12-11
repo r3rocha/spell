@@ -107,7 +107,8 @@ Game.prototype.pick_word = function() {
 
 Game.prototype.setup_word_letters = function(word) {
     var self = this;
-    var letters_shuffled = shuffle(word.split(''));
+    var letters = word.split('').concat(this.random_letters_based_on_level());
+    var letters_shuffled = shuffle(letters);
     letters_shuffled.forEach(function(letter, index) {
         var $letter = $('<span class="letter">' + letter + "</span>");
         self.$all_letters.append($letter);
@@ -136,6 +137,23 @@ Game.prototype.setup_word_letters = function(word) {
         accept: "#all-letters .letter.over-right, #all-letters .letter.over-wrong",
         out: handleOut,
     });
+};
+
+Game.prototype.random_letters_based_on_level = function() {
+    var extra_letters = [];
+    var alphabet = shuffle("abcdefghijklmnopqrstuvwxyz".split(''));
+    if (this.level === "easy") {
+        // dont add letters
+    } else if (this.level === "medium") {
+        // add one extra letter
+        extra_letters.push(alphabet[0]);
+
+    } else if (this.level === "hard") {
+        // add two extra letters
+        extra_letters.push(alphabet[0]);
+        extra_letters.push(alphabet[1]);
+    }
+    return extra_letters;
 };
 
 Game.prototype.setup_guess_box = function(word) {
@@ -201,21 +219,26 @@ Game.prototype.check_if_finished = function () {
     var positive_coins = this.$stars.find(".on").size();
     if (guessed_word.length === word.length) {
         if (guessed_word === word) {
-            var level_points;
-            if (this.level === "easy") {
-                level_points = 10;
-            } else if (this.level === "medium") {
-                level_points = 20;
-            } else if (this.level === "hard") {
-                level_points = 30;
-            }
-            var points = positive_coins * level_points;
+            var points = positive_coins * this.get_level_points();
             this.win(positive_coins, points);
         } else {
             this.try_again();
         }
     } else if (positive_coins === 0) {
         this.try_again();
+    }
+};
+
+Game.prototype.get_level_points = function() {
+    if (this.level === "easy") {
+        return 10;
+    } else if (this.level === "medium") {
+        return 20;
+    } else if (this.level === "hard") {
+        return 30;
+    } else {
+        // ERROR, there should only be the options above
+        return 0;
     }
 };
 
