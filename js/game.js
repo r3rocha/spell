@@ -207,8 +207,7 @@ Game.prototype.check_if_finished = function () {
         } else {
             this.try_again();
         }
-    }
-    if (positive_coins === 0) {
+    } else if (positive_coins === 0) {
         this.try_again();
     }
 };
