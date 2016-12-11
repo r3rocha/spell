@@ -112,11 +112,13 @@
 
 //Sound from beginning
 $(document).ready(function(){
+    if (is_on("sound")) {
         var audio = new Audio('sound/hello.mp3');
         setTimeout(function() {
             audio.play();
         }, 1000);
-    });
+    }
+});
 
 
 
