@@ -225,106 +225,98 @@ function remove_current_username() {
 
 /* sound effects */
 function play_bubble() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/bubble.mp3");
         audio.play();
     }
 }
 
 function play_click() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/click.mp3");
         audio.play();
     }
 }
 
 function play_pop() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/bubble-pop.mp3");
         audio.play();
     }
 }
 
 function play_reload() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/reload.mp3");
         audio.play();
     }
 }
 
 function play_pop2() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/pop.mp3");
         audio.play();
     }
 }
 
 function play_boing() {
-    // assume `sound` is a global var
-    if (sound.is_on()) {
+    if (is_on("sound")) {
         var audio = new Audio("sound/effects/boing.mp3");
         audio.play();
     }
 }
 
-/* sound */
+/* sound & music */
+function get_state_name(name) {
+    return "spell_game:" + name + "_state";
+}
 
-OnOffState = function(name, $elem) {
-    this.name = name;
-    this.local_storage_name = "spell_game:" + this.name + "_state";
-    this.$elem = $elem;
+function is_on(name) {
+    var local_storage_name = get_state_name(name);
+    var not_set = !(local_storage_name in localStorage);
+    return (not_set || localStorage.getItem(local_storage_name) == "on");
 }
-OnOffState.prototype.is_on = function() {
-    return (!(this.local_storage_name in localStorage) ||
-            localStorage.getItem(this.local_storage_name) == "on");
 
+function turn_on(name, $elem) {
+    var local_storage_name = get_state_name(name);
+    console.log(name, "on");
+    $elem.removeClass(name + "-off");
+    localStorage.setItem(local_storage_name, "on");
 }
-OnOffState.prototype.turn_off = function() {
-    console.log(this.name, "off");
-    this.$elem.addClass(this.name + "-off");
-    return localStorage.setItem(this.local_storage_name, "off");
+
+function turn_off(name, $elem) {
+    var local_storage_name = get_state_name(name);
+    console.log(name, "off");
+    $elem.addClass(name + "-off");
+    localStorage.setItem(local_storage_name, "off");
 }
-OnOffState.prototype.turn_on = function() {
-    console.log(this.name, "on");
-    this.$elem.removeClass(this.name + "-off");
-    return localStorage.setItem(this.local_storage_name, "on");
-}
-OnOffState.prototype.toggle = function() {
-    if (this.is_on()) {
-        this.turn_off();
+
+function toggle(name, $elem) {
+    if (is_on(name)) {
+        turn_off(name, $elem);
     } else {
-        this.turn_on();
+        turn_on(name, $elem);
     }
 }
-OnOffState.prototype.setup_click = function() {
-    var self = this;
-    this.$elem.on('click', function() {
-        self.toggle();
-    });
-}
-OnOffState.prototype.setup_initial_state = function() {
-    if (this.is_on()) {
-        this.turn_on();
-    } else {
-        this.turn_off();
-    }
 
+function setup_initial_state(name, $elem) {
+    if (is_on(name)) {
+        turn_on(name, $elem);
+    } else {
+        turn_off(name, $elem);
+    }
 }
+
 function setup_sound($elem) {
-    var sound = new OnOffState("sound", $elem);
-    sound.setup_initial_state();
-    sound.setup_click();
-    return sound;
+    setup_initial_state("sound", $elem);
+    $elem.on('click', function() {
+        toggle("sound", $elem);
+    });
 }
 
 function setup_music($elem) {
-    var music = new OnOffState("music", $elem);
-    music.setup_initial_state();
-    music.setup_click();
-    return music;
+    setup_initial_state("music", $elem);
+    $elem.on('click', function() {
+        toggle("music", $elem);
+    });
 }

@@ -107,16 +107,18 @@
     $("#aboutModal .line3 a").on('click', play_pop);
     
 
-  var sound = setup_sound($("footer .sound"));
-  var music = setup_music($("footer .music"));
+  setup_sound($("footer .sound"));
+  setup_music($("footer .music"));
 
 //Sound from beginning
 $(document).ready(function(){
+    if (is_on("sound")) {
         var audio = new Audio('sound/hello.mp3');
         setTimeout(function() {
             audio.play();
         }, 1000);
-    });
+    }
+});
 
 
 
