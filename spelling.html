@@ -403,15 +403,18 @@ var game = new Game({
 });
 game.start_guess();
 
-function change_language(lang) {
-    return function () {
-        game.change_language(lang);
-        $("#idiomModal").modal("hide");
-        $("#figure .language").attr("data-language", lang)
-    };
-}
-$(".btn-flag.es").on('click', change_language("es-sp"));
-$(".btn-flag.us").on('click', change_language("en-us"));
+$(".btn-flag.es").on('click', function () {
+    var lang = "es-sp";
+    game.change_language(lang);
+    $("#idiomModal").modal("hide");
+    $("#figure .language").attr("data-language", lang)
+});
+$(".btn-flag.us").on('click', function () {
+    var lang = "en-us";
+    game.change_language(lang);
+    $("#idiomModal").modal("hide");
+    $("#figure .language").attr("data-language", lang)
+});
 
 // set up repeat/next actions for modals
 $("#winModal .repeat, #tryModal .repeat").on('click', function() {
