@@ -360,8 +360,8 @@ $("#user-status .logout").on('click', function() {
     $("#footer .repeat").on('click', play_reload);
     $("#useravatar img, .user-status img, .btn-user, .avatar").on('click', play_bubble);
 
-var sound = setup_sound($("footer .sound"));
-var music = setup_music($("footer .music"));
+setup_sound($("footer .sound"));
+setup_music($("footer .music"));
 
 // "animals" is the fallback theme if nothing is passed in the URL
 // `location.hash` should be "#animals", "#food," "#kitchen", etc
