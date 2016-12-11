@@ -478,8 +478,7 @@ $("#create-user button").on('click', function(event) {
     event.preventDefault();
     var username = $(this).parent().parent().find("#username").val();
     var password = $(this).parent().parent().find("#password").val();
-    check_if_user_exists(username, function() {
-        // exists
+    var on_exists = function() {
         console.log("ERROR: user is taken");
         $(".modal-title, .modal-container").addClass("hide");
         $("h4.user-taken, #user-taken").removeClass("hide");
@@ -497,12 +496,13 @@ $("#create-user button").on('click', function(event) {
             $("#user-taken form").prepend($input);
         }
 
-    }, function() {
-        // does not exist
+    };
+    var on_does_not_exist = function() {
         console.log("user is available, pick the secret code");
         $(".modal-title, .modal-container").addClass("hide");
         $("h4.create-seccode, #create-seccode").removeClass("hide");
-    });
+    };
+    check_if_user_exists(username, on_exists, on_does_not_exist);
 });
 
 $("#create-seccode #next").on('click', function() {
