@@ -333,7 +333,9 @@
   </div>
 </div>
 
-
+<audio id="background-music" loop autobuffer>
+  <source src="sound/rainbows.mp3" />
+</audio>
 
 
 
@@ -624,7 +626,7 @@ load_old_users($("#old-users"), "images/avatar/");
     $("#footer button").on('click', play_pop);
 
     setup_sound($("footer .sound"));
-    setup_music($("footer .music"));
+    setup_music($("footer .music"), $("#background-music"));
   </script>
 
 

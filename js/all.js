@@ -277,33 +277,39 @@ function is_on(name) {
     return (not_set || localStorage.getItem(local_storage_name) == "on");
 }
 
-function turn_on(name, $elem) {
+function turn_on(name, $elem, callback) {
     var local_storage_name = get_state_name(name);
     console.log(name, "on");
     $elem.removeClass(name + "-off");
     localStorage.setItem(local_storage_name, "on");
+    if (callback) {
+        callback();
+    }
 }
 
-function turn_off(name, $elem) {
+function turn_off(name, $elem, callback) {
     var local_storage_name = get_state_name(name);
     console.log(name, "off");
     $elem.addClass(name + "-off");
     localStorage.setItem(local_storage_name, "off");
-}
-
-function toggle(name, $elem) {
-    if (is_on(name)) {
-        turn_off(name, $elem);
-    } else {
-        turn_on(name, $elem);
+    if (callback) {
+        callback();
     }
 }
 
-function setup_initial_state(name, $elem) {
+function toggle(name, $elem, on_callback, off_callback) {
     if (is_on(name)) {
-        turn_on(name, $elem);
+        turn_off(name, $elem, off_callback);
     } else {
-        turn_off(name, $elem);
+        turn_on(name, $elem, on_callback);
+    }
+}
+
+function setup_initial_state(name, $elem, on_callback, off_callback) {
+    if (is_on(name)) {
+        turn_on(name, $elem, on_callback);
+    } else {
+        turn_off(name, $elem, off_callback);
     }
 }
 
@@ -314,9 +320,16 @@ function setup_sound($elem) {
     });
 }
 
-function setup_music($elem) {
-    setup_initial_state("music", $elem);
+function setup_music($elem, $bg_audio) {
+    var on_callback = function() {
+        $bg_audio[0].volume = 0.08;
+        $bg_audio[0].play();
+    };
+    var off_callback = function() {
+        $bg_audio[0].pause();
+    };
+    setup_initial_state("music", $elem, on_callback, off_callback);
     $elem.on('click', function() {
-        toggle("music", $elem);
+        toggle("music", $elem, on_callback, off_callback);
     });
 }
