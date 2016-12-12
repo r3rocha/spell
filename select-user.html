@@ -417,6 +417,7 @@ $(".close").on('click', function(){
 });
 
 
+
 $("#adduser form button").on('click', function(event) {
     event.preventDefault();
     var user = $("#adduser form #username").val();
@@ -424,10 +425,11 @@ $("#adduser form button").on('click', function(event) {
     console.log("login:", user, "password:", pass);
     var on_wrong_pass = function() {
         $(".modal-title, .modal-container").addClass("hide");
-        $("h4.pass-recover, #wrongpass").removeClass("hide");
+        $("h4.wrong-pass, #wrongpass").removeClass("hide");
     };
     sign_in_user(user, pass, on_wrong_pass);
 });
+
 
 $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember-seccode .RemSecCode-animal span, #select-user #remember-seccode .RemSecCode-color span, #create-seccode .CreateSecCode-fruit span, #create-seccode .CreateSecCode-animal span, #create-seccode .CreateSecCode-color span, #select-avatar .select-avatar .avatar").on('click', function() {
     $(this).parent().find(".selected").removeClass('selected');
@@ -457,7 +459,7 @@ $("#remember-seccode #next button").on('click', function () {
             $("h4.pass-recover, #pass-recover").removeClass("hide");
         } else {
             $(".modal-title, .modal-container").addClass("hide");
-            $("h4.pass-recover, #wrongpass").removeClass("hide");
+            $("h4.wrong-pass, #wrongpass").removeClass("hide");
             console.log("wrong security code");
         }
     })
@@ -468,7 +470,11 @@ $("#pass-recover #next button").on('click', function() {
     var user = $("#pass-recover form #yourusername").val();
     var pass = $("#pass-recover form #yourpassword").val();
     console.log("login:", user, "password:", pass);
-    sign_in_user(user, pass);
+    var on_wrong_pass = function() {
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.wrong-pass, #wrongpass").removeClass("hide");
+    };
+    sign_in_user(user, pass, on_wrong_pass);
 });
 
 /****************************************************************************/
