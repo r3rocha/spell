@@ -111,8 +111,7 @@ function setup_level($elems) {
 }
 
 function select_level($elem, $elems) {
-    $elems.removeClass("active");
-    $elems.addClass("inactive");
+    $elems.addClass("inactive").removeClass("active");
     $elem.removeClass("inactive").addClass("active");
 }
 
