@@ -363,15 +363,16 @@ $("#user-status .logout").on('click', function() {
 setup_sound($("footer .sound"));
 setup_music($("footer .music"));
 
-// "animals" is the fallback theme if nothing is passed in the URL
-// `location.hash` should be "#animals", "#food," "#kitchen", etc
-var theme = location.hash.slice(1) || "animals";
+// `location.hash` should be like "#animals,easy"
+var theme = location.hash.slice(1).split(",")[0] || "animals";
+var level = location.hash.slice(1).split(",")[1] || "easy";
 // english is the default language
 var language = "en-us";
 
 var game = new Game({
     theme: theme,
     language: language,
+    level: level,
     all_letters: $("#all-letters"),
     guess: $("#guess"),
     object: $(".object .item"),

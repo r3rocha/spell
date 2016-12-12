@@ -97,22 +97,28 @@ function change_avatar(value) {
     database.ref("/users/" + uid + "/avatar").set(value);
 }
 
-function setup_level($elems) {
+function setup_level($elems, $links) {
     get_current_level(function (current_level) {
         console.log("current_level", current_level);
         var $current_level = $elems.filter("[data-level=" + current_level + "]");
-        select_level($current_level, $elems);
+        select_level($current_level, $elems, $links);
     });
     $elems.on('click', function() {
-        select_level($(this), $elems);
+        select_level($(this), $elems, $links);
         var level = $(this).attr("data-level");
         save_level(level);
     });
 }
 
-function select_level($elem, $elems) {
+function select_level($elem, $elems, $links) {
     $elems.addClass("inactive").removeClass("active");
     $elem.removeClass("inactive").addClass("active");
+    $links.each(function() {
+        var level = $elem.data('level');
+        var category = $(this).data('category');
+        var base_link = $(this).attr('href').split("#")[0];
+        $(this).attr('href', base_link + "#" + category + "," + level);
+    });
 }
 
 function save_level(level) {

@@ -41,10 +41,10 @@
 				<img class="hard col-xs-4" data-level="hard" src="images/hard.svg" alt="Hard"/>
 			</div>
 			<div id="theme" class="row">
-				<div id="animals" class="col-xs-3" data-minimum-coins="-1" ><a href="spelling.html#animals"><img src="images/theme_animals.svg" alt="Animals"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">-1</span></div></a></div>
-				<div id="food" class="col-xs-3" data-minimum-coins="1000" ><a href="spelling.html#food"><img src="images/theme_food.svg" alt="Food"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">1000</span></div></a></div>
-				<div id="kitchen" class="col-xs-3" data-minimum-coins="2000" ><a href="spelling.html#kitchen"><img src="images/theme_kitchen.svg" alt="Kitchen"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">2000</span></div></a></div>
-				<div id="clothes" class="col-xs-3" data-minimum-coins="3000" ><a href="spelling.html#clothes"><img src="images/theme_clothes.svg" alt="Clothes"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">3000</span></div></a></div>
+				<div id="animals" class="col-xs-3" data-minimum-coins="-1" ><a href="spelling.html" data-category="animals"><img src="images/theme_animals.svg" alt="Animals"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">-1</span></div></a></div>
+				<div id="food" class="col-xs-3" data-minimum-coins="1000" ><a href="spelling.html" data-category="food"><img src="images/theme_food.svg" alt="Food"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">1000</span></div></a></div>
+				<div id="kitchen" class="col-xs-3" data-minimum-coins="2000" ><a href="spelling.html" data-category="kitchen"><img src="images/theme_kitchen.svg" alt="Kitchen"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">2000</span></div></a></div>
+				<div id="clothes" class="col-xs-3" data-minimum-coins="3000" ><a href="spelling.html" data-category="clothes"><img src="images/theme_clothes.svg" alt="Clothes"/><div class="unlock-coins-box"><img class="locker" src="images/theme_locker.svg" alt="Locker"/><span class="unlock-coins">3000</span></div></a></div>
 			</div>	
 			<div id="theme-buttons" class="navigation row col-xs-12">
 				<button id="prev" class="theme-back" type="button"><img src="images/back.svg" alt="back"></button>
@@ -188,7 +188,7 @@ $(".close").on('click', function(){
 				return;
 			}
 			setup_coins($("#usercoins .coins"));
-			setup_level($("#level > img"));
+			setup_level($("#level > img"), $("#theme a"));
 			setup_avatar($("#useravatar img, .user-status img"), "images/avatar");
 			setup_locked_coins($('[data-minimum-coins]'));
 		});
