@@ -26,11 +26,7 @@ function signup_user(user, pass, secret, avatar, callback) {
         save_current_username(user);
         callback();
     }).catch(function(error) {
-        console.log(error);
-        if (error.code === "auth/email-already-in-use") {
-            // suggest_usernames();
-            console.log("SUGGESTING USERNAMES");
-        }
+        console.log("ERROR on signup_user", error);
     });
 }
 
