@@ -202,17 +202,17 @@ Game.prototype.setup_win_box = function(word) {
 };
 
 Game.prototype.setup_try_again_box = function(word) {
-    var self = this;
-    self.$try_again_box.html('');
-    word.split('').forEach(function(letter, index) {
+    this.$try_again_box.html('');
+    for (var i = 0 ; i < word.length ; i++) {
+        var letter = word[i];
         // 50% hints for try again box
         var random_factor = 0.5;
         if (Math.random() < random_factor) {
-            self.$try_again_box.append($('<span class="try-letter">*</span>"'));
+            this.$try_again_box.append($('<span class="try-letter">*</span>"'));
         } else {
-            self.$try_again_box.append($('<span class="try-letter">' + letter + "</span>"));
+            this.$try_again_box.append($('<span class="try-letter">' + letter + "</span>"));
         }
-    });
+    }
 };
 
 Game.prototype.check_if_finished = function () {
