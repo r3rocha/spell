@@ -92,13 +92,11 @@ Game.prototype.play_word = function() {
     var word_audio = new Audio(this.word["sound"][this.language]);
     var self = this;
 
-    // decrement star after playing word
-    word_audio.onended = function() {
+    word_audio.play();
+    setTimeout(function() {
         self.decrement_star();
         self.check_if_finished();
-    };
-
-    word_audio.play();
+    }, 1000);
 };
 
 Game.prototype.pick_word = function() {
