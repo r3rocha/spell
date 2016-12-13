@@ -22,8 +22,8 @@ function signup_user(user, pass, secret, avatar, callback) {
             current_level: "easy",
             avatar: avatar,
         });
-        save_old_user(user, pass, avatar);
-        save_current_username(user);
+        save_old_user(user, pass, avatar); //save to local storage
+        save_current_username(user); //save to local storage
         callback();
     }).catch(function(error) {
         console.log("ERROR on signup_user", error);
@@ -95,8 +95,11 @@ function setup_change_avatar($avatars, $next, callback) {
 function change_avatar(value) {
     var uid = firebase.auth().currentUser.uid;
     database.ref("/users/" + uid + "/avatar").set(value);
-}
+}   
 
+// Setup level
+
+    
 function setup_level($elems, $links) {
     get_current_level(function (current_level) {
         console.log("current_level", current_level);
@@ -132,6 +135,8 @@ function get_current_level(callback) {
         callback(result.val());
     });
 }
+/*********************************************/
+
 
 function remember_password(user, code, callback) {
     database.ref("/password_recovery/" + user + code).once('value', function(r) {
