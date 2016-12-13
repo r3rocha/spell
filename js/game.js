@@ -194,11 +194,11 @@ Game.prototype.setup_coins = function() {
 };
 
 Game.prototype.setup_win_box = function(word) {
-    var self = this;
-    self.$win_box.html('');
-    word.split('').forEach(function(letter, index) {
-        self.$win_box.append($('<span class="win-letter">' + letter + "</span>"));
-    });
+    this.$win_box.html('');
+    for (var i = 0 ; i < word.length ; i++) {
+        var letter = word[i];
+        this.$win_box.append($('<span class="win-letter">' + letter + "</span>"));
+    }
 };
 
 Game.prototype.setup_try_again_box = function(word) {
