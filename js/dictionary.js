@@ -189,7 +189,7 @@ var WORDS = {
             "image": "images/words/egg.svg",
             "word": {
                 "en-us": "egg",
-                "es-sp": "huevos"
+                "es-sp": "huevo"
             },
             "sound": {
                 "en-us": "sound/en-us/egg.mp3",
