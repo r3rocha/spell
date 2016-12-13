@@ -105,6 +105,11 @@ Game.prototype.pick_word = function() {
 };
 
 Game.prototype.setup_word_letters = function(word) {
+    this.setup_draggable_word_letters();
+    this.setup_droppable_word_letters();
+};
+
+Game.prototype.setup_draggable_word_letters = function() {
     var letters = word.split('').concat(this.random_letters_based_on_level());
     var letters_shuffled = shuffle(letters);
     for (var i = 0 ; i < letters_shuffled.length ; i++) {
@@ -121,6 +126,9 @@ Game.prototype.setup_word_letters = function(word) {
         });
         this.$all_letters.append($letter);
     }
+};
+
+Game.prototype.setup_droppable_word_letters = function() {
     var handleDrop = function(event, ui) {
         ui.draggable.draggable( 'option', 'revert', false );
         ui.draggable.removeClass("over-wrong").removeClass("over-right");
