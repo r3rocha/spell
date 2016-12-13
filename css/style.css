@@ -308,7 +308,7 @@ body {
 /********** header **********/
 
 #header {
-    margin: 8px auto 0px;
+    margin: 30px auto 0px;
     height: 1%;
     padding: 0;
 }
@@ -648,6 +648,10 @@ button:active {
     margin: 0 1%;
 }
 
+.modalwin span.win-coins {
+    margin-left: 12px !important;
+}
+
 /********** Modal Try again **********/
 
 
@@ -817,11 +821,11 @@ button:active {
 
 #userModal span.coins {
     padding: 0 0 0 5.4vh;
-    font-size: 2.7vh;
+    font-size: 3.7vh;
     position: relative;
-    top: 0.7vh;
+    top: 1.1vh;
+    left: 3.5vh;
 }
-
 
 #userModal .line2 {
     margin: 4em 0 3em;
@@ -865,8 +869,14 @@ button:active {
 /********** footer **********/
 
 #footer {
-    top: 1.5em;
+    top: 2.5em;
     position: relative;
+}
+
+#select-user #footer {
+    width: 70%;
+    position: absolute;
+    top: 736px;
 }
 
 #footer button {
@@ -964,6 +974,7 @@ svg#svg-dog-seluser {
     height: 53vh;
     text-align: center;
     width: 100%;
+    margin-top: 90px;
 }
 
 svg#svg-dog-forgotpass {
@@ -999,7 +1010,7 @@ svg#svg-dog-selecteavatar {
 
 svg#svg-dog-user {
     text-align: center;
-    height: 23vh;
+    height: 27vh;
 }
 
 svg#svg-dog-win {
