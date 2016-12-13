@@ -105,12 +105,11 @@ Game.prototype.pick_word = function() {
 };
 
 Game.prototype.setup_word_letters = function(word) {
-    var self = this;
     var letters = word.split('').concat(this.random_letters_based_on_level());
     var letters_shuffled = shuffle(letters);
-    letters_shuffled.forEach(function(letter, index) {
+    for (var i = 0 ; i < letters_shuffled.length ; i++) {
+        var letter = letters_shuffled[i];
         var $letter = $('<span class="letter">' + letter + "</span>");
-        self.$all_letters.append($letter);
         $letter.draggable({
             stack: "#guess .letter",
             cursor: "move",
@@ -120,7 +119,8 @@ Game.prototype.setup_word_letters = function(word) {
             snapMode: "inner",
             start: play_bubble,
         });
-    });
+        this.$all_letters.append($letter);
+    }
     var handleDrop = function(event, ui) {
         ui.draggable.draggable( 'option', 'revert', false );
         ui.draggable.removeClass("over-wrong").removeClass("over-right");
@@ -130,7 +130,7 @@ Game.prototype.setup_word_letters = function(word) {
     var handleOut = function(event, ui) {
         ui.draggable.draggable( 'option', 'revert', true);
     };
-    self.$all_letters.droppable({
+    this.$all_letters.droppable({
         classes: {"ui-droppable-hover": "drop-over"},
         drop: handleDrop,
         accept: "#all-letters .letter.over-right, #all-letters .letter.over-wrong",
