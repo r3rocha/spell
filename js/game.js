@@ -216,16 +216,12 @@ Game.prototype.setup_try_again_box = function(word) {
 };
 
 Game.prototype.check_if_finished = function () {
-    var guessed_word = this.$guess.text().replace(/\s/g, '');
-    var word = this.word["word"][this.language];
     var positive_coins = this.$stars.find(".on").size();
-    if (guessed_word.length === word.length) {
-        if (guessed_word === word) {
-            var points = positive_coins * this.get_level_points();
-            this.win(positive_coins, points);
-        } else {
-            this.try_again();
-        }
+    var word = this.word["word"][this.language];
+    var $correct_letters = this.$all_letters.find(".over-right");
+    if ($correct_letters.size() === word.length) {
+        var points = positive_coins * this.get_level_points();
+        this.win(positive_coins, points);
     } else if (positive_coins === 0) {
         this.try_again();
     }
