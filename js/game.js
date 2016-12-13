@@ -88,6 +88,7 @@ Game.prototype.reset_word = function() {
 Game.prototype.setup_image_box = function() {
     this.$object.attr("src", this.word["image"]).attr("alt", this.word["alt"]);
 };
+
 Game.prototype.play_word = function() {
     var word_audio = new Audio(this.word["sound"][this.language]);
     var self = this;
@@ -277,7 +278,7 @@ Game.prototype.hint = function() {
 };
 
 Game.prototype.repeat = function() {
-    this.reset_word(this.word);
+    this.reset_word();
 };
 
 Game.prototype.change_language = function(lang) {
