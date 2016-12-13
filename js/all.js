@@ -321,3 +321,7 @@ function setup_music($elem) {
         toggle("music", $elem);
     });
 }
+
+function goToLevel() {
+      location.href = '/level.html'; }
+
