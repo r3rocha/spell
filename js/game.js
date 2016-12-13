@@ -76,10 +76,10 @@ Game.prototype.reset = function() {
         word = this.pick_word()
     }
     this.word = word;
-    this._reset();
+    this.reset_word();
 };
 
-Game.prototype._reset = function() {
+Game.prototype.reset_word = function() {
     this.$all_letters.html('');
     this.$guess.html('');
     this.start_guess();
@@ -277,12 +277,12 @@ Game.prototype.hint = function() {
 };
 
 Game.prototype.repeat = function() {
-    this._reset(this.word);
+    this.reset_word(this.word);
 };
 
 Game.prototype.change_language = function(lang) {
     this.language = lang;
-    this._reset();
+    this.reset_word();
 };
 
 Game.prototype.decrement_star = function() {
