@@ -141,17 +141,18 @@ Game.prototype.setup_word_letters = function(word) {
 
 Game.prototype.random_letters_based_on_level = function() {
     var extra_letters = [];
-    var alphabet = shuffle("abcdefghijklmnopqrstuvwxyz".split(''));
+    var alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
+    var random_alphabet = shuffle(alphabet);
     if (this.level === "easy") {
         // dont add letters
     } else if (this.level === "medium") {
         // add one extra letter
-        extra_letters.push(alphabet[0]);
+        extra_letters.push(random_alphabet[0]);
 
     } else if (this.level === "hard") {
         // add two extra letters
-        extra_letters.push(alphabet[0]);
-        extra_letters.push(alphabet[1]);
+        extra_letters.push(random_alphabet[0]);
+        extra_letters.push(random_alphabet[1]);
     }
     return extra_letters;
 };
