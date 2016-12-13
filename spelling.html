@@ -251,6 +251,9 @@
 	</div><!-- /.modal -->
 </div> 
 
+<audio id="background-music" loop autobuffer>
+  <source src="sound/rainbows.mp3" />
+</audio>
 
 
 <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
@@ -361,7 +364,7 @@ $("#user-status .logout").on('click', function() {
     $("#useravatar img, .user-status img, .btn-user, .avatar, .btn-flag, .language, .modal-btn .level, .modal-btn .next, button.level ").on('click', play_bubble);
 
 setup_sound($("footer .sound"));
-setup_music($("footer .music"));
+setup_music($("footer .music"), $("#background-music"));
 
 
 
