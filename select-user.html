@@ -515,12 +515,12 @@ $("#create-user button").on('click', function(event) {
 
 $("#create-seccode #next").on('click', function() {
     var $selected = $("#create-seccode .CreateSecCode-fruit .selected, #create-seccode .CreateSecCode-animal .selected, #create-seccode .CreateSecCode-color .selected");
-    if ($selected.size() !== 3) {
+    if ($selected.size() === 3) {
+        $(".modal-title, .modal-container").addClass("hide");
+        $("h4.select-avatar, #select-avatar").removeClass("hide");
+    } else {
         console.log("not everything is selected");
-        return false;
     }
-    $(".modal-title, .modal-container").addClass("hide");
-    $("h4.select-avatar, #select-avatar").removeClass("hide");
 });
 
 $("#select-avatar #next").on('click', function() {
