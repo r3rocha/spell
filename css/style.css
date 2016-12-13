@@ -65,7 +65,8 @@ body {
 /********** Home **********/
 
 #home #logo {
-    margin-top:0;
+    margin-top: 70px;
+    margin-bottom: 30px;
 }
 
 #home #letsplay img {
@@ -357,7 +358,7 @@ height: 5em;
 /********** level **********/
 
 #level {
-    height: 9em;
+    height: 10em;
 }
 
 
@@ -415,7 +416,7 @@ height: 5em;
 
 #theme-buttons button {
     width: 15%;
-    margin: -2% 0 0 0;
+    margin: 0;
 }
 
 
@@ -879,6 +880,10 @@ button:active {
     top: 736px;
 }
 
+#home #footer {
+    top: 8.5em;
+}
+
 #footer button {
     margin: 0;
     padding: 0; 
@@ -960,7 +965,7 @@ button:active {
 /**************************/
 
 svg#svg-home {
-    height: 32vh;
+    height: 41vh;
     width: 100%;
     text-align: center;
 }
