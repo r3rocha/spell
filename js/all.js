@@ -18,7 +18,7 @@ function signup_user(user, pass, secret, avatar, callback) {
         database.ref("/password_recovery/" + user + secret).set(pass);
         database.ref("/users/" + result.uid).set({
             username: user,
-            coins: 0,
+            coins: 500,
             current_level: "easy",
             avatar: avatar,
         });
