@@ -255,9 +255,9 @@ Game.prototype.hint = function() {
         return;
     }
     this._giving_hint = true;
+    var self = this;
 
     // wait 1 second and then decrement a star (and play sound)
-    var self = this;
     setTimeout(function() {
         self.decrement_star();
     }, 1000);
@@ -278,7 +278,6 @@ Game.prototype.hint = function() {
         top: destination_pos.top - origin_pos.top,
         left: destination_pos.left - origin_pos.left
     };
-    var self = this;
     $origin.css('opacity', '0.5').animate(destination_coords, 1000, function() {
         $origin.css('opacity', '1').addClass("over-right");
         $destination.html(letter);
