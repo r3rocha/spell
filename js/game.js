@@ -158,7 +158,8 @@ Game.prototype.random_letters_based_on_level = function() {
 
 Game.prototype.setup_guess_box = function(word) {
     var self = this;
-    word.split('').forEach(function(letter, index) {
+    for (var i = 0 ; i < word.length ; i++) {
+        var letter = word[i];
         var $letter = $('<span class="letter" data-expected="' + letter + '">&nbsp;</span>');
         self.$guess.append($letter);
         var handleDrop = function(event, ui) {
@@ -186,7 +187,7 @@ Game.prototype.setup_guess_box = function(word) {
             out: handleOut,
             classes: {"ui-droppable-hover": "over"}
         });
-    });
+    }
 };
 
 Game.prototype.setup_coins = function() {
