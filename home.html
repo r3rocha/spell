@@ -100,7 +100,11 @@
         s.append(g);   
     });
 
-
+    var svglogo = Snap("#svg-dog-logo");
+    Snap.load("images/logo.svg", function (f) {
+        g = f.select("svg");
+        svglogo.append(g);
+    });
 
 /*** sound effects ***/
 // play sound on click
