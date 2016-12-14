@@ -86,7 +86,8 @@ Game.prototype.reset_word = function() {
 };
 
 Game.prototype.setup_image_box = function() {
-    this.$object.attr("src", this.word["image"]).attr("alt", this.word["alt"]);
+    this.$object.attr("src", this.word["image"]);
+    this.$object.attr("alt", this.word["alt"]);
 };
 
 Game.prototype.play_word = function() {
