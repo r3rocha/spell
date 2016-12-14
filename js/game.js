@@ -271,9 +271,6 @@ Game.prototype.hint = function() {
     }).first();
     var origin_pos = $origin.offset();
     var destination_pos = $destination.offset();
-    if (!destination_pos || !origin_pos) {
-        console.log("here")
-    }
     var destination_coords = {
         top: destination_pos.top - origin_pos.top,
         left: destination_pos.left - origin_pos.left
