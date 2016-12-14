@@ -24,18 +24,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/jirafa.mp3"
             },
         },
-        {
-            "alt": "Penguin",
-            "image": "images/words/penguin.svg",
-            "word": {
-                "en-us": "penguin",
-                "es-sp": "pingüino"
-            },
-            "sound": {
-                "en-us": "sound/en-us/penguin.mp3",
-                "es-sp": "sound/es-sp/pinguino.mp3"
-            },
-        },
+        // {
+        //     "alt": "Penguin",
+        //     "image": "images/words/penguin.svg",
+        //     "word": {
+        //         "en-us": "penguin",
+        //         "es-sp": "pingüino"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/penguin.mp3",
+        //         "es-sp": "sound/es-sp/pinguino.mp3"
+        //     },
+        // },
         {
             "alt": "Pig",
             "image": "images/words/pig.svg",
@@ -48,18 +48,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/cerdo.mp3"
             },
         },
-        {
-            "alt": "Hippo",
-            "image": "images/words/hippo.svg",
-            "word": {
-                "en-us": "hippo",
-                "es-sp": "hipopótamo"
-            },
-            "sound": {
-                "en-us": "sound/en-us/hippo.mp3",
-                "es-sp": "sound/es-sp/hipopotamo.mp3"
-            },
-        },
+        // {
+        //     "alt": "Hippo",
+        //     "image": "images/words/hippo.svg",
+        //     "word": {
+        //         "en-us": "hippo",
+        //         "es-sp": "hipopótamo"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/hippo.mp3",
+        //         "es-sp": "sound/es-sp/hipopotamo.mp3"
+        //     },
+        // },
         {
             "alt": "Sheep",
             "image": "images/words/sheep.svg",
@@ -98,18 +98,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/tostadora.mp3"
             },
         },
-        {
-            "alt": "refrigerator",
-            "image": "images/words/refrigerator.svg",
-            "word": {
-                "en-us": "refrigerator",
-                "es-sp": "nevera"
-            },
-            "sound": {
-                "en-us": "sound/en-us/refrigerator.mp3",
-                "es-sp": "sound/es-sp/nevera.mp3"
-            },
-        },
+        // {
+        //     "alt": "refrigerator",
+        //     "image": "images/words/refrigerator.svg",
+        //     "word": {
+        //         "en-us": "refrigerator",
+        //         "es-sp": "nevera"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/refrigerator.mp3",
+        //         "es-sp": "sound/es-sp/nevera.mp3"
+        //     },
+        // },
         {
             "alt": "blender",
             "image": "images/words/blender.svg",
@@ -134,18 +134,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/sarten.mp3"
             },
         },
-        {
-            "alt": "microwave",
-            "image": "images/words/microwave.svg",
-            "word": {
-                "en-us": "microwave",
-                "es-sp": "microonda"
-            },
-            "sound": {
-                "en-us": "sound/en-us/microwave.mp3",
-                "es-sp": "sound/es-sp/microonda.mp3"
-            }
-        }
+        // {
+        //     "alt": "microwave",
+        //     "image": "images/words/microwave.svg",
+        //     "word": {
+        //         "en-us": "microwave",
+        //         "es-sp": "microonda"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/microwave.mp3",
+        //         "es-sp": "sound/es-sp/microonda.mp3"
+        //     }
+        // }
     ], 
     "food":[
         {
@@ -160,18 +160,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/manzano.mp3"
             },
         },
-        {
-            "alt": "burger",
-            "image": "images/words/burger.svg",
-            "word": {
-                "en-us": "burger",
-                "es-sp": "hamburguesa"
-            },
-            "sound": {
-                "en-us": "sound/en-us/burger.mp3",
-                "es-sp": "sound/es-sp/hamburguesa.mp3"
-            },
-        },
+        // {
+        //     "alt": "burger",
+        //     "image": "images/words/burger.svg",
+        //     "word": {
+        //         "en-us": "burger",
+        //         "es-sp": "hamburguesa"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/burger.mp3",
+        //         "es-sp": "sound/es-sp/hamburguesa.mp3"
+        //     },
+        // },
         {
             "alt": "coffee",
             "image": "images/words/coffee.svg",
@@ -270,18 +270,18 @@ var WORDS = {
                 "es-sp": "sound/es-sp/abrigo.mp3"
             },
         },
-        {
-            "alt": "pants",
-            "image": "images/words/pants.svg",
-            "word": {
-                "en-us": "pants",
-                "es-sp": "pantalones"
-            },
-            "sound": {
-                "en-us": "sound/en-us/pants.mp3",
-                "es-sp": "sound/es-sp/pantalones.mp3"
-            },
-        },
+        // {
+        //     "alt": "pants",
+        //     "image": "images/words/pants.svg",
+        //     "word": {
+        //         "en-us": "pants",
+        //         "es-sp": "pantalones"
+        //     },
+        //     "sound": {
+        //         "en-us": "sound/en-us/pants.mp3",
+        //         "es-sp": "sound/es-sp/pantalones.mp3"
+        //     },
+        // },
         {
             "alt": "hat",
             "image": "images/words/hat.svg",
