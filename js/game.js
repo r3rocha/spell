@@ -166,35 +166,34 @@ Game.prototype.random_letters_based_on_level = function() {
 
 Game.prototype.setup_guess_box = function(word) {
     var self = this;
+    var handleDrop = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', false );
+        ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+        var got = ui.draggable.text();
+        var expected = $(this).data( 'expected' );
+        console.log(expected, got);
+        if (got === expected) {
+            ui.draggable.removeClass("over-wrong").addClass("over-right");
+        } else {
+            ui.draggable.removeClass("over-right").addClass("over-wrong");
+            self.decrement_star();
+        }
+        $(this).html(got);
+        self.check_if_finished();
+    };
+    var handleOut = function(event, ui) {
+        ui.draggable.draggable( 'option', 'revert', true);
+        $(this).html('&nbsp;');
+    };
     for (var i = 0 ; i < word.length ; i++) {
         var letter = word[i];
         var $letter = $('<span class="letter" data-expected="' + letter + '">&nbsp;</span>');
-        var handleDrop = function(event, ui) {
-            ui.draggable.draggable( 'option', 'revert', false );
-            ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
-            var got = ui.draggable.text();
-            var expected = $(this).data( 'expected' );
-            console.log(expected, got);
-            if (got === expected) {
-                ui.draggable.removeClass("over-wrong").addClass("over-right");
-            } else {
-                ui.draggable.removeClass("over-right").addClass("over-wrong");
-                self.decrement_star();
-            }
-            $(this).html(got);
-            self.check_if_finished();
-        };
-        var handleOut = function(event, ui) {
-            ui.draggable.draggable( 'option', 'revert', true);
-            $(this).html('&nbsp;');
-        };
         $letter.droppable({
             accept: "#all-letters .letter",
             drop: handleDrop,
             out: handleOut,
             classes: {"ui-droppable-hover": "over"}
         });
-
         this.$guess.append($letter);
     }
 };
