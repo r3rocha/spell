@@ -262,14 +262,14 @@ body {
     transform: scale(1.05);
 }
 
-#forgotpass #next button,
-#remember-seccode #next button, 
-#pass-recover #next button,
-#create-user #next button,
-#user-taken #back button,
-#create-seccode #next button,
-#select-avatar #next button,
-#change-avatar #next button {
+#forgotpass .btn-next button,
+#remember-seccode .btn-next button, 
+#pass-recover .btn-next button,
+#create-user .btn-next button,
+#user-taken .btn-back button,
+#create-seccode .btn-next button,
+#select-avatar .btn-next button,
+#change-avatar .btn-next button {
     height: auto;
     width: 100%;
 }

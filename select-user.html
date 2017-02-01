@@ -157,7 +157,7 @@
                                 <div class="form-username col-xs-12">
                                     <input type="text" placeholder="username" id="username" autocomplete="off"/>
                                 </div>
-                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                <div class="btn-next col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
                                     <!-- <span class="toseccode">remember-seccode</span> -->
                                 </div>
@@ -199,7 +199,7 @@
                                 <span class="color six col-xs-4"><img src="images/sc-color-6.svg" data-id="six"></span>
                             </div>    
                         </div>
-                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                        <div class="btn-next col-xs-offset-10 col-xs-2">
                             <button type="submit"><img src="images/next.svg" alt="next"/></button>
                             <!-- <span class="toyourpass">yourpass</span> -->
                         </div>
@@ -214,7 +214,7 @@
                                     <input type="text" placeholder="username" id="yourusername" readonly="readonly" autocomplete="off"/>
                                     <input type="text" placeholder="password" id="yourpassword" readonly="readonly" autocomplete="off"/>
                                 </div>
-                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                <div class="btn-next col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
                                     <!-- <span class="toadduser">toadduser</span> -->
                                 </div>
@@ -233,7 +233,7 @@
                                 <div class="form-pass">
                                     <input type="password" placeholder="password" id="password" autocomplete="off"/>
                                 </div>
-                                <div id="next" class="col-xs-offset-3 col-xs-5">
+                                <div class="btn-next col-xs-offset-3 col-xs-5">
                                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
                                 </div>
                             </form>
@@ -293,7 +293,7 @@
                                 <span class="color six col-xs-4"><img src="images/sc-color-6.svg" data-id="six"></span>
                             </div>    
                         </div>
-                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                        <div class="btn-next col-xs-offset-10 col-xs-2">
                             <button type="submit"><img src="images/next.svg" alt="next"/></button>
                             <!-- <span class="toselect-avatar">Select avatar</span> -->
                         </div>
@@ -320,7 +320,7 @@
                                 <span class="avatar twelve col-xs-2"><img src="images/avatar/12.svg"></span>
                             </div>
                         </div>
-                        <div id="next" class="col-xs-offset-10 col-xs-2">
+                        <div class="btn-next col-xs-offset-10 col-xs-2">
                             <button type="submit"><img src="images/next.svg" alt="next"/></button>
                         </div>
                     </div>
@@ -439,13 +439,13 @@ $("#select-user #remember-seccode .RemSecCode-fruit span, #select-user #remember
 });
 
 /**************** FORGOT PASSWORD ****************/
-$("#forgotpass #next button").on('click', function() {
+$("#forgotpass .btn-next button").on('click', function() {
     event.preventDefault();
     $(".modal-title, .modal-container").addClass("hide");
     $("h4.remember-seccode, #remember-seccode").removeClass("hide");
 });
 
-$("#remember-seccode #next button").on('click', function () {
+$("#remember-seccode .btn-next button").on('click', function () {
     var code = "";
     $("#select-user #remember-seccode .selected img").each(function() {
         code += $(this).data("id");
@@ -467,7 +467,7 @@ $("#remember-seccode #next button").on('click', function () {
     })
 });
 
-$("#pass-recover #next button").on('click', function() {
+$("#pass-recover .btn-next button").on('click', function() {
     event.preventDefault();
     var user = $("#pass-recover form #yourusername").val();
     var pass = $("#pass-recover form #yourpassword").val();
@@ -513,7 +513,7 @@ $("#create-user button").on('click', function(event) {
     check_if_user_exists(username, on_exists, on_does_not_exist);
 });
 
-$("#create-seccode #next").on('click', function() {
+$("#create-seccode .btn-next").on('click', function() {
     var $selected = $("#create-seccode .CreateSecCode-fruit .selected, #create-seccode .CreateSecCode-animal .selected, #create-seccode .CreateSecCode-color .selected");
     if ($selected.size() === 3) {
         $(".modal-title, .modal-container").addClass("hide");
@@ -523,7 +523,7 @@ $("#create-seccode #next").on('click', function() {
     }
 });
 
-$("#select-avatar #next").on('click', function() {
+$("#select-avatar .btn-next").on('click', function() {
     var username = $("#create-user #username").val();
     var password = $("#create-user #password").val();
     var code = "";

@@ -110,7 +110,7 @@
                         <span class="avatar twelve col-xs-2"><img src="images/avatar/12.svg"></span>
                     </div>
                 </div>
-                <div id="next" class="col-xs-offset-10 col-xs-2">
+                <div class="btn-next col-xs-offset-10 col-xs-2">
                     <button type="submit"><img src="images/next.svg" alt="next"/></button>
                 </div>
             </div>
@@ -199,7 +199,7 @@ $(".close").on('click', function(){
 
 		setup_change_avatar(
 			$("#change-avatar .select-avatar .avatar"),
-			$("#change-avatar #next"),
+			$("#change-avatar .btn-next"),
 			function() {
 				$("#userModal").modal("hide");
 			}
