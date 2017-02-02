@@ -180,7 +180,7 @@ function sign_in_user(username, password, on_wrong_pass) {
             var avatar = db_user.avatar;
             save_old_user(username, password, avatar);
             save_current_username(username);
-            window.location = "/level.html";
+            window.location = "level.html";
         });
     })
     .catch(function(error) {
@@ -341,5 +341,5 @@ function setup_music($elem, $bg_audio) {
 }
 
 function goToLevel() {
-      location.href = '/level.html'; }
+      location.href = 'level.html'; }
 
