@@ -196,7 +196,7 @@ function sign_out_user() {
 function logout() {
     sign_out_user();
     remove_current_username();
-    window.location = '/select-user.html';
+    window.location = 'select-user.html';
 }
 
 function save_old_user(username, password, avatar) {
